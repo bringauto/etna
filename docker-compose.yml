@@ -1,0 +1,71 @@
+version: '3'
+services:
+  mosquitto:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.0.0
+    profiles: ["all", "without-industrial-portal", "without-autonomy", "without-daemon", "mosquitto"]
+    volumes: 
+      - ./docker_volumes/mosquitto/log:/mosquitto/log
+      - ./docker_volumes/mosquitto/data:/mosquitto/data
+    ports:
+      - 8086:8086
+      - 1883:1883
+      - 9003:9003
+    restart: always
+    networks:
+        - bring-emulator
+    
+  virtual-industrial-portal:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-industrial-portal:1.1.4
+    profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
+    volumes: 
+      - ./docker_volumes/virtual-industrial-portal:/virtual-industrial-portal/log
+
+    entrypoint: ["/virtual-industrial-portal/virtual-industrial-portal-app",
+                "--broker-ip=mosquitto",
+                "--broker-port=1883",
+                "--log-path=/virtual-industrial-portal/log/"]
+    restart: always
+    networks:
+        - bring-emulator
+
+  bringauto-daemon:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.1.5
+    profiles: ["all", "without-industrial-portal", "without-autonomy", "without-broker"]
+    volumes: 
+      - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
+    ports:
+      - 1636:1636
+    entrypoint: ["/bringauto-daemon/_build/components/industrial_portal/industrial_portal",
+                "--mode=mqtt",
+                "--company=bringauto",
+                "--place=default",
+                "--vehicle-name=BringAuto Virtual",
+                "--broker-ip=mosquitto",
+                "--broker-port=1883",
+                "--port=1636",
+                "--log-path=/bringauto-daemon/log/"]
+    restart: always
+    networks:
+        - bring-emulator
+
+  virtual-vehicle-utility:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:1.4.2
+    profiles: ["all", "without-industrial-portal", "without-broker", "without-daemon"]
+    volumes: 
+      - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
+    entrypoint: ["/virtual-vehicle-utility/VirtualVehicle", 
+                "--map=/virtual-vehicle-utility/maps/London.osm",
+                "--verbose", 
+                "--route=London",
+                "--ip=bringauto-daemon",
+                "--port=1636", 
+                "--wait=30",
+                "--log-path=/virtual-vehicle-utility/log/",
+                "--period=1000"]
+    restart: always
+    networks:
+        - bring-emulator
+    
+networks:
+    bring-emulator:
+      name: bring-emulator
