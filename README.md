@@ -3,7 +3,7 @@
 
 It's intended to simplify development for [Industrial Portal] and The Autonomy developers.
 
-The system can be used by docker-compose sotred at the git root of the repository.
+The system can be used by docker-compose stored at the git root of the repository.
 
 There are four containers
 
@@ -22,11 +22,11 @@ to the [Cloud System Architecture] document.
 
 ## Usage
 
-Docker compose file has multiple profiles so the developer can disable/enable only parts he needs
+Docker compose file has multiple profiles so the developer can disable/enable parts of the system he needs
 
-- all - start all containers includeing MQTT, virtual vehicle and virtual industrial portal
+- all - start all containers including MQTT, virtual vehicle, daemon and virtual industrial portal
 - without-autonomy - do not start Virtual Vehicle Utility (The Autonomy)
-- without-industrial-portal - do not start virtual Industrial Portal
+- without-industrial-portal - do not start Virtual Industrial Portal
 - without-broker - do not start MQTT broker (you must change IP address to external broker inside docker-compose)
 
 Now you can run `docker-compose --profile=<profile> up` where `profile` is name of the profile above.
