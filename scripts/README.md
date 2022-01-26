@@ -23,5 +23,7 @@ protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-
 
 ## Scripts
 
-- third_party_monitoring helps to observe messages send by BringAuto Daemon.
-  just run the script by `python3 ./third_party_monitoring.py`
+- `third_party_monitoring`. It helps to observe messages send by BringAuto Daemon.
+  just run the script by `python3 ./third_party_monitoring.py`.
+  - change `car_name` and `company` to valid one
+  - change MQTT broker IP to the valid IP address
