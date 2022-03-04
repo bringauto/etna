@@ -37,9 +37,9 @@ services:
       - 1636:1636
     entrypoint: ["/bringauto-daemon/_build/components/industrial_portal/industrial_portal",
                  "--mode=mqtt",
-                 "--company=bringauto",
-                 "--place=default",
-                 "--vehicle-name=BringAuto Virtual",
+                 "--company=${COMPANY:-bringauto}",
+                 "--place=${PLACE:-default}",
+                 "--vehicle-name=${VEHICLE_NAME:-BringAuto Virtual}",
                  "--broker-ip=mosquitto",
                  "--broker-port=1883",
                  "--port=1636",
