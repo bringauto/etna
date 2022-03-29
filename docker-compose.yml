@@ -2,7 +2,7 @@ version: '3'
 services:
   mosquitto:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.0.0
-    profiles: ["all", "without-industrial-portal", "without-autonomy", "without-daemon", "mosquitto"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
@@ -14,23 +14,23 @@ services:
     networks:
       - bring-emulator
 
-  virtual-industrial-portal:
+  virtual-fleet:
     image: eu.gcr.io/bringauto-infrastructure/virtual-platform/virtual-industrial-portal:tag_smurf_ts
     profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
-      - ./docker_volumes/virtual-industrial-portal:/virtual-industrial-portal/log
+      - ./docker_volumes/virtual-fleet:/virtual-fleet/log
 
     entrypoint: ["/virtual-industrial-portal/virtual-industrial-portal-app",
                  "--broker-ip=mosquitto",
                  "--broker-port=1883",
-                 "--log-path=/virtual-industrial-portal/log/"]
+                 "--log-path=/virtual-fleet/log/"]
     restart: always
     networks:
       - bring-emulator
 
   bringauto-daemon:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.1.5
-    profiles: ["all", "without-industrial-portal", "without-autonomy", "without-broker"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
     ports:
@@ -50,7 +50,7 @@ services:
 
   virtual-vehicle-utility:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:1.4.2
-    profiles: ["all", "without-industrial-portal", "without-broker", "without-daemon"]
+    profiles: ["all", "without-fleet", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
     entrypoint: ["/virtual-vehicle-utility/VirtualVehicle",
