@@ -26,7 +26,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 
 - all - start all containers including MQTT, virtual vehicle, daemon and virtual industrial portal
 - without-autonomy - do not start Virtual Vehicle Utility (The Autonomy)
-- without-industrial-portal - do not start Virtual Industrial Portal
+- without-fleet - do not start Virtual Industrial Portal
 - without-broker - do not start MQTT broker (you must change IP address to external broker inside docker-compose)
 
 Now you can run `docker-compose --profile=<profile> up` where `profile` is name of the profile above.
