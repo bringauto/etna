@@ -57,11 +57,12 @@ services:
                  "--map=/virtual-vehicle-utility/maps/London.osm",
                  "--verbose",
                  "--route=London",
-                 "--ip=bringauto-daemon",
-                 "--port=1636",
+                 "--daemon-ip=bringauto-daemon",
+                 "--daemon-port=1636",
                  "--wait=30",
                  "--log-path=/virtual-vehicle-utility/log/",
-                 "--period=1000"]
+                 "--period=1000",
+                 "--vehicle-provider=simulation"]
     restart: always
     networks:
       - bring-emulator
