@@ -15,7 +15,7 @@ services:
       - bring-emulator
 
   virtual-fleet:
-    image: eu.gcr.io/bringauto-infrastructure/virtual-platform/virtual-industrial-portal:tag_smurf_ts
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-industrial-portal:v1.1.5
     profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
