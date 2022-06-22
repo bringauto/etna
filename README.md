@@ -22,6 +22,7 @@ to the [Cloud System Architecture] document.
 
 ## Usage
 
+
 Docker compose file has multiple profiles so the developer can disable/enable parts of the system he needs
 
 - all - start all containers including MQTT, virtual vehicle, daemon and virtual industrial portal
@@ -31,6 +32,14 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 
 Now you can run `docker-compose --profile=<profile> up` where `profile` is name of the profile above.
 
+To run fleet with different arguments (load different scenario) you can use .env file  
+run `docker-compose --env-file=<.env-file-path> --profile="all" up`, default path is `./.env`  
+.env file example:
+```
+COMPANY="bringauto"
+PLACE="default"
+VEHICLE_NAME="BringAuto 2"
+```
 ## MQTT IP and Port
 
 The MQTT uses standard plain (not encrypted) connection on port 1883.
