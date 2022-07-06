@@ -1,2 +1,5 @@
 docker_volumes
 .idea
+*.crt
+*.key
+
