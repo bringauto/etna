@@ -29,6 +29,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - without-autonomy - do not start Virtual Vehicle Utility (The Autonomy)
 - without-fleet - do not start Virtual Industrial Portal
 - without-broker - do not start MQTT broker (you must change IP address to external broker inside docker-compose)
+- mosquitto - start only MQTT mosquitto broker
 
 Now you can run `docker-compose --profile=<profile> up` where `profile` is name of the profile above.
 
@@ -42,10 +43,11 @@ VEHICLE_NAME="BringAuto 2"
 ```
 ## MQTT IP and Port
 
-The MQTT uses standard plain (not encrypted) connection on port 1883.
+The MQTT uses standard plain (not encrypted) connection on port 1883 and ssl connection on port 8883. Certificates for ssl are not present in the repository snd should be added by end user to folder
+`configuration/mosquitto/certs`, include files `ca.crt`, `server.crt` and `server.key`.
 
 IP: 10.5.0.2
-Port: 1883
+Port: 1883|8883
 
 ## Topics to listen
 
