@@ -6,10 +6,10 @@ services:
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
+      - ./configuration/mosquitto:/mosquitto/config/
     ports:
-      - 8086:8086
       - 1883:1883
-      - 9003:9003
+      - 8883:8883
     restart: always
     networks:
       - bring-emulator
