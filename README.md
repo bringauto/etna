@@ -43,8 +43,10 @@ VEHICLE_NAME="BringAuto 2"
 ```
 ## MQTT IP and Port
 
-The MQTT uses standard plain (not encrypted) connection on port 1883 and ssl connection on port 8883. Certificates for ssl are not present in the repository snd should be added by end user to folder
+The MQTT uses a standard plain (not encrypted) connection on the port 1883 and a ssl connection on the port 8883. The certificates for ssl are not present in the repository snd must be added by the end user to the folder
 `configuration/mosquitto/certs`, include files `ca.crt`, `server.crt` and `server.key`.
+
+In case the certificate files are obtainable, in the file [configuration/mosquitto/mosquitto.conf](configuration/mosquitto/mosquitto.conf) remove all lines for **listener 8883** (lines 5-14).
 
 IP: 10.5.0.2
 Port: 1883|8883
