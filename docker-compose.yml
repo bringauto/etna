@@ -2,7 +2,7 @@ version: '3'
 services:
   mosquitto:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.0.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto", "core"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
@@ -30,7 +30,7 @@ services:
 
   bringauto-daemon:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.1.5
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
     ports:
