@@ -87,3 +87,10 @@ There are example scripts by which you can sniff communication, and see base
 [Cloud System Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I
 [BringAuto Google Disk]: https://drive.google.com/drive/u/0/folders/1ZE9VRs86QtP6GqTJBl6vRJLmkh1lTEc5
 [scripts/]: scripts/
+
+## Bug solving
+If you mosquitto logs contain lines as below, make sure mosquitto.conf file uses LF line ending. (CRLF doesn't work)
+```
+Error: Invalid require_certificate value (false
+Error found at /mosquitto/config/mosquitto.conf:2.
+```
