@@ -43,11 +43,10 @@ VEHICLE_NAME="BringAuto 2"
 ```
 ## MQTT IP and Port
 
-The MQTT uses a standard plain (not encrypted) connection on the port 1883 and a ssl connection on the port 8883. The certificates for ssl are not present in the repository snd must be added by the end user to the folder
-`configuration/mosquitto/certs`, include files `ca.crt`, `server.crt` and `server.key`.
+The MQTT uses a standard plain (not encrypted) connection on the port 1883 and a ssl connection on the port 8883. 
 
-There are pregenerated certificate files for both, server and client however, it is not safe to use those and they are there only for Etna to work out-of-box.  
-> *_note_*: password for the example CA key is `1234`
+There are [pregenerated certificate files](configuration/mosquitto/certs) for both, server and client, however it is not recommended to use those, and they are there for Etna to work out-of-box.
+If you generate new certificate files they can have the same name otherwise you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
 
 IP: 10.5.0.2
 Port: 1883|8883
