@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 import IndustrialPortalProtocol_pb2 as protocol
 import CarStateProtocol_pb2 as car_state
+import ssl
 
 
 def print_status_message_state(state):
@@ -64,9 +65,14 @@ client = mqtt.Client(client_id='MyNiceClient',
                      protocol=mqtt.MQTTv5,
                      transport='tcp')
 
-client.connect("10.5.0.2", port=1883, keepalive=60)
+client.connect("172.17.0.1", port=8883, keepalive=60)
 
 client.on_message = on_message
 client.subscribe("bringauto/default/BringAuto Virtual/daemon", qos=2)
+
+client.tls_set(ca_certs="../configuration/mosquitto/certs/cacert.pem",
+               certfile="../configuration/mosquitto/certs/client/client.crt",
+               keyfile="../configuration/mosquitto/certs/client/client.key",
+               tls_version=ssl.PROTOCOL_TLSv1_2)
 
 client.loop_forever(timeout=60)
