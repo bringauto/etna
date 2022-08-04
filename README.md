@@ -46,7 +46,7 @@ VEHICLE_NAME="BringAuto 2"
 The MQTT uses a standard plain (not encrypted) connection on the port 1883 and a ssl connection on the port 8883. 
 
 There are [pregenerated certificate files](configuration/mosquitto/certs) for both, server and client, however it is not recommended to use those, and they are there for Etna to work out-of-box.
-If you generate new certificate files they can have the same name otherwise you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
+If you generate new certificate files they must have the same name otherwise you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
 
 Certificate `server.crt` has CommonName set to default docker ip (172.17.0.1). CommonName must be the same as hostname, therefore in case docker has different ip, new certificates must be generated.   
 
