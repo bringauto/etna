@@ -70,9 +70,9 @@ client.connect("172.17.0.1", port=8883, keepalive=60)
 client.on_message = on_message
 client.subscribe("bringauto/default/BringAuto Virtual/daemon", qos=2)
 
-client.tls_set(ca_certs="../configuration/mosquitto/certs/example-ca.crt",
-               certfile="../configuration/mosquitto/certs/client/example-client.crt",
-               keyfile="../configuration/mosquitto/certs/client/example-client.key",
+client.tls_set(ca_certs="../configuration/mosquitto/certs/cacert.pem",
+               certfile="../configuration/mosquitto/certs/client/client.crt",
+               keyfile="../configuration/mosquitto/certs/client/client.key",
                tls_version=ssl.PROTOCOL_TLSv1_2)
 
 client.loop_forever(timeout=60)
