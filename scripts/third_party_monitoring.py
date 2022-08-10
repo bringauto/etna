@@ -65,15 +65,16 @@ client = mqtt.Client(client_id='Monitoring Test',
                      protocol=mqtt.MQTTv5,
                      transport='tcp')
 
-client.connect("172.17.0.1", port=8883, keepalive=60)
-
 client.on_message = on_message
-client.subscribe("#", qos=2)
 
 client.tls_set(ca_certs="../configuration/mosquitto/certs/cacert.pem",
                certfile="../configuration/mosquitto/certs/client/client.crt",
                keyfile="../configuration/mosquitto/certs/client/client.key",
                tls_version=ssl.PROTOCOL_TLSv1_2)
 client.tls_insecure_set(True)
+
+client.connect("172.17.0.1", port=8883, keepalive=60)
+
+client.subscribe("bringauto/default/BringAuto Virtual/daemon", qos=2)
 
 client.loop_forever(timeout=60)
