@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import paho.mqtt.client as mqtt
 import IndustrialPortalProtocol_pb2 as protocol
 import CarStateProtocol_pb2 as car_state
@@ -67,11 +69,10 @@ client = mqtt.Client(client_id='Monitoring Test',
 
 client.on_message = on_message
 
-client.tls_set(ca_certs="../configuration/mosquitto/certs/cacert.pem",
-               certfile="../configuration/mosquitto/certs/client/client.crt",
-               keyfile="../configuration/mosquitto/certs/client/client.key",
+client.tls_set(ca_certs="./ca.crt",
+               certfile="./client.crt",
+               keyfile="./client.key",
                tls_version=ssl.PROTOCOL_TLSv1_2)
-client.tls_insecure_set(True)
 
 client.connect("172.17.0.1", port=8883, keepalive=60)
 
