@@ -4,6 +4,11 @@ import paho.mqtt.client as mqtt
 import IndustrialPortalProtocol_pb2 as protocol
 import CarStateProtocol_pb2 as car_state
 import ssl
+import signal
+
+
+def signal_handler(sig, frame):
+    exit(0)
 
 
 def print_status_message_state(state):
@@ -82,6 +87,7 @@ def on_message(client, userdata, message):
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     client = mqtt.Client(client_id='Monitoring Test',
                          clean_session=None,
                          userdata=None,
