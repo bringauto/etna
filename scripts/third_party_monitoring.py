@@ -40,8 +40,7 @@ def print_status_message_server(server):
         print("server: SERVER_ERROR")
 
 
-def print_status_message(message):
-    status_message = message.status
+def print_status_message(status_message):
     print_status_message_server(status_message.server)
     print("Status:")
     print_status_message_state(status_message.carStatus.state)
@@ -50,32 +49,54 @@ def print_status_message(message):
     print("")
 
 
+def print_statusResponse_message(status_response):
+    print(f"StatusResponse: {status_response.type}")
+
+
 def on_message(client, userdata, message):
     message_daemon = protocol.MessageDaemon()
-    message_daemon.ParseFromString(message.payload)
-    if message_daemon.HasField("commandResponse"):
-        print("commandResponse")
-    if message_daemon.HasField("connect"):
-        print("connect")
-    if message_daemon.HasField("status"):
-        print_status_message(message_daemon)
+    try:
+        message_daemon.ParseFromString(message.payload)
+    except Exception:
+        pass
+    else:
+        if(message_daemon.HasField("commandResponse")):
+            print("commandResponse")
+        elif(message_daemon.HasField("connect")):
+            print("connect")
+        elif(message_daemon.HasField("status")):
+            print_status_message(message_daemon.status)
+        return
+    message_industrial_portal = protocol.MessageIndustrialPortal()
+    try:
+        message_industrial_portal.ParseFromString(message.payload)
+    except Exception as exc:
+        print(f'{message.topic}: {exc}')
+    else:
+        if(message_industrial_portal.HasField("connectReponse")):
+            print("connectReponse")
+        elif(message_industrial_portal.HasField("command")):
+            print("command")
+        elif(message_industrial_portal.HasField("statusResponse")):
+            print_statusResponse_message(message_industrial_portal.statusResponse)
 
 
-client = mqtt.Client(client_id='Monitoring Test',
-                     clean_session=None,
-                     userdata=None,
-                     protocol=mqtt.MQTTv5,
-                     transport='tcp')
+if __name__ == '__main__':
+    client = mqtt.Client(client_id='Monitoring Test',
+                         clean_session=None,
+                         userdata=None,
+                         protocol=mqtt.MQTTv5,
+                         transport='tcp')
 
-client.on_message = on_message
+    client.on_message = on_message
 
-client.tls_set(ca_certs="./ca.crt",
-               certfile="./client.crt",
-               keyfile="./client.key",
-               tls_version=ssl.PROTOCOL_TLSv1_2)
+    client.tls_set(ca_certs="ca-chain.pem",
+                   certfile="client.pem",
+                   keyfile="client.key",
+                   tls_version=ssl.PROTOCOL_TLSv1_2)
 
-client.connect("172.17.0.1", port=8883, keepalive=60)
+    client.connect("172.17.0.1", port=8883, keepalive=60)
 
-client.subscribe("bringauto/default/BringAuto Virtual/daemon", qos=2)
+    client.subscribe("#", qos=2)
 
-client.loop_forever(timeout=60)
+    client.loop_forever(timeout=60)
