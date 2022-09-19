@@ -82,11 +82,11 @@ In case of a problem please attach the `docker_volumes` directory to the Bug rep
 There are example scripts for sniffing communication and seeing the basics [scripts/]
 
 ## Bug solving
-		If your mosquitto logs contain lines as below, make sure mosquitto.conf file uses LF line ending. (CRLF doesn't work)
-		```
-		Error: Invalid require_certificate value (false
-		Error found at /mosquitto/config/mosquitto.conf:2.
-		```
+If your mosquitto logs contain lines as below, make sure mosquitto.conf file uses LF line ending. (CRLF doesn't work)
+```
+Error: Invalid require_certificate value (false
+Error found at /mosquitto/config/mosquitto.conf:2.
+```
 
 
 [Industrial Portal]: https://github.com/bringauto/industrial-portal
