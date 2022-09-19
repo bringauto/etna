@@ -13,7 +13,7 @@ to understand how the BringAuto software and hardware platform works.
 
 ## Prepare
 
-- install requirements by `pip3 install -r ./requirements`
+- install requirements by `pip3 install -r ./requirements.txt`
 - in the scripts directory run
 
 ```
