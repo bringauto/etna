@@ -48,9 +48,9 @@ The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SS
 
 There are [pregenerated certificate files](configuration/mosquitto/certs) for both, server and client, however, it is not recommended to use those, and they are there for Etna to work out-of-box.
 
-		If you generate new certificate files they must have the same name as the original, otherwise, you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
+If you generate new certificate files they must have the same name as the original, otherwise, you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
 
->> Directory `configuration/mosquitto/certs`, include files `cacert.pem` (certificate authority), `server.crt` (signed certificate for the server) and `server.key` (servers private key).
+> Directory `configuration/mosquitto/certs`, include files `cacert.pem` (certificate authority), `server.crt` (signed certificate for the server) and `server.key` (servers private key).
 
 ## Topics to listen
 
