@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import argparse
 import paho.mqtt.client as mqtt
 import IndustrialPortalProtocol_pb2 as protocol
 import CarStateProtocol_pb2 as car_state
@@ -11,6 +12,16 @@ from google.protobuf.message import DecodeError
 
 def signal_handler(sig, frame) -> None:
     exit(0)
+
+
+def argument_parser_init() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description='Sniffing tool')
+    parser.add_argument('-i', '--ip-address', type=str, default='172.17.0.1', help='ip address of the MQTT broker')
+    parser.add_argument('-p', '--port', type=int, default=8883, help='port of the MQTT broker')
+    parser.add_argument('--ca-certs', type=str, default='./certs/ca-chain.pem', help='Certificate authority')
+    parser.add_argument('--certfile', type=str, default='./certs/client.pem', help='Client certificate')
+    parser.add_argument('--keyfile', type=str, default='./certs/client.key', help='Key to client certificate')
+    return parser.parse_args()
 
 
 def print_status_message_state(state) -> None:
@@ -81,28 +92,29 @@ def print_message_industrial_portal(message) -> None:
 
 
 def on_message(client, userdata, message) -> None:
-    try:
+    print(f'topic: {message.topic}')
+    if (message.topic.split('/')[-1] == 'daemon'):
         print_message_deamon(message)
-    except DecodeError:
-        try:
-            print_message_industrial_portal(message)
-        except DecodeError as exc:
-            print(f'ERROR:\n\ttopic: {message.topic}\n\treason: {exc}')
+    elif (message.topic.split('/')[-1] == 'industrial_portal'):
+        print_message_industrial_portal(message)
+    else:
+        print(f'ERROR:\n\ttopic: {message.topic}\n')
 
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
 
+    args = argument_parser_init()
     client = mqtt.Client(client_id='Monitoring Test',
                          clean_session=None,
                          userdata=None,
                          protocol=mqtt.MQTTv5,
                          transport='tcp')
     client.on_message = on_message
-    client.tls_set(ca_certs="ca-chain.pem",
-                   certfile="client.pem",
-                   keyfile="client.key",
+    client.tls_set(ca_certs=args.ca_certs,
+                   certfile=args.certfile,
+                   keyfile=args.keyfile,
                    tls_version=ssl.PROTOCOL_TLSv1_2)
-    client.connect("172.17.0.1", port=8883, keepalive=60)
+    client.connect(args.ip_address, port=args.port, keepalive=60)
     client.subscribe("#", qos=2)
     client.loop_forever(timeout=60)
