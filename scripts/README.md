@@ -14,16 +14,21 @@ to understand how the BringAuto software and hardware platform works.
 ## Prepare
 
 - install requirements by `pip3 install -r ./requirements`
-- in the scripts directory run
 
-```
-protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"
-protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"
-```
 
 ## Scripts
 
-- `third_party_monitoring`. It helps to observe messages send by BringAuto Daemon.
-  just run the script by `python3 ./third_party_monitoring.py`.
-  - change `car_name` and `company` to valid one
-  - change MQTT broker IP to the valid IP address
+### third_party_monitoring
+
+- it helps to observe messages send by BringAuto Daemon
+- run the script by `python3 third_party_monitoring.py`
+
+## Arguments
+
+### third_party_monitoring
+
+- `-i` or `--ip-address` -- ip address of the MQTT broker, default is 172.17.0.1
+- `-p` or `--port` -- port of the MQTT broker, default is 8883
+- `--ca-certs` -- certificate authority, defautl is ./certs/ca-chain.pem
+- `--certfile` -- client certificate, default is ./certs/client.pem
+- `--keyfile` -- key to client certificate, default is ./certs/client.key
