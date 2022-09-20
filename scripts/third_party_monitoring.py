@@ -18,9 +18,9 @@ def argument_parser_init() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Sniffing tool')
     parser.add_argument('-i', '--ip-address', type=str, default='172.17.0.1', help='ip address of the MQTT broker')
     parser.add_argument('-p', '--port', type=int, default=8883, help='port of the MQTT broker')
-    parser.add_argument('--ca-certs', type=str, default='./certs/ca-chain.pem', help='Certificate authority')
-    parser.add_argument('--certfile', type=str, default='./certs/client.pem', help='Client certificate')
-    parser.add_argument('--keyfile', type=str, default='./certs/client.key', help='Key to client certificate')
+    parser.add_argument('--ca-certs', type=str, default='./certs/ca-chain.pem', help='certificate authority')
+    parser.add_argument('--certfile', type=str, default='./certs/client.pem', help='client certificate')
+    parser.add_argument('--keyfile', type=str, default='./certs/client.key', help='key to client certificate')
     return parser.parse_args()
 
 
