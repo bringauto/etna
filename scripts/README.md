@@ -22,6 +22,9 @@ to understand how the BringAuto software and hardware platform works.
 
 - it helps to observe messages send by BringAuto Daemon
 - run the script by `python3 third_party_monitoring.py`
+- it may be needed to recompile protobuf files:
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
 
 ## Arguments
 
