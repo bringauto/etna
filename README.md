@@ -8,7 +8,7 @@ The system can be used by docker-compose stored at the git root of this reposito
 There are four containers
 
 - Mosquitto MQTT broker (bringauto-mosquitto)
-- Virtual Vehicle Utility - Car State Protocol client implementation (it connects to BringAuto Daemon and simulates an autonomous driving robot)
+- Virtual Vehicle Utility - Car State Protocol client implementation (it connects to BringAuto Daemon and simulates an autonomy module)
 - Virtual Fleet - Industrial Portal Protocol implementation (substitutes Fleet Management)
 - BringAuto Daemon - Industrial Portal Protocol (BringAuto platform) and Car State Protocol server implementation
 
