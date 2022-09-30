@@ -1,7 +1,7 @@
 
 # BringAuto virtual development platform
 
-It's intended to simplify development for [Fleet](https://github.com/bringauto/fleet) and The Autonomy developers.
+It's intended to simplify development for [Fleet] and The Autonomy developers.
 
 The system can be used by docker-compose stored at the git root of this repository.
 
@@ -13,7 +13,7 @@ There are four containers
 - BringAuto Daemon - Industrial Portal Protocol (BringAuto platform) and Car State Protocol server implementation
 
 To read more about the system architecture look at [BringAuto Google Disk]
-to the [Cloud Platform Architecture](https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I/edit) document.
+to the [Cloud Platform Architecture] document.
 
 ## Requirements
 
@@ -46,7 +46,7 @@ VEHICLE_NAME="BringAuto 2"
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
 
-There are [pregenerated certificate files](configuration/mosquitto/certs) for both, server and client, however, it is not recommended to use those, and they are there for Etna to work out-of-box.
+There are [pregenerated certificate files] for both, server and client, however, it is not recommended to use those, and they are there for Etna to work out-of-box.
 
 If you generate new certificate files they must have the same name as the original, otherwise, you have to change the paths in file `configuration/mosquitto/mosquitto.conf`.
 
@@ -88,9 +88,11 @@ Error: Invalid require_certificate value (false
 Error found at /mosquitto/config/mosquitto.conf:2.
 ```
 
-
+[Fleet]: https://github.com/bringauto/fleet
+[Cloud Platform Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I/edit
 [Industrial Portal]: https://github.com/bringauto/industrial-portal
 [Google Artifacts Registry]: https://console.cloud.google.com/artifacts/docker/bringauto-infrastructure/europe-west1/virtual-platform?hl=cs&project=bringauto-infrastructure
 [Cloud System Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I
 [BringAuto Google Disk]: https://drive.google.com/drive/u/0/folders/1ZE9VRs86QtP6GqTJBl6vRJLmkh1lTEc5
+[pregenerated certificate files]: configuration/mosquitto/certs
 [scripts/]: scripts/
