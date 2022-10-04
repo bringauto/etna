@@ -15,7 +15,7 @@ services:
       - bring-emulator
 
   virtual-fleet:
-    image: eu.gcr.io/bringauto-infrastructure/virtual-platform/virtual-fleet:proto_v1.1
+    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.1.0-pre
     profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
@@ -29,7 +29,7 @@ services:
       - bring-emulator
 
   bringauto-daemon:
-    image: eu.gcr.io/bringauto-infrastructure/virtual-platform/bringauto-daemon:proto_v1.1
+    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.4.0-pre
     profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
@@ -54,7 +54,7 @@ services:
       - bring-emulator
 
   virtual-vehicle-utility:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.2.0
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.3.0-pre
     profiles: ["all", "without-fleet", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
