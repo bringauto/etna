@@ -7,13 +7,13 @@ to understand how the BringAuto software and hardware platform works.
 ## Requirements
 
 - Python (version >= 3.9)
-- Protobuf (version == 3.17)
+- Protobuf (version == 3.20)
 - BringAuto Etna docker compose environment prepared and running
 
 
 ## Prepare
 
-- install requirements by `pip3 install -r ./requirements`
+- install requirements by `pip3 install -r ./requirements.txt`
 
 
 ## Scripts
@@ -22,6 +22,9 @@ to understand how the BringAuto software and hardware platform works.
 
 - it helps to observe messages send by BringAuto Daemon
 - run the script by `python3 third_party_monitoring.py`
+- it may needs recompile protobuf files:
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
 
 ## Arguments
 
