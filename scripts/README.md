@@ -22,7 +22,8 @@ to understand how the BringAuto software and hardware platform works.
 
 - it helps to observe messages send by BringAuto Daemon
 - run the script by `python3 third_party_monitoring.py`
-- it may needs recompile protobuf files:
+- it may needs recompile protobuf files with following commands:
+- - `git submodule update --init --recursive`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
 
@@ -32,6 +33,6 @@ to understand how the BringAuto software and hardware platform works.
 
 - `-i` or `--ip-address` -- ip address of the MQTT broker, default is 172.17.0.1
 - `-p` or `--port` -- port of the MQTT broker, default is 8883
-- `--ca-certs` -- certificate authority, defautl is ./certs/ca-chain.pem
+- `--ca-certs` -- certificate authority, default is ./certs/ca-chain.pem
 - `--certfile` -- client certificate, default is ./certs/client.pem
 - `--keyfile` -- key to client certificate, default is ./certs/client.key
