@@ -7,8 +7,6 @@ import CarStateProtocol_pb2 as car_state
 import ssl
 import signal
 
-from google.protobuf.message import DecodeError
-
 
 def signal_handler(sig, frame) -> None:
     exit(0)
