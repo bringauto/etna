@@ -7,7 +7,7 @@ to understand how the BringAuto software and hardware platform works.
 ## Requirements
 
 - Python (version >= 3.9)
-- Protobuf (version >= 3.6)
+- Protobuf (version == 3.20)
 - BringAuto Etna docker compose environment prepared and running
 
 
@@ -22,12 +22,10 @@ to understand how the BringAuto software and hardware platform works.
 
 - it helps to observe messages send by BringAuto Daemon
 - run the script by `python3 third_party_monitoring.py`
-- it may be needed to recompile protobuf files:
-```
-    git submodule update --init --recursive
-    protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"
-    protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"
-```
+- it may needs recompile protobuf files with following commands:
+- - `git submodule update --init --recursive`
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
+- - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
 
 ## Arguments
 
