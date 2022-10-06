@@ -60,7 +60,6 @@ services:
     entrypoint: ["/virtual-vehicle-utility/virtual-vehicle-utility",
                  "--map=/virtual-vehicle-utility/maps/London.osm",
                  "--verbose",
-                 "--route=London",
                  "--daemon-ip=bringauto-daemon",
                  "--daemon-port=1636",
                  "--wait=30",
