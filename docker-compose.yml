@@ -15,7 +15,7 @@ services:
       - bring-emulator
 
   virtual-fleet:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.1.0
+    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.1.1
     profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
@@ -53,12 +53,12 @@ services:
       - bring-emulator
 
   virtual-vehicle-utility:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.3.0
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.3.1-pre
     profiles: ["all", "without-fleet", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
     entrypoint: ["/virtual-vehicle-utility/virtual-vehicle-utility",
-                 "--map=/virtual-vehicle-utility/maps/London.osm",
+                 "--map=/virtual-vehicle-utility/maps/Brno.osm",
                  "--verbose",
                  "--daemon-ip=bringauto-daemon",
                  "--daemon-port=1636",
