@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import CarStateProtocol_pb2 as CarStateProtocol__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1eIndustrialPortalProtocol.proto\x12\x10IndustrialPortal\x1a\x16\x43\x61rStateProtocol.proto\"\xc8\x01\n\x17MessageIndustrialPortal\x12;\n\x0e\x63onnectReponse\x18\x01 \x01(\x0b\x32!.IndustrialPortal.ConnectResponseH\x00\x12:\n\x0estatusResponse\x18\x02 \x01(\x0b\x32 .IndustrialPortal.StatusResponseH\x00\x12,\n\x07\x63ommand\x18\x03 \x01(\x0b\x32\x19.IndustrialPortal.CommandH\x00\x42\x06\n\x04Type\"\xaf\x01\n\rMessageDaemon\x12,\n\x07\x63onnect\x18\x01 \x01(\x0b\x32\x19.IndustrialPortal.ConnectH\x00\x12*\n\x06status\x18\x02 \x01(\x0b\x32\x18.IndustrialPortal.StatusH\x00\x12<\n\x0f\x63ommandResponse\x18\x03 \x01(\x0b\x32!.IndustrialPortal.CommandResponseH\x00\x42\x06\n\x04Type\";\n\x07\x43onnect\x12\x0f\n\x07\x63ompany\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tsessionId\x18\x03 \x01(\t\"~\n\x0f\x43onnectResponse\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.IndustrialPortal.ConnectResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\"\n\x04Type\x12\x06\n\x02OK\x10\x00\x12\x12\n\x0e\x41LREADY_LOGGED\x10\x01\"\x93\x02\n\x06Status\x12.\n\tcarStatus\x18\x01 \x01(\x0b\x32\x1b.CarStateProtocol.CarStatus\x12\x34\n\x06server\x18\x02 \x01(\x0b\x32$.IndustrialPortal.Status.ServerError\x12\x11\n\tsessionId\x18\x03 \x01(\t\x1a\x8f\x01\n\x0bServerError\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32).IndustrialPortal.Status.ServerError.Type\x12%\n\x05stops\x18\x02 \x03(\x0b\x32\x16.CarStateProtocol.Stop\" \n\x04Type\x12\x06\n\x02OK\x10\x00\x12\x10\n\x0cSERVER_ERROR\x10\x01\"h\n\x0eStatusResponse\x12\x33\n\x04type\x18\x01 \x01(\x0e\x32%.IndustrialPortal.StatusResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\x0e\n\x04Type\x12\x06\n\x02OK\x10\x00\"N\n\x07\x43ommand\x12\x30\n\ncarCommand\x18\x01 \x01(\x0b\x32\x1c.CarStateProtocol.CarCommand\x12\x11\n\tsessionId\x18\x02 \x01(\t\"j\n\x0f\x43ommandResponse\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.IndustrialPortal.CommandResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\x0e\n\x04Type\x12\x06\n\x02OK\x10\x00\x42>Z!../internal/pkg/ba_proto;ba_proto\xaa\x02\x18Google.Protobuf.ba_protob\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1eIndustrialPortalProtocol.proto\x12\x10IndustrialPortal\x1a\x16\x43\x61rStateProtocol.proto\"\xc9\x01\n\x17MessageIndustrialPortal\x12<\n\x0f\x63onnectResponse\x18\x01 \x01(\x0b\x32!.IndustrialPortal.ConnectResponseH\x00\x12:\n\x0estatusResponse\x18\x02 \x01(\x0b\x32 .IndustrialPortal.StatusResponseH\x00\x12,\n\x07\x63ommand\x18\x03 \x01(\x0b\x32\x19.IndustrialPortal.CommandH\x00\x42\x06\n\x04Type\"\xaf\x01\n\rMessageDaemon\x12,\n\x07\x63onnect\x18\x01 \x01(\x0b\x32\x19.IndustrialPortal.ConnectH\x00\x12*\n\x06status\x18\x02 \x01(\x0b\x32\x18.IndustrialPortal.StatusH\x00\x12<\n\x0f\x63ommandResponse\x18\x03 \x01(\x0b\x32!.IndustrialPortal.CommandResponseH\x00\x42\x06\n\x04Type\";\n\x07\x43onnect\x12\x0f\n\x07\x63ompany\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x11\n\tsessionId\x18\x03 \x01(\t\"~\n\x0f\x43onnectResponse\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.IndustrialPortal.ConnectResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\"\n\x04Type\x12\x06\n\x02OK\x10\x00\x12\x12\n\x0e\x41LREADY_LOGGED\x10\x01\"\x93\x02\n\x06Status\x12.\n\tcarStatus\x18\x01 \x01(\x0b\x32\x1b.CarStateProtocol.CarStatus\x12\x34\n\x06server\x18\x02 \x01(\x0b\x32$.IndustrialPortal.Status.ServerError\x12\x11\n\tsessionId\x18\x03 \x01(\t\x1a\x8f\x01\n\x0bServerError\x12\x37\n\x04type\x18\x01 \x01(\x0e\x32).IndustrialPortal.Status.ServerError.Type\x12%\n\x05stops\x18\x02 \x03(\x0b\x32\x16.CarStateProtocol.Stop\" \n\x04Type\x12\x06\n\x02OK\x10\x00\x12\x10\n\x0cSERVER_ERROR\x10\x01\"h\n\x0eStatusResponse\x12\x33\n\x04type\x18\x01 \x01(\x0e\x32%.IndustrialPortal.StatusResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\x0e\n\x04Type\x12\x06\n\x02OK\x10\x00\"N\n\x07\x43ommand\x12\x30\n\ncarCommand\x18\x01 \x01(\x0b\x32\x1c.CarStateProtocol.CarCommand\x12\x11\n\tsessionId\x18\x02 \x01(\t\"j\n\x0f\x43ommandResponse\x12\x34\n\x04type\x18\x01 \x01(\x0e\x32&.IndustrialPortal.CommandResponse.Type\x12\x11\n\tsessionId\x18\x02 \x01(\t\"\x0e\n\x04Type\x12\x06\n\x02OK\x10\x00\x42>Z!../internal/pkg/ba_proto;ba_proto\xaa\x02\x18Google.Protobuf.ba_protob\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'IndustrialPortalProtocol_pb2', globals())
@@ -23,29 +23,29 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z!../internal/pkg/ba_proto;ba_proto\252\002\030Google.Protobuf.ba_proto'
   _MESSAGEINDUSTRIALPORTAL._serialized_start=77
-  _MESSAGEINDUSTRIALPORTAL._serialized_end=277
-  _MESSAGEDAEMON._serialized_start=280
-  _MESSAGEDAEMON._serialized_end=455
-  _CONNECT._serialized_start=457
-  _CONNECT._serialized_end=516
-  _CONNECTRESPONSE._serialized_start=518
-  _CONNECTRESPONSE._serialized_end=644
-  _CONNECTRESPONSE_TYPE._serialized_start=610
-  _CONNECTRESPONSE_TYPE._serialized_end=644
-  _STATUS._serialized_start=647
-  _STATUS._serialized_end=922
-  _STATUS_SERVERERROR._serialized_start=779
-  _STATUS_SERVERERROR._serialized_end=922
-  _STATUS_SERVERERROR_TYPE._serialized_start=890
-  _STATUS_SERVERERROR_TYPE._serialized_end=922
-  _STATUSRESPONSE._serialized_start=924
-  _STATUSRESPONSE._serialized_end=1028
-  _STATUSRESPONSE_TYPE._serialized_start=610
-  _STATUSRESPONSE_TYPE._serialized_end=624
-  _COMMAND._serialized_start=1030
-  _COMMAND._serialized_end=1108
-  _COMMANDRESPONSE._serialized_start=1110
-  _COMMANDRESPONSE._serialized_end=1216
-  _COMMANDRESPONSE_TYPE._serialized_start=610
-  _COMMANDRESPONSE_TYPE._serialized_end=624
+  _MESSAGEINDUSTRIALPORTAL._serialized_end=278
+  _MESSAGEDAEMON._serialized_start=281
+  _MESSAGEDAEMON._serialized_end=456
+  _CONNECT._serialized_start=458
+  _CONNECT._serialized_end=517
+  _CONNECTRESPONSE._serialized_start=519
+  _CONNECTRESPONSE._serialized_end=645
+  _CONNECTRESPONSE_TYPE._serialized_start=611
+  _CONNECTRESPONSE_TYPE._serialized_end=645
+  _STATUS._serialized_start=648
+  _STATUS._serialized_end=923
+  _STATUS_SERVERERROR._serialized_start=780
+  _STATUS_SERVERERROR._serialized_end=923
+  _STATUS_SERVERERROR_TYPE._serialized_start=891
+  _STATUS_SERVERERROR_TYPE._serialized_end=923
+  _STATUSRESPONSE._serialized_start=925
+  _STATUSRESPONSE._serialized_end=1029
+  _STATUSRESPONSE_TYPE._serialized_start=611
+  _STATUSRESPONSE_TYPE._serialized_end=625
+  _COMMAND._serialized_start=1031
+  _COMMAND._serialized_end=1109
+  _COMMANDRESPONSE._serialized_start=1111
+  _COMMANDRESPONSE._serialized_end=1217
+  _COMMANDRESPONSE_TYPE._serialized_start=611
+  _COMMANDRESPONSE_TYPE._serialized_end=625
 # @@protoc_insertion_point(module_scope)
