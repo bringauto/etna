@@ -29,7 +29,7 @@ services:
 
   bringauto-daemon:
     image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.5.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core", "car"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
       - ./configuration/daemon:/certificates/
@@ -54,7 +54,7 @@ services:
 
   virtual-vehicle-utility:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.4.0
-    profiles: ["all", "without-fleet", "without-broker", "without-daemon"]
+    profiles: ["all", "without-fleet", "without-broker", "without-daemon", "car"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
     entrypoint: ["/virtual-vehicle-utility/virtual-vehicle-utility",
