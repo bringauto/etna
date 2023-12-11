@@ -2,7 +2,7 @@ version: '3'
 services:
   mosquitto:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.1.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto", "core"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto", "without-http-api", "core"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
@@ -16,7 +16,7 @@ services:
 
   virtual-fleet:
     image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.2.0
-    profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
+    profiles: ["all", "without-autonomy", "without-broker", "without-daemon", "without-http-api"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
     entrypoint: ["/virtual-fleet/virtual-fleet-app",
@@ -29,7 +29,7 @@ services:
 
   bringauto-daemon:
     image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.5.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core", "car"]
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-http-api", "core", "car"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
       - ./configuration/daemon:/certificates/
@@ -54,7 +54,7 @@ services:
 
   virtual-vehicle-utility:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.4.0
-    profiles: ["all", "without-fleet", "without-broker", "without-daemon", "car"]
+    profiles: ["all", "without-fleet", "without-broker", "without-daemon", "without-http-api", "car"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
     entrypoint: ["/virtual-vehicle-utility/virtual-vehicle-utility",
@@ -69,6 +69,31 @@ services:
     restart: always
     networks:
       - bring-emulator
+
+  http-api:
+    image: bringauto/fleet-protocol-http-api
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-daemon", "core"]
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - postgresql-database
+    networks:
+      - bring-emulator
+
+  postgresql-database:
+    image: postgres:16
+    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-daemon", "core"]
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    restart: always
+    networks:
+      - bring-emulator
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/insert_key.sql:/docker-entrypoint-initdb.d/insert_key.sql
 
 networks:
   bring-emulator:
