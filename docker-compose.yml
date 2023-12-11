@@ -80,6 +80,8 @@ services:
       - postgresql-database
     networks:
       - bring-emulator
+    volumes:
+      - ./configuration/http-api/config.json:/usr/src/app/config.json
 
   postgresql-database:
     image: postgres:16

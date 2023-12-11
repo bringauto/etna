@@ -1,0 +1,19 @@
+{
+    "database": {
+        "server": {
+            "host": "postgresql-database",
+            "location": "localhost",
+            "port": 5432,
+            "dialect": "postgresql",
+            "api": "psycopg",
+            "username": "postgres",
+            "password": "1234"
+        },
+        "cleanup": {
+            "timing_in_seconds": {
+                "retention_period": 3600,
+                "cleanup_period": 120
+            }
+        }
+    }
+}

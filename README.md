@@ -11,7 +11,7 @@ There are six containers
 - Virtual Vehicle Utility - Car State Protocol client implementation (it connects to BringAuto Daemon and simulates an autonomy module)
 - Virtual Fleet - Industrial Portal Protocol implementation (substitutes Fleet Management)
 - BringAuto Daemon - Industrial Portal Protocol (BringAuto platform) and Car State Protocol server implementation
-- HTTP API Server - 
+- HTTP API Server - tool for communication with the Virtual Fleet
 - PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
 
 To read more about the system architecture look at [BringAuto Google Disk]
@@ -51,6 +51,8 @@ To show the OpenAPI specification (the service must be running), visit http://lo
 To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
 
 The HTTP API requires authentication via API keys. To access all its endpoints, you can use the key `StaticAccessKeyToBeUsedByDevelopersOnEtna`.
+
+The database access information and message cleanup can be set in the `configuration/http-api/config.json` (this config overwrites the original config from the http-api image).
 
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
