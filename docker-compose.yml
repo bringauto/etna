@@ -93,7 +93,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./db/insert_key.sql:/docker-entrypoint-initdb.d/insert_key.sql
+      - ./db/insert_test_api_key.sql:/docker-entrypoint-initdb.d/insert_test_api_key.sql
 
 networks:
   bring-emulator:
