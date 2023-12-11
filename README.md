@@ -5,12 +5,14 @@ It's intended to simplify development for [Fleet] and The Autonomy developers.
 
 The system can be used by docker-compose stored at the git root of this repository.
 
-There are four containers
+There are six containers
 
 - Mosquitto MQTT broker (bringauto-mosquitto)
 - Virtual Vehicle Utility - Car State Protocol client implementation (it connects to BringAuto Daemon and simulates an autonomy module)
 - Virtual Fleet - Industrial Portal Protocol implementation (substitutes Fleet Management)
 - BringAuto Daemon - Industrial Portal Protocol (BringAuto platform) and Car State Protocol server implementation
+- HTTP API Server - 
+- PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
 
 To read more about the system architecture look at [BringAuto Google Disk]
 to the [Cloud Platform Architecture] document.
@@ -30,6 +32,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - without-fleet - do not start Virtual Fleet
 - without-broker - do not start MQTT broker (you must change the IP address to external broker inside docker-compose)
 - without-daemon - do not start BringAuto Daemon
+- without-http-api - do not start HTTP API server nor the related PostgreSQL database
 - mosquitto - start only MQTT mosquitto broker
 - core - start only MQTT broker and BringAuto Daemon
 
@@ -43,6 +46,13 @@ COMPANY="bringauto"
 PLACE="default"
 VEHICLE_NAME="BringAuto 2"
 ```
+### HTTP API
+To show the OpenAPI specification (the service must be running), visit http://localhost:8080/openapi.json. 
+To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI [here](https://swagger.io/tools/swagger-ui/).
+
+The HTTP API requires authentication via API keys. To access all its endpoints, you can use the key `StaticAccessKeyToBeUsedByDevelopersOnEtna`.
+
+
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
 
