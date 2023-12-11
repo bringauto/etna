@@ -48,10 +48,9 @@ VEHICLE_NAME="BringAuto 2"
 ```
 ### HTTP API
 To show the OpenAPI specification (the service must be running), visit http://localhost:8080/openapi.json. 
-To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI [here](https://swagger.io/tools/swagger-ui/).
+To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
 
 The HTTP API requires authentication via API keys. To access all its endpoints, you can use the key `StaticAccessKeyToBeUsedByDevelopersOnEtna`.
-
 
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
