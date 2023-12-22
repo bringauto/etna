@@ -85,7 +85,6 @@ services:
     entrypoint:
       ["python3", "-m", "server", "config.json", "--location", "postgresql-database"]
 
-
   postgresql-database:
     image: postgres:16
     profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-daemon", "core"]
