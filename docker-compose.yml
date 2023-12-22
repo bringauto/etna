@@ -83,12 +83,8 @@ services:
     volumes:
       - ./configuration/http-api/config.json:/usr/src/app/config.json
     entrypoint:
-      - "python3"
-      - "-m"
-      - "server"
-      - "config.json"
-      - "--location"
-      - "postgresql-database"
+      ["python3", "-m", "server", "config.json", "--location", "postgresql-database"]
+
 
   postgresql-database:
     image: postgres:16
