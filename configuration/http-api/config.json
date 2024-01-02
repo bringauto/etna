@@ -4,7 +4,8 @@
             "location": "localhost",
             "port": 5432,
             "username": "postgres",
-            "password": "1234"
+            "password": "1234",
+            "database_name": "postgres"
         },
         "cleanup": {
             "timing_in_seconds": {
