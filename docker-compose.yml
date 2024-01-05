@@ -1,8 +1,47 @@
 version: '3'
 services:
+  virtual-vehicle-utility:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-vehicle-utility:3.0.1
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility", "test"]
+    volumes:
+      - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
+      - ./configuration/virtual-vehicle-utility:/virtual-vehicle-utility/config
+    entrypoint: ["/virtual-vehicle-utility/bin/virtual-vehicle-utility",
+                 "--config=/virtual-vehicle-utility/config/config.json"]
+    restart: always
+    networks:
+      - bring-emulator
+
+  virtual-plc:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-plc:1.0.0
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc", "test"]
+    volumes:
+      - ./docker_volumes/virtual-plc:/home/bringauto/virtual-plc/log
+      - ./configuration/virtual-plc:/home/bringauto/virtual-plc/config
+    entrypoint: ["/home/bringauto/virtual-plc/bin/virtual_plc",
+                 "--config=/home/bringauto/virtual-plc/config/config.json"]
+    restart: always
+    networks:
+      - bring-emulator
+
+  module-gateway:
+    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/module-gateway:1.0.1
+    profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "test"]
+    volumes:
+      - ./docker_volumes/module-gateway:/home/bringauto/log/
+      - ./configuration/module-gateway:/home/bringauto/config/
+    ports:
+      - 1636:1636
+    entrypoint: ["/home/bringauto/module-gateway/bin/module_gateway_app",
+                 "--config-path=/home/bringauto/config/config.json",
+                 "--verbose"]
+    restart: always
+    networks:
+      - bring-emulator
+
   mosquitto:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.1.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto", "without-http-api", "core"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto", "test"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
@@ -16,56 +55,13 @@ services:
 
   virtual-fleet:
     image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.2.0
-    profiles: ["all", "without-autonomy", "without-broker", "without-daemon", "without-http-api"]
+    profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
     entrypoint: ["/virtual-fleet/virtual-fleet-app",
                  "--broker-ip=mosquitto",
                  "--broker-port=1883",
                  "--log-path=/virtual-fleet/log/"]
-    restart: always
-    networks:
-      - bring-emulator
-
-  bringauto-daemon:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.5.0
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-http-api", "core", "car"]
-    volumes:
-      - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
-      - ./configuration/daemon:/certificates/
-    ports:
-      - 1636:1636
-    entrypoint: ["/bringauto-daemon/_build/components/industrial_portal/industrial_portal",
-                 "--mode=mqtt",
-                 "--company=${COMPANY:-bringauto}",
-                 "--place=${PLACE:-default}",
-                 "--vehicle-name=${VEHICLE_NAME:-BringAuto Virtual}",
-                 "--broker-ip=mosquitto",
-                 "--broker-port=1883",
-                 "--mqtt-ssl=false",
-                 "--ca-file=/certificates/ca-chain.pem",
-                 "--client-cert=/certificates/client.pem",
-                 "--client-key=/certificates/client.key",
-                 "--port=1636",
-                 "--log-path=/bringauto-daemon/log/"]
-    restart: always
-    networks:
-      - bring-emulator
-
-  virtual-vehicle-utility:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.4.0
-    profiles: ["all", "without-fleet", "without-broker", "without-daemon", "without-http-api", "car"]
-    volumes:
-      - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
-    entrypoint: ["/virtual-vehicle-utility/virtual-vehicle-utility",
-                 "--map=/virtual-vehicle-utility/maps/Brno.osm",
-                 "--verbose",
-                 "--daemon-ip=bringauto-daemon",
-                 "--daemon-port=1636",
-                 "--wait=30",
-                 "--log-path=/virtual-vehicle-utility/log/",
-                 "--period=1000",
-                 "--vehicle-provider=simulation"]
     restart: always
     networks:
       - bring-emulator
