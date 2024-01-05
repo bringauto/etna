@@ -2,7 +2,7 @@ version: '3'
 services:
   virtual-vehicle-utility:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-vehicle-utility:3.0.1
-    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility", "test"]
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
       - ./configuration/virtual-vehicle-utility:/virtual-vehicle-utility/config
@@ -14,7 +14,7 @@ services:
 
   virtual-plc:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-plc:1.0.0
-    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc", "test"]
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc"]
     volumes:
       - ./docker_volumes/virtual-plc:/home/bringauto/virtual-plc/log
       - ./configuration/virtual-plc:/home/bringauto/virtual-plc/config
@@ -26,7 +26,7 @@ services:
 
   module-gateway:
     image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/module-gateway:1.0.1
-    profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "test"]
+    profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
       - ./configuration/module-gateway:/home/bringauto/config/
@@ -41,7 +41,7 @@ services:
 
   mosquitto:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.1.0
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto", "test"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
       - ./docker_volumes/mosquitto/data:/mosquitto/data
@@ -53,22 +53,24 @@ services:
     networks:
       - bring-emulator
 
-  virtual-fleet:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.2.0
-    profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
+  external-server:
+    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/external-server:1.0.1
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto"]
     volumes:
-      - ./docker_volumes/virtual-fleet:/virtual-fleet/log
-    entrypoint: ["/virtual-fleet/virtual-fleet-app",
-                 "--broker-ip=mosquitto",
-                 "--broker-port=1883",
-                 "--log-path=/virtual-fleet/log/"]
+      - ./docker_volumes/external-server:/external-server/log
+      - ./configuration/external-server:/home/bringauto/config/
+    entrypoint: ["python3", 
+                 "/home/bringauto/external_server/main.py", 
+                 "--config=/home/bringauto/config/config.json", 
+                 "--ip-address=mosquitto",
+                 "--port=1883"]
     restart: always
     networks:
       - bring-emulator
 
   http-api:
     image: bringauto/fleet-protocol-http-api
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-daemon", "core"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
     restart: always
@@ -83,7 +85,7 @@ services:
 
   postgresql-database:
     image: postgres:16
-    profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "without-daemon", "core"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234

@@ -12,17 +12,17 @@
     "1000": "/home/bringauto/module-gateway/lib/libexample_module_gateway.so"
   },
   "external-connection" : {
-    "company" : "BringAuto",
-    "vehicle-name" : "VirtualVehicle",
+    "company" : "bringauto",
+    "vehicle-name" : "virtual_vehicle",
     "endpoints" :
     [
       {
         "protocol-type" : "mqtt",
         "mqtt-settings" : {
           "ssl" : false,
-          "ca-file" : "ca.pem",
+          "ca-file" : "/virtual-vehicle-utility/config/ca-chain.pem",
           "client-cert" : "client.pem",
-          "client-key" : "key.pem"
+          "client-key" : "client.key"
         },
         "server-ip": "mosquitto",
         "port": 1883,

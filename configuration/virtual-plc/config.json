@@ -1,7 +1,7 @@
 {
   "general-settings": {
     "log-path": "/home/bringauto/virtual-plc/log",
-    "verbose": true,
+    "verbose": false,
     "logic-type": "mirror",
     "reconnection-attempts": 3
   },
