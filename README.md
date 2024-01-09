@@ -5,13 +5,14 @@ It's intended to simplify development for [Fleet] and The Autonomy developers.
 
 The system can be used by docker-compose stored at the git root of this repository.
 
-There are six containers
+There are multiple containers
 
 - Mosquitto MQTT broker (bringauto-mosquitto)
-- Virtual Vehicle Utility - Car State Protocol client implementation (it connects to BringAuto Daemon and simulates an autonomy module)
-- Virtual Fleet - Industrial Portal Protocol implementation (substitutes Fleet Management)
-- BringAuto Daemon - Industrial Portal Protocol (BringAuto platform) and Car State Protocol server implementation
-- HTTP API Server - tool for communication with the Virtual Fleet
+- Virtual Vehicle Utility - Mission module client implementation (it connects to Module Gateway and simulates an Mission module's autonomy device)
+- Virtual PLC - IO module client
+- Module Gateway - cpp implementation of Module Gateway with Mission, IO and example module support
+- External server - server implementation with Mission, IO and example module support
+- HTTP API Server - tool for communication with final endpoint, used by mission module
 - PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
 
 To read more about the system architecture look at [BringAuto Google Disk]
@@ -28,24 +29,20 @@ to the [Cloud Platform Architecture] document.
 Docker compose file has multiple profiles so the developer can disable/enable parts of the system he needs
 
 - all - start all containers including MQTT, virtual vehicle, daemon, and virtual fleet
-- without-autonomy - do not start Virtual Vehicle Utility (The Autonomy simulation)
-- without-fleet - do not start Virtual Fleet
-- without-broker - do not start MQTT broker (you must change the IP address to external broker inside docker-compose)
-- without-daemon - do not start BringAuto Daemon
-- without-http-api - do not start HTTP API server nor the related PostgreSQL database
+- without-module-gateway - do not start Module Gateway
+- without-external-server - do not start External Server
+- without-devices - do not start internal clients
+- core - start only internal clients and Module Gateway
+- virtual-vehicle-utility - start only Virtual Vehicle Utility
+- virtual-plc - start only Virtual PLC
 - mosquitto - start only MQTT mosquitto broker
-- core - start only MQTT broker and BringAuto Daemon
+- module-gateway - start only Module Gateway
+- http-api -  start HTTP API server and the related PostgreSQL database
 
 Now you can run `docker-compose --profile=<profile> up` where `profile` is the name of the profile above.
 
-To run components with different arguments (to load different scenarios of Virtual Fleet) you can use the .env file  
-run `docker-compose --env-file=<.env-file-path> --profile="all" up`, default path is `./.env`  
-.env file example:
-```
-COMPANY="bringauto"
-PLACE="default"
-VEHICLE_NAME="BringAuto 2"
-```
+To run components with different arguments you can edit the configuration files placed under configuration/<component>
+
 ### HTTP API
 To show the OpenAPI specification (the service must be running), visit http://localhost:8080/openapi.json. 
 To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
@@ -68,18 +65,17 @@ If you generate new certificate files they must have the same name as the origin
 Each MQTT topic consist from `company_name` and `car_name`.
 
 BringAuto has the following MQTT topics
-- \<company_name>/\<place>/\<vehicle_name>/daemon
-- \<company_name>/\<place>/\<vehicle_name>/industrial_portal
+- \<company_name>/\<vehicle_name>/module_gateway
+- \<company_name>/\<vehicle_name>/external_server
 
 where each variable can be changed by the .env file, variable names to be saved there are in parentheses.
 - `company_name` is by default set to "bringauto" (COMPANY)
-- `place` is by default set to "default" (PLACE)
-- `vehicle_name` is by default set to "BringAuto Virtual" (VEHICLE_NAME)
+- `vehicle_name` is by default set to "virtual_vehicle" (VEHICLE_NAME)
 
 
 Actual MQTT topics to which developers can connect by default settings are:
-- bringauto/default/BringAuto Virtual/daemon
-- bringauto/default/BringAuto Virtual/industrial_portal
+- bringauto/virtual_vehicle/module_gateway
+- bringauto/virtual_vehicle/external_server
 
 
 ## Logs
@@ -101,9 +97,6 @@ Error found at /mosquitto/config/mosquitto.conf:2.
 
 [Fleet]: https://github.com/bringauto/fleet
 [Cloud Platform Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I/edit
-[Industrial Portal]: https://github.com/bringauto/industrial-portal
 [Google Artifacts Registry]: https://console.cloud.google.com/artifacts/docker/bringauto-infrastructure/europe-west1/virtual-platform?hl=cs&project=bringauto-infrastructure
-[Cloud System Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I
-[BringAuto Google Disk]: https://drive.google.com/drive/u/0/folders/1ZE9VRs86QtP6GqTJBl6vRJLmkh1lTEc5
 [pregenerated certificate files]: configuration/mosquitto/certs
 [scripts/]: scripts/
