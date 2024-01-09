@@ -15,8 +15,15 @@ There are multiple containers
 - HTTP API Server - tool for communication with final endpoint, used by mission module
 - PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
 
-To read more about the system architecture look at [BringAuto Google Disk]
-to the [Cloud Platform Architecture] document.
+To read more about the system architecture look at Fleet Protocol v2 documentation:
+- [Summary]
+- [Internal Client]
+- [Module Gateway]
+- [External Server]
+- [Modules]
+- [Internal Client design]
+- [Module Gateway design]
+- [External Server design]
 
 ## Requirements
 
@@ -96,7 +103,14 @@ Error found at /mosquitto/config/mosquitto.conf:2.
 ```
 
 [Fleet]: https://github.com/bringauto/fleet
-[Cloud Platform Architecture]: https://docs.google.com/document/d/1jgSrBhZm73j_DkxNMtRgBLvnh_K-MUsL7z576hUat-I/edit
 [Google Artifacts Registry]: https://console.cloud.google.com/artifacts/docker/bringauto-infrastructure/europe-west1/virtual-platform?hl=cs&project=bringauto-infrastructure
 [pregenerated certificate files]: configuration/mosquitto/certs
 [scripts/]: scripts/
+[Summary]: https://ref.bringautofleet.com/r/protocol/v2/summary
+[Internal Client]: https://ref.bringautofleet.com/r/protocol/v2/internal-client
+[Module Gateway]: https://ref.bringautofleet.com/r/protocol/v2/module-gateway
+[External Server]: https://ref.bringautofleet.com/r/protocol/v2/external-server
+[Modules]: https://ref.bringautofleet.com/r/protocol/v2/modules
+[Internal Client design]: https://ref.bringautofleet.com/r/protocol/v2/internal-client-design 
+[Module Gateway design]: https://ref.bringautofleet.com/r/protocol/v2/module-gateway-design
+[External Server design]: https://ref.bringautofleet.com/r/protocol/v2/external-server-design
