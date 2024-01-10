@@ -1,0 +1,24 @@
+{
+    "database": {
+        "server": {
+            "location": "localhost",
+            "port": 5432,
+            "username": "postgres",
+            "password": "1234",
+            "database_name": "postgres"
+        },
+        "cleanup": {
+            "timing_in_seconds": {
+                "retention_period": 3600,
+                "cleanup_period": 1
+
+            }
+        }
+    },
+    "http_server": {
+        "base_uri": "https://api.bringautofleet.com/protocol/v2"
+    },
+    "request_for_messages": {
+        "timeout_in_seconds": 5
+    }
+}

@@ -1,0 +1,43 @@
+{
+	"general-settings": {
+		"log-path": "/virtual-vehicle-utility/log",
+		"verbose": true,
+		"period-ms": 1000
+	},
+	"vehicle-settings": {
+		"vehicle-provider": "simulation",
+		"gps-settings": {
+			"gps-provider": "rutx09",
+			"rutx09-settings" : {
+				"rutx-ip": "127.0.0.2",
+				"rutx-port": 502,
+				"rutx-slave-id": 1
+			},
+			"stop-radius-m": 8
+		},
+		"simulation-settings": {
+			"speed-override": true,
+			"speed-override-mps": 5,
+			"wait-at-stop-s": 30
+		}
+	},
+	"fleet-settings": {
+		"fleet-provider": "internal-protocol",
+		"internal-protocol-settings": {
+			"module-gateway-ip":"module-gateway",
+			"module-gateway-port": 1636,
+			"device-role": "autonomy",
+			"device-priority": 1,
+			"reconnect-period-s": 20,
+			"device-name": "virtual-vehicle"
+		},
+		"empty":{
+		}
+	},
+	"map-settings": {
+		"map": "/virtual-vehicle-utility/config/map.osm",
+		"default-route": ""
+	}
+}
+
+
