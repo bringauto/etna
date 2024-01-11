@@ -59,9 +59,9 @@ services:
     volumes:
       - ./docker_volumes/external-server:/external-server/log
       - ./configuration/external-server:/home/bringauto/config/
-    entrypoint: ["python3", 
-                 "/home/bringauto/external_server/main.py", 
-                 "--config=/home/bringauto/config/config.json", 
+    entrypoint: ["python3",
+                 "/home/bringauto/external_server/main.py",
+                 "--config=/home/bringauto/config/config.json",
                  "--ip-address=mosquitto",
                  "--port=1883"]
     restart: always
