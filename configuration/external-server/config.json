@@ -9,7 +9,7 @@
       "1": {
         "lib_path": "/home/bringauto/modules/libmission_external_server.so",
         "config": {
-            "api_url": "http://http-api:8080",
+            "api_url": "http://http-api:8080/v2/protocol",
             "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna"
         }
       },
@@ -25,4 +25,3 @@
       }
     }
   }
-  

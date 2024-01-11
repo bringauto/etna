@@ -16,7 +16,7 @@
         }
     },
     "http_server": {
-        "base_uri": "https://api.bringautofleet.com/protocol/v2"
+        "base_uri": "https://api.bringautofleet.com/v2/protocol"
     },
     "request_for_messages": {
         "timeout_in_seconds": 5
