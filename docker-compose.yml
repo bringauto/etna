@@ -55,7 +55,7 @@ services:
 
   external-server:
     image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/external-server:1.0.1
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
       - ./docker_volumes/external-server:/external-server/log
       - ./configuration/external-server:/home/bringauto/config/
