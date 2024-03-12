@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle-utility:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-vehicle-utility:3.0.1
+    image: bringauto/virtual-vehicle-utility:v3.0.1
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -13,7 +13,7 @@ services:
       - bring-emulator
 
   virtual-plc:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/virtual-plc:1.0.0
+    image: bringauto/virtual-plc:v1.0.0
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc"]
     volumes:
       - ./docker_volumes/virtual-plc:/home/bringauto/virtual-plc/log
@@ -25,7 +25,7 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/module-gateway:1.0.1
+    image:  bringauto/module-gateway:v1.0.1
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -40,7 +40,7 @@ services:
       - bring-emulator
 
   mosquitto:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.1.0
+    image: bringauto/mosquitto:v1.1.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
@@ -54,7 +54,7 @@ services:
       - bring-emulator
 
   external-server:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/fleet-protocol-v2/external-server:1.0.1
+    image: bringauto/external-server:v1.0.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
       - ./docker_volumes/external-server:/external-server/log
