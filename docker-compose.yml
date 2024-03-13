@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle-utility:
-    image: bringauto/virtual-vehicle-utility:v3.0.1
+    image: bringauto/virtual-vehicle-utility:v3.0.2
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
