@@ -91,7 +91,8 @@ Actual MQTT topics to which developers can connect by default settings are:
 
 ## Logs
 
-Logs for each component can be found in the `docker_volumes` directory.
+Logs for each component can be found in the `docker_volumes` directory. 
+> The component directories are pre-created in the repository to avoid permission problems associated with docker volumes.
 
 In case of a problem please attach the `docker_volumes` directory to the Bug report.
 
