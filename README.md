@@ -1,6 +1,8 @@
 
 # BringAuto virtual development platform
 
+<span style="color:red">!!! This is THE ONLY WORKING release of ETNA for FLEET PROTOCOL V1 !!! </span>
+
 It's intended to simplify development for [Fleet] and The Autonomy developers.
 
 The system can be used by docker-compose stored at the git root of this repository.

@@ -1,7 +1,7 @@
 version: '3'
 services:
   mosquitto:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-mosquitto:1.1.0
+    image: bringauto/mosquitto:v1.1.0
     profiles: ["all", "without-fleet", "without-autonomy", "without-daemon", "mosquitto", "core"]
     volumes:
       - ./docker_volumes/mosquitto/log:/mosquitto/log
@@ -15,7 +15,7 @@ services:
       - bring-emulator
 
   virtual-fleet:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-fleet:2.2.0
+    image:  bringauto/virtual-fleet:v2.2.0
     profiles: ["all", "without-autonomy", "without-broker", "without-daemon"]
     volumes:
       - ./docker_volumes/virtual-fleet:/virtual-fleet/log
@@ -28,7 +28,7 @@ services:
       - bring-emulator
 
   bringauto-daemon:
-    image:  europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/bringauto-daemon:1.5.0
+    image:  bringauto/bringauto-daemon:v1.5.0
     profiles: ["all", "without-fleet", "without-autonomy", "without-broker", "core", "car"]
     volumes:
       - ./docker_volumes/bringauto-daemon:/bringauto-daemon/log
@@ -41,8 +41,8 @@ services:
                  "--place=${PLACE:-default}",
                  "--vehicle-name=${VEHICLE_NAME:-BringAuto Virtual}",
                  "--broker-ip=mosquitto",
-                 "--broker-port=8883",
-                 "--mqtt-ssl=true",
+                 "--broker-port=1883",
+                 "--mqtt-ssl=false",
                  "--ca-file=/certificates/ca-chain.pem",
                  "--client-cert=/certificates/client.pem",
                  "--client-key=/certificates/client.key",
@@ -53,7 +53,7 @@ services:
       - bring-emulator
 
   virtual-vehicle-utility:
-    image: europe-west1-docker.pkg.dev/bringauto-infrastructure/virtual-platform/virtual-vehicle-utility:2.4.0
+    image: bringauto/virtual-vehicle-utility:v2.4.0
     profiles: ["all", "without-fleet", "without-broker", "without-daemon", "car"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
