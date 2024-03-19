@@ -25,7 +25,7 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:1.0.2
+    image:  bringauto/module-gateway:v1.0.2
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
