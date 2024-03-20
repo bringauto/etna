@@ -15,14 +15,22 @@
       "lib_path": "/home/bringauto/modules/libmission_external_server.so",
       "config": {
           "api_url": "http://http-api:8080/v2/protocol",
-          "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna"
+          "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
+          "maxRequestsThresholdCount": "5",
+          "maxRequestsThresholdPeriodMs": "1000",
+          "delayAfterThresholdReachedMs": "500",
+          "retryRequestsDelayMs": "220"
       }
     },
     "2": {
       "lib_path": "/home/bringauto/modules/libio_external_server.so",
       "config": {
         "api_url": "http://http-api:8080/v2/protocol",
-        "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna"
+        "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
+        "maxRequestsThresholdCount": "5",
+        "maxRequestsThresholdPeriodMs": "1000",
+        "delayAfterThresholdReachedMs": "500",
+        "retryRequestsDelayMs": "220"
       }
     }
   }
