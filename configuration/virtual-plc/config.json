@@ -7,7 +7,7 @@
   },
   "device": {
     "name": "VirtualPLC",
-    "role": "Testing_plc",
+    "role": "testing_plc",
     "ip-address": "module-gateway",
     "port": 1636,
     "module": 2,

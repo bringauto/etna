@@ -3,7 +3,7 @@
 
 It's intended to simplify development for [Fleet] and The Autonomy developers.
 
-The system can be used by docker-compose stored at the git root of this repository.
+The system can be used by docker compose stored at the git root of this repository.
 
 There are multiple containers
 
@@ -14,6 +14,8 @@ There are multiple containers
 - External server - server implementation with Mission, IO and example module support
 - HTTP API Server - tool for communication with final endpoint, used by mission module
 - PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
+
+## Fleet Protocol
 
 To read more about the system architecture look at Fleet Protocol v2 documentation:
 - [Summary]
@@ -28,6 +30,8 @@ To read more about the system architecture look at Fleet Protocol v2 documentati
 - [External Server design]
 - [HTTP API]
 - [HTTP API Wait Mechanism]
+
+To use Fleet Protocol v1, use the latest release on [GitHub](https://github.com/bringauto/etna/tree/v1.2.2).
 
 ## Requirements
 
@@ -91,7 +95,8 @@ Actual MQTT topics to which developers can connect by default settings are:
 
 ## Logs
 
-Logs for each component can be found in the `docker_volumes` directory.
+Logs for each component can be found in the `docker_volumes` directory. 
+> The component directories are pre-created in the repository to avoid permission problems associated with docker volumes.
 
 In case of a problem please attach the `docker_volumes` directory to the Bug report.
 

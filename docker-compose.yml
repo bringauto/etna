@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle-utility:
-    image: bringauto/virtual-vehicle-utility:v3.0.1
+    image: bringauto/virtual-vehicle-utility:v3.0.2
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -25,14 +25,14 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.0.1
+    image:  bringauto/module-gateway:v1.0.2
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
       - ./configuration/module-gateway:/home/bringauto/config/
     ports:
       - 1636:1636
-    entrypoint: ["/home/bringauto/module-gateway/bin/module_gateway_app",
+    entrypoint: ["/home/bringauto/module-gateway/bin/module-gateway-app",
                  "--config-path=/home/bringauto/config/config.json",
                  "--verbose"]
     restart: always
@@ -54,22 +54,20 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.0.1
+    image: bringauto/external-server:v1.1.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
-      - ./docker_volumes/external-server:/external-server/log
+      - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
     entrypoint: ["python3",
                  "/home/bringauto/external_server/main.py",
-                 "--config=/home/bringauto/config/config.json",
-                 "--ip-address=mosquitto",
-                 "--port=1883"]
+                 "--config=/home/bringauto/config/config.json" ]
     restart: always
     networks:
       - bring-emulator
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.0.2
+    image: bringauto/fleet-protocol-http-api:v2.2.0
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
@@ -81,7 +79,9 @@ services:
     volumes:
       - ./configuration/http-api/config.json:/usr/src/app/config.json
     entrypoint:
-      ["python3", "-m", "server", "config.json", "--location", "postgresql-database"]
+      ["python3", "-m", "server",
+       "config.json",
+       "--location=postgresql-database"]
 
   postgresql-database:
     image: postgres:16

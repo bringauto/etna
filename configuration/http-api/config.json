@@ -16,9 +16,17 @@
         }
     },
     "http_server": {
-        "base_uri": "https://api.bringautofleet.com/v2/protocol"
+        "base_uri": "http://http-api:8080/v2/protocol"
     },
     "request_for_messages": {
         "timeout_in_seconds": 5
+    },
+    "security": {
+        "keycloak_url": "https://keycloak.bringauto.com",
+        "client_id": "",
+        "client_secret_key": "",
+        "scope": "",
+        "realm": "",
+        "keycloak_public_key_file": "config/keycloak.pem"
     }
 }
