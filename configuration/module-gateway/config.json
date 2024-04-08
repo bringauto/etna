@@ -7,8 +7,8 @@
     "port": 1636
   },
   "module-paths": {
-    "1": "/home/bringauto/module-gateway/lib/libmission_module_gateway.so",
-    "2": "/home/bringauto/module-gateway/lib/libio_module_gateway.so"
+    "1": "/home/bringauto/modules/mission_module/lib/libmission-module-gateway-shared.so",
+    "2": "/home/bringauto/modules/io_module/lib/libio-module-gateway-shared.so"
   },
   "external-connection" : {
     "company" : "bringauto",
