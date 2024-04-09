@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle-utility:
-    image: bringauto/virtual-vehicle-utility:v3.0.2
+    image: bringauto/virtual-vehicle-utility:v3.1.0
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -25,7 +25,7 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.0.2
+    image:  bringauto/module-gateway:v1.1.0
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -54,13 +54,13 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.1.1
+    image: bringauto/external-server:v1.1.2
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
     entrypoint: ["python3",
-                 "/home/bringauto/external_server/main.py",
+                 "/home/bringauto/external_server/external_server_main.py",
                  "--config=/home/bringauto/config/config.json" ]
     restart: always
     networks:

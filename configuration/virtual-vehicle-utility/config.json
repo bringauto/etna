@@ -29,7 +29,7 @@
 			"device-role": "autonomy",
 			"device-priority": 1,
 			"reconnect-period-s": 20,
-			"device-name": "virtual-vehicle"
+			"device-name": "virtual_vehicle"
 		},
 		"empty":{
 		}
