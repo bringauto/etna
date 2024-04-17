@@ -23,7 +23,7 @@
           "client-cert" : "client.pem",
           "client-key" : "client.key"
         },
-        "server-ip": "mosquitto",
+        "server-ip": "vernemq",
         "port": 1883,
         "modules": [ 1, 2 ]
       }

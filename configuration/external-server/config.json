@@ -1,7 +1,7 @@
 {
   "company_name": "bringauto",
   "car_name": "virtual_vehicle",
-  "mqtt_address": "mosquitto",
+  "mqtt_address": "vernemq",
   "mqtt_port": 1883,
   "mqtt_timeout": 60,
   "timeout": 60,

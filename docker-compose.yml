@@ -8,7 +8,7 @@ services:
       - ./configuration/virtual-vehicle-utility:/virtual-vehicle-utility/config
     entrypoint: ["/virtual-vehicle-utility/bin/virtual-vehicle-utility",
                  "--config=/virtual-vehicle-utility/config/config.json"]
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
 
@@ -20,7 +20,7 @@ services:
       - ./configuration/virtual-plc:/home/bringauto/virtual-plc/config
     entrypoint: ["/home/bringauto/virtual-plc/bin/virtual_plc",
                  "--config=/home/bringauto/virtual-plc/config/config.json"]
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
 
@@ -35,21 +35,19 @@ services:
     entrypoint: ["/home/bringauto/module-gateway/bin/module-gateway-app",
                  "--config-path=/home/bringauto/config/config.json",
                  "--verbose"]
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
 
-  mosquitto:
-    image: bringauto/mosquitto:v1.1.0
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mosquitto"]
+  vernemq:
+    image: bringauto/vernemq:1.13.0
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt"]
     volumes:
-      - ./docker_volumes/mosquitto/log:/mosquitto/log
-      - ./docker_volumes/mosquitto/data:/mosquitto/data
-      - ./configuration/mosquitto:/mosquitto/config/
+      - ./configuration/vernemq:/etc/vernemq/
     ports:
       - 1883:1883
       - 8883:8883
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
 
@@ -62,7 +60,7 @@ services:
     entrypoint: ["python3",
                  "/home/bringauto/external_server/external_server_main.py",
                  "--config=/home/bringauto/config/config.json" ]
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
 
@@ -71,7 +69,7 @@ services:
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
-    restart: always
+    restart: "no"
     depends_on:
       - postgresql-database
     networks:
@@ -89,7 +87,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
-    restart: always
+    restart: "no"
     networks:
       - bring-emulator
     ports:
