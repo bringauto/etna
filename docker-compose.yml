@@ -25,7 +25,7 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.1.1
+    image:  bringauto/module-gateway:v1.1.2
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -43,6 +43,7 @@ services:
     image: bringauto/vernemq:1.13.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt"]
     volumes:
+      - ./docker_volumes/vernemq:/vernemq/log/log/
       - ./configuration/vernemq:/etc/vernemq/
     ports:
       - 1883:1883
@@ -52,7 +53,7 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.1.3
+    image: bringauto/external-server:v1.1.4
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
@@ -69,7 +70,7 @@ services:
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
-    restart: "no"
+    restart: on-failure:10
     depends_on:
       - postgresql-database
     networks:
