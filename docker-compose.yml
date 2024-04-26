@@ -66,7 +66,7 @@ services:
       - bring-emulator
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.2.2
+    image: bringauto/fleet-protocol-http-api:v2.3.0
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
