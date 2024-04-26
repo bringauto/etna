@@ -6,7 +6,7 @@
     "reconnection-attempts": 3
   },
   "device": {
-    "name": "VirtualPLC",
+    "name": "virtual_plc",
     "role": "testing_plc",
     "ip-address": "module-gateway",
     "port": 1636,

@@ -7,7 +7,7 @@ The system can be used by docker compose stored at the git root of this reposito
 
 There are multiple containers
 
-- Mosquitto MQTT broker (bringauto-mosquitto)
+- VerneMQ MQTT broker (bringauto/vernemq)
 - Virtual Vehicle Utility - Mission module client implementation (it connects to Module Gateway and simulates an Mission module's autonomy device)
 - Virtual PLC - IO module client
 - Module Gateway - cpp implementation of Module Gateway with Mission, IO and example module support
@@ -50,7 +50,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - core - start only internal clients and Module Gateway
 - virtual-vehicle-utility - start only Virtual Vehicle Utility
 - virtual-plc - start only Virtual PLC
-- mosquitto - start only MQTT mosquitto broker
+- mqtt - start only MQTT vernemq broker
 - module-gateway - start only Module Gateway
 - http-api -  start HTTP API server and the related PostgreSQL database
 
