@@ -16,10 +16,10 @@
       "config": {
           "api_url": "http://http-api:8080/v2/protocol",
           "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
-          "maxRequestsThresholdCount": "5",
-          "maxRequestsThresholdPeriodMs": "1000",
-          "delayAfterThresholdReachedMs": "500",
-          "retryRequestsDelayMs": "220"
+          "max_requests_threshold_count": "5",
+          "max_requests_threshold_period_ms": "1000",
+          "delay_after_threshold_reached_ms": "500",
+          "retry_requests_delay_ms": "220"
       }
     },
     "2": {
@@ -27,10 +27,10 @@
       "config": {
         "api_url": "http://http-api:8080/v2/protocol",
         "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
-        "maxRequestsThresholdCount": "5",
-        "maxRequestsThresholdPeriodMs": "1000",
-        "delayAfterThresholdReachedMs": "500",
-        "retryRequestsDelayMs": "220"
+        "max_requests_threshold_count": "5",
+        "max_requests_threshold_period_ms": "1000",
+        "delay_after_threshold_reached_ms": "500",
+        "retry_requests_delay_ms": "220"
       }
     }
   }
