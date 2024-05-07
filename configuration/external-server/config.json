@@ -15,7 +15,7 @@
       "lib_path": "/home/bringauto/modules/mission_module/lib/libmission-external-server-shared.so",
       "config": {
           "api_url": "http://http-api:8080/v2/protocol",
-          "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
+          "api_key": "ProtocolStaticAccessKey",
           "max_requests_threshold_count": "5",
           "max_requests_threshold_period_ms": "1000",
           "delay_after_threshold_reached_ms": "500",
@@ -26,7 +26,7 @@
       "lib_path": "/home/bringauto/modules/io_module/lib/libio-external-server-shared.so",
       "config": {
         "api_url": "http://http-api:8080/v2/protocol",
-        "api_key": "StaticAccessKeyToBeUsedByDevelopersOnEtna",
+        "api_key": "ProtocolStaticAccessKey",
         "max_requests_threshold_count": "5",
         "max_requests_threshold_period_ms": "1000",
         "delay_after_threshold_reached_ms": "500",

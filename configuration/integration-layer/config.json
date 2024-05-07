@@ -1,0 +1,16 @@
+{
+    "protocol": {
+        "host": "http://http-api:8080/v2/protocol",
+        "api_key": "ProtocolStaticAccessKey",
+        "autonomy_device_id":
+        {
+            "module_id": 1,
+            "type": 1,
+            "role": "autonomy"
+        }
+    },
+    "management": {
+        "host": "http://management-api:8081/v2/management",
+        "api_key": "ManagementStaticAccessKey"
+    }
+}

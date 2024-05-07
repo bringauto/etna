@@ -53,7 +53,7 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.1.4
+    image: bringauto/external-server:v1.1.5
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
@@ -82,9 +82,37 @@ services:
        "config.json",
        "--location=postgresql-database"]
 
+  integration-layer:
+    image: bringauto/fleet-management-integration-layer:v0.1.12
+    profiles: ["all", "without-devices", "without-module-gateway"]
+    restart: on-failure:10
+    networks:
+      - bring-emulator
+    volumes:
+      - ./configuration/integration-layer/config.json:/usr/src/app/config.json
+    entrypoint:
+      ["python3", "-m", "fleetman_integration", "config.json"]
+
+  management-api:
+    image: bringauto/fleet-management-http-api:v2.3.1
+    profiles: ["all", "without-devices", "without-module-gateway", "management-api"]
+    ports:
+      - 8081:8081
+    restart: on-failure:10
+    depends_on:
+      - postgresql-database
+    networks:
+      - bring-emulator
+    volumes:
+      - ./configuration/management-api/config.json:/usr/src/app/config.json
+    entrypoint:
+      ["python3", "-m", "fleet_management_api",
+       "config.json",
+       "--location=postgresql-database"]
+
   postgresql-database:
     image: postgres:16
-    profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "management-api"]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
@@ -94,7 +122,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ./db/insert_test_api_key.sql:/docker-entrypoint-initdb.d/insert_test_api_key.sql
+      - ./db/insert_test_api_key.sh:/docker-entrypoint-initdb.d/insert_test_api_key.sh
 
 networks:
   bring-emulator:
