@@ -1,0 +1,39 @@
+{
+    "components": [
+        {
+            "name": "virtual-vehicle-utility",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "virtual-plc",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "module-gateway",
+            "replace": true,
+            "path": "/home/mario/GitRepos/module-gateway/Dockerfile"
+        },
+        {
+            "name": "external-server",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "http-api",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "integration-layer",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "management-api",
+            "replace": false,
+            "path": ""
+        }
+    ]
+}
