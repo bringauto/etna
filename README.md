@@ -8,11 +8,13 @@ The system can be used by docker compose stored at the git root of this reposito
 There are multiple containers
 
 - VerneMQ MQTT broker (bringauto/vernemq)
-- Virtual Vehicle Utility - Mission module client implementation (it connects to Module Gateway and simulates an Mission module's autonomy device)
+- Virtual Vehicle Utility - Mission module client implementation (it connects to Module Gateway and simulates a Mission module's autonomy device)
 - Virtual PLC - IO module client
 - Module Gateway - cpp implementation of Module Gateway with Mission, IO and example module support
 - External server - server implementation with Mission, IO and example module support
 - HTTP API Server - tool for communication with final endpoint, used by mission module
+- Integration layer - a bridge between the HTTP API and the Fleet Management API
+- Fleet Management API - an API that handles creating orders for cars and displaying their state
 - PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
 
 ## Fleet Protocol
@@ -59,12 +61,20 @@ Now you can run `docker-compose --profile=<profile> up` where `profile` is the n
 To run components with different arguments you can edit the configuration files placed under configuration/<component>
 
 ### HTTP API
-To show the OpenAPI specification (the service must be running), visit http://localhost:8080/openapi.json. 
-To explore the API endpoints and entities, visit http://localhost:8080/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
+To show the OpenAPI specification (the service must be running), visit http://localhost:8080/v2/protocol/openapi.json. 
+To explore the API endpoints and entities, visit http://localhost:8080/v2/protocol/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
 
-The HTTP API requires authentication via API keys. To access all its endpoints, you can use the key `StaticAccessKeyToBeUsedByDevelopersOnEtna`.
+The HTTP API requires authentication via API keys. To access all its endpoints, you can use the key `ProtocolStaticAccessKey`.
 
 The database access information and message cleanup can be set in the `configuration/http-api/config.json` (this config overwrites the original config from the http-api image).
+
+### Fleet Management API
+To show the OpenAPI specification (the service must be running), visit http://localhost:8081/v2/management/openapi.json. 
+To explore the API endpoints and entities, visit http://localhost:8081/v2/management/ui. More on Swagger UI is [here](https://swagger.io/tools/swagger-ui/).
+
+The Fleet Management API requires authentication via API keys. To access all its endpoints, you can use the key `ManagementStaticAccessKey`.
+
+The database access information and the number of stored states and orders can be set in `configuration/management-api/config.json` (this config overwrites the original config from the management-api image).
 
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.

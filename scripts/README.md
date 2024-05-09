@@ -1,8 +1,8 @@
 
 # BringAuto Etna helper scripts
 
-Directory contains scripts which helps newcomers
-to understand how the BringAuto software and hardware platform works.
+Directory contains scripts which help newcomers
+understand how the BringAuto software and hardware platform works.
 
 ## Requirements
 
@@ -20,12 +20,19 @@ to understand how the BringAuto software and hardware platform works.
 
 ### third_party_monitoring
 
-- it helps to observe messages send by BringAuto Daemon
+- it helps to observe messages sent by BringAuto Daemon
 - run the script by `python3 third_party_monitoring.py`
-- it may needs recompile protobuf files with following commands:
+- it may need recompiled protobuf files with following commands:
 - - `git submodule update --init --recursive`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
+
+### fleet-init
+
+- initializes the fleet management database with stops and routes
+- run the script by `python3 fleet-init/main.py -c init_config.ini -d maps`
+- is a submodule so it needs to be initialized by:
+- - `git submodule update --init --recursive`
 
 ## Arguments
 
