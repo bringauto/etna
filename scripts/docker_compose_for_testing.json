@@ -35,6 +35,16 @@
             "name": "management-api",
             "replace": false,
             "path": "../../fleet-management-http-api"
+        },
+        {
+            "name": "vernemq",
+            "replace": false,
+            "path": ""
+        },
+        {
+            "name": "postgresql-database",
+            "replace": false,
+            "path": ""
         }
     ]
 }

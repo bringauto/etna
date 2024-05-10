@@ -35,7 +35,7 @@ def main():
             )
 
     with open('docker-compose.yml', 'w') as file:
-        file.write(yaml.dump(docker_compose))
+        file.write(yaml.dump(docker_compose, default_flow_style=True))
 
 if __name__ == '__main__':
     main()
