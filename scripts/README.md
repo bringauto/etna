@@ -34,6 +34,14 @@ understand how the BringAuto software and hardware platform works.
 - is a submodule so it needs to be initialized by:
 - - `git submodule update --init --recursive`
 
+### create_docker_compose_for_testing
+
+- creates a new docker-compose.yml with docker images replaced by desired images built from local repositories
+- run the script by `python3 create_docker_compose_for_testing.py`
+- the config file `docker_compose_for_testing.json` needs to be adjusted
+- - etna_path needs to point to the root directory of the etna repository
+- - to build a docker image from a local repository, change the replace tag to true and set the path to the root directory of that repository
+
 ## Arguments
 
 ### third_party_monitoring
@@ -43,3 +51,8 @@ understand how the BringAuto software and hardware platform works.
 - `--ca-certs` -- certificate authority, default is ./certs/ca-chain.pem
 - `--certfile` -- client certificate, default is ./certs/client.pem
 - `--keyfile` -- key to client certificate, default is ./certs/client.key
+
+### create_docker_compose_for_testing
+
+- `-c` or `--config` -- path to config file, default is ./docker_compose_for_testing.json
+- `-o` or `--output` -- path to output directory for docker-compose.yml, default is ./

@@ -4,9 +4,17 @@ import yaml
 import json
 import os.path
 import subprocess
+import argparse
+
+def argument_parser_init() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description='docker-compose.yml creation tool')
+    parser.add_argument('-c', '--config', type=str, default='./docker_compose_for_testing.json', help='configuration file')
+    parser.add_argument('-o', '--output', type=str, default='./', help='output directory for docker-compose.yml')
+    return parser.parse_args()
 
 def main():
-    with open('docker_compose_for_testing.json', 'r') as file:
+    args = argument_parser_init()
+    with open(args.config, 'r') as file:
         config = json.load(file)
 
     etna_path = os.path.abspath(config['etna_path'])
@@ -34,7 +42,7 @@ def main():
                 os.path.join(etna_path, paths[0]) + ":" + paths[1]
             )
 
-    with open('docker-compose.yml', 'w') as file:
+    with open(os.path.join(args.output, 'docker-compose.yml'), 'w') as file:
         file.write(yaml.dump(docker_compose, default_flow_style=True))
 
 if __name__ == '__main__':
