@@ -1,39 +1,40 @@
 {
+    "etna_path": "..",
     "components": [
         {
             "name": "virtual-vehicle-utility",
             "replace": false,
-            "path": ""
+            "path": "../../virtual-vehicle"
         },
         {
             "name": "virtual-plc",
             "replace": false,
-            "path": ""
+            "path": "../../virtual-plc-arduino-opta"
         },
         {
             "name": "module-gateway",
-            "replace": true,
-            "path": "/home/mario/GitRepos/module-gateway/Dockerfile"
+            "replace": false,
+            "path": "../../module-gateway"
         },
         {
             "name": "external-server",
             "replace": false,
-            "path": ""
+            "path": "../../external-server"
         },
         {
             "name": "http-api",
             "replace": false,
-            "path": ""
+            "path": "../../fleet-protocol-http-api"
         },
         {
             "name": "integration-layer",
             "replace": false,
-            "path": ""
+            "path": "../../fleet-management-v2-integration-layer"
         },
         {
             "name": "management-api",
             "replace": false,
-            "path": ""
+            "path": "../../fleet-management-http-api"
         }
     ]
 }
