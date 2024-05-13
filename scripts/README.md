@@ -54,5 +54,5 @@ understand how the BringAuto software and hardware platform works.
 
 ### create_docker_compose_for_testing
 
-- `-c` or `--config` -- path to config file, default is ./docker_compose_for_testing.json
+- `-c` or `--config` -- path to config file, default is ./docker_compose_config.json
 - `-o` or `--output` -- path to output directory for docker-compose.yml, default is ./

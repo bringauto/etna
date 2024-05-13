@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
-import yaml
 import json
 import os.path
 import subprocess
 import argparse
+from ruamel.yaml import YAML
 
 def argument_parser_init() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='docker-compose.yml creation tool')
-    parser.add_argument('-c', '--config', type=str, default='./docker_compose_for_testing.json', help='configuration file')
+    parser.add_argument('-c', '--config', type=str, default='./docker_compose_config.json', help='configuration file')
     parser.add_argument('-o', '--output', type=str, default='./', help='output directory for docker-compose.yml')
     return parser.parse_args()
 
@@ -18,8 +18,10 @@ def main():
         config = json.load(file)
 
     etna_path = os.path.abspath(config['etna_path'])
+    yaml = YAML()
+    yaml.preserve_quotes = True
     with open(os.path.join(etna_path, 'docker-compose.yml'), 'r') as file:
-        docker_compose = yaml.load(file, Loader=yaml.FullLoader)
+        docker_compose = yaml.load(file)
 
     for component in config['components']:
         if component['replace']:
@@ -43,7 +45,8 @@ def main():
             )
 
     with open(os.path.join(args.output, 'docker-compose.yml'), 'w') as file:
-        file.write(yaml.dump(docker_compose, default_flow_style=True))
+        yaml.indent(mapping=2, sequence=4, offset=2)
+        yaml.dump(docker_compose, file)
 
 if __name__ == '__main__':
     main()
