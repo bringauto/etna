@@ -25,6 +25,7 @@ def main():
 
     for component in config['components']:
         if component['replace']:
+            # Build a docker image and put it in the generated docker-compose.yml
             if os.path.isfile(os.path.join(component['path'], 'Dockerfile')):
                 print(f"Building docker image for {component['name']}")
                 command = f"docker build -t {component['name']}:testing -f {component['path']}/Dockerfile {component['path']}"
@@ -36,6 +37,8 @@ def main():
             else:
                 print(f"Path provided for {component['name']} does not lead to a Dockerfile")
                 return
+            
+        # Replace the volumes in the generated docker-compose.yml with absolute paths
         volumes = docker_compose['services'][component['name']]['volumes']
         docker_compose['services'][component['name']]['volumes'] = []
         for volume in volumes:
@@ -43,6 +46,9 @@ def main():
             docker_compose['services'][component['name']]['volumes'].append(
                 os.path.join(etna_path, paths[0]) + ":" + paths[1]
             )
+
+        # Add a unique profile for each component (for testing purposes)
+        docker_compose['services'][component['name']]['profiles'].append(f"{component['name']}-testing")
 
     with open(os.path.join(args.output, 'docker-compose.yml'), 'w') as file:
         yaml.indent(mapping=2, sequence=4, offset=2)
