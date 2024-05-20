@@ -3,7 +3,7 @@
   "car_name": "virtual_vehicle",
   "mqtt_address": "172.17.0.1",
   "mqtt_port": 1883,
-  "mqtt_timeout": 60,
+  "mqtt_timeout": 20,
   "timeout": 60,
   "send_invalid_command": false,
   "sleep_duration_after_connection_refused": 0.5,
