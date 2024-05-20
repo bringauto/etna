@@ -70,9 +70,10 @@ services:
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
-    restart: on-failure:10
+    restart: "no"
     depends_on:
-      - postgresql-database
+      postgresql-database:
+        condition: service_healthy
     networks:
       - bring-emulator
     volumes:
@@ -98,9 +99,10 @@ services:
     profiles: ["all", "without-devices", "without-module-gateway", "management-api"]
     ports:
       - 8081:8081
-    restart: on-failure:10
+    restart: "no"
     depends_on:
-      - postgresql-database
+      postgresql-database:
+        condition: service_healthy
     networks:
       - bring-emulator
     volumes:
@@ -117,6 +119,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
     restart: "no"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
     networks:
       - bring-emulator
     ports:

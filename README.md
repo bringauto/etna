@@ -56,7 +56,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - module-gateway - start only Module Gateway
 - http-api -  start HTTP API server and the related PostgreSQL database
 
-Now you can run `docker-compose --profile=<profile> up` where `profile` is the name of the profile above.
+Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 
 To run components with different arguments you can edit the configuration files placed under configuration/<component>
 
@@ -75,6 +75,14 @@ To explore the API endpoints and entities, visit http://localhost:8081/v2/manage
 The Fleet Management API requires authentication via API keys. To access all its endpoints, you can use the key `ManagementStaticAccessKey`.
 
 The database access information and the number of stored states and orders can be set in `configuration/management-api/config.json` (this config overwrites the original config from the management-api image).
+
+### Common Issues
+- external-server and module-gateway connect sequence
+  - mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples of 15 should be used)
+- postgresql databases
+  - databases are created only on container creation (if you have an old container, it needs to be deleted)
+- http APIs
+  - by default API containers wait for the postgresql database to be available. If the database fails to initialize, the containers won't start
 
 ## MQTT IP and Port
 The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
