@@ -84,7 +84,7 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v0.1.19
+    image: bringauto/fleet-management-integration-layer:v0.1.21
     profiles: ["all", "without-devices", "without-module-gateway"]
     restart: "no"
     networks:
@@ -95,7 +95,7 @@ services:
       ["python3", "-m", "fleetman_integration", "config.json"]
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.1.0
+    image: bringauto/fleet-management-http-api:v2.3.2
     profiles: ["all", "without-devices", "without-module-gateway", "management-api"]
     ports:
       - 8081:8081
