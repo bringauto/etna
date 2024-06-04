@@ -143,7 +143,9 @@
   <node id='-103554' action='modify' lat='49.22195658129' lon='16.59316429893' />
   <node id='-103555' action='modify' lat='49.22244537347' lon='16.59310394065' />
   <node id='-103556' lat='49.22382' lon='16.59239'>
-    <tag k='gpx:name' v='TP063' />
+    <tag k='gpx:name' v='TP060' />
+        <tag k='name' v='Bulharská' />
+        <tag k='stop' v='true' />
   </node>
   <node id='-103557' lat='49.22328' lon='16.59018'>
     <tag k='gpx:name' v='TP046' />
@@ -275,6 +277,8 @@
   <node id='-103653' action='modify' lat='49.22276461276' lon='16.59012730257' />
   <node id='-103654' lat='49.2216472' lon='16.5908117'>
     <tag k='gpx:name' v='TP022' />
+        <tag k='name' v='Svatopluka Čecha A' />
+        <tag k='stop' v='true' />
   </node>
   <node id='-103655' action='modify' lat='49.22254072024' lon='16.58725968558' />
   <node id='-103656' action='modify' lat='49.22344816855' lon='16.59077444433' />

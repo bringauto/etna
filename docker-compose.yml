@@ -1,8 +1,8 @@
 version: '3'
 services:
   virtual-vehicle-utility:
-    image: bringauto/virtual-vehicle-utility:v3.1.3
-    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility"]
+    image: bringauto/virtual-vehicle-utility:v3.1.4
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle-utility", "without-fleet-management"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
       - ./configuration/virtual-vehicle-utility:/virtual-vehicle-utility/config
@@ -14,7 +14,7 @@ services:
 
   virtual-plc:
     image: bringauto/virtual-plc:v1.0.0
-    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc"]
+    profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-plc", "without-fleet-management"]
     volumes:
       - ./docker_volumes/virtual-plc:/home/bringauto/virtual-plc/log
       - ./configuration/virtual-plc:/home/bringauto/virtual-plc/config
@@ -25,8 +25,8 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.1.3
-    profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core"]
+    image:  bringauto/module-gateway:v1.1.5
+    profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "without-fleet-management"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
       - ./configuration/module-gateway:/home/bringauto/config/
@@ -41,7 +41,7 @@ services:
 
   vernemq:
     image: bringauto/vernemq:1.13.0
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt", "without-fleet-management"]
     volumes:
       - ./docker_volumes/vernemq:/vernemq/log/log/
       - ./configuration/vernemq:/etc/vernemq/
@@ -53,8 +53,8 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.1.5
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server"]
+    image: bringauto/external-server:v1.1.7
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
@@ -66,8 +66,8 @@ services:
       - bring-emulator
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.3.3
-    profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
+    image: bringauto/fleet-protocol-http-api:v2.4.1
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "without-fleet-management"]
     ports:
       - 8080:8080
     restart: "no"
@@ -84,8 +84,8 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v0.1.16
-    profiles: ["all", "without-devices", "without-module-gateway"]
+    image: bringauto/fleet-management-integration-layer:1.0.0
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management"]
     restart: "no"
     networks:
       - bring-emulator
@@ -95,8 +95,8 @@ services:
       ["python3", "-m", "fleetman_integration", "config.json"]
 
   management-api:
-    image: bringauto/fleet-management-http-api:v2.3.1
-    profiles: ["all", "without-devices", "without-module-gateway", "management-api"]
+    image: bringauto/fleet-management-http-api:v3.1.0
+    profiles: ["all", "without-devices", "without-module-gateway", "management-api", "without-fleet-management"]
     ports:
       - 8081:8081
     restart: "no"
@@ -112,9 +112,26 @@ services:
        "config.json",
        "--location=postgresql-database"]
 
+  virtual-fleet-management:
+    image: bringauto/virtual-fleet-management:3.0.0
+    profiles: ["all", "without-devices", "without-module-gateway"]
+    restart: "always"
+    depends_on:
+      management-api:
+        condition: service_started
+    networks:
+      - bring-emulator
+    volumes:
+      - ./configuration/virtual-fleet-management/:/home/bringauto/virtual-fleet-management/resources/
+      - ./docker_volumes/virtual-fleet-management/:/home/bringauto/virtual-fleet-management/log/
+    entrypoint:
+      ["/home/bringauto/virtual-fleet-management/virtual-fleet-management",
+       "-config=/home/bringauto/virtual-fleet-management/resources/config.json"
+      ]
+
   postgresql-database:
     image: postgres:16
-    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "management-api"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "management-api", "without-fleet-management"]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
