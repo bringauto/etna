@@ -26,7 +26,6 @@
         "client_id": "",
         "client_secret_key": "",
         "scope": "",
-        "realm": "",
-        "keycloak_public_key_file": "config/keycloak.pem"
+        "realm": ""
     }
 }
