@@ -95,7 +95,7 @@ services:
       ["python3", "-m", "fleetman_integration", "config.json"]
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.1.0
+    image: bringauto/fleet-management-http-api:v3.1.3
     profiles: ["all", "without-devices", "without-module-gateway", "management-api", "without-fleet-management"]
     ports:
       - 8081:8081
