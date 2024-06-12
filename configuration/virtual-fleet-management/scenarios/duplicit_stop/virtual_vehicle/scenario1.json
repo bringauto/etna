@@ -1,8 +1,9 @@
 {
 	"map": "lap.osm",
+	"starting_station": "first",
 	"missions": [
 		{
-			"delay_seconds": 5,
+			"delay_seconds": 0,
 			"name": "mission1",
 			"stops": [
 				{"name": "first"},
@@ -11,7 +12,7 @@
 			"route": "lap"
 		},
 		{
-			"delay_seconds": 30,
+			"delay_seconds": 10,
 			"name": "mission2",
 			"stops": [
 				{"name": "second"},
