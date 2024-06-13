@@ -28,7 +28,8 @@ def main():
             # Build a docker image and put it in the generated docker-compose.yml
             if os.path.isfile(os.path.join(component['path'], 'Dockerfile')):
                 print(f"Building docker image for {component['name']}")
-                command = f"docker build -t {component['name']}:testing -f {component['path']}/Dockerfile {component['path']}"
+                command = (f"docker build {'--no-cache ' if component['force_rebuild'] else ''}"
+                           f"-t {component['name']}:testing -f {component['path']}/Dockerfile {component['path']}")
                 rc = subprocess.call(command.split(" "), text=True)
                 if rc != 0:
                    print(f"Failed to build docker image for {component['name']}")

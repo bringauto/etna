@@ -41,6 +41,7 @@ understand how the BringAuto software and hardware platform works.
 - the config file `docker_compose_for_testing.json` needs to be adjusted
 - - etna_path needs to point to the root directory of the etna repository
 - - to build a docker image from a local repository, change the replace tag to true and set the path to the root directory of that repository
+- - the force_rebuild tag forces the docker image of that component to be rebuilt
 
 ## Arguments
 
