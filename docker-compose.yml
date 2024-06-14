@@ -66,7 +66,7 @@ services:
       - bring-emulator
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.4.1
+    image: bringauto/fleet-protocol-http-api:v2.4.2
     profiles: ["all", "without-devices", "without-module-gateway", "http-api"]
     ports:
       - 8080:8080
@@ -84,7 +84,7 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v1.0.2
+    image: bringauto/fleet-management-integration-layer:v2.0.0
     profiles: ["all", "without-devices", "without-module-gateway"]
     restart: "no"
     networks:
