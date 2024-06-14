@@ -25,7 +25,7 @@ services:
       - bring-emulator
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.1.5
+    image:  bringauto/module-gateway:v1.1.6
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "without-fleet-management"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -53,7 +53,7 @@ services:
       - bring-emulator
 
   external-server:
-    image: bringauto/external-server:v1.1.7
+    image: bringauto/external-server:v1.1.9
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
@@ -66,7 +66,7 @@ services:
       - bring-emulator
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.4.1
+    image: bringauto/fleet-protocol-http-api:v2.4.2
     profiles: ["all", "without-devices", "without-module-gateway", "http-api", "without-fleet-management"]
     ports:
       - 8080:8080
@@ -84,7 +84,7 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v1.0.0
+    image: bringauto/fleet-management-integration-layer:v2.0.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management"]
     restart: "no"
     networks:
@@ -95,7 +95,7 @@ services:
       ["python3", "-m", "fleetman_integration", "config.json"]
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.1.3
+    image: bringauto/fleet-management-http-api:v3.1.5
     profiles: ["all", "without-devices", "without-module-gateway", "management-api", "without-fleet-management"]
     ports:
       - 8081:8081
