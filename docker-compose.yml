@@ -113,9 +113,9 @@ services:
        "--location=postgresql-database"]
 
   virtual-fleet-management:
-    image: bringauto/virtual-fleet-management:v3.0.0
+    image: bringauto/virtual-fleet-management:v3.0.1
     profiles: ["all", "without-devices", "without-module-gateway"]
-    restart: "always"
+    restart: "no"
     depends_on:
       management-api:
         condition: service_started
@@ -126,7 +126,7 @@ services:
       - ./docker_volumes/virtual-fleet-management/:/home/bringauto/virtual-fleet-management/log/
     entrypoint:
       ["/home/bringauto/virtual-fleet-management/virtual-fleet-management",
-       "-config=/home/bringauto/virtual-fleet-management/resources/config.json",
+       "-config=/home/bringauto/virtual-fleet-management/resources/${ETNA_VFM_CONFIG:-config.json}",
        "-scenario-dir=/home/bringauto/virtual-fleet-management/resources/scenarios/${ETNA_VFM_SCENARIO:-default}/",
       ]
 

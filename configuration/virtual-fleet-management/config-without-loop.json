@@ -1,0 +1,7 @@
+{
+  "host": "http://management-api:8081",
+  "api-key": "ManagementStaticAccessKey",
+  "log-path": "/home/bringauto/virtual-fleet-management/log",
+  "scenario-dir": "/home/bringauto/virtual-fleet-management/resources/scenarios/",
+  "loop": false
+}
