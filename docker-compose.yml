@@ -91,6 +91,8 @@ services:
       - bring-emulator
     volumes:
       - ./configuration/integration-layer/config.json:/usr/src/app/config.json
+      - ./configuration/integration-layer/logging.json:/usr/src/app/logging.json
+      - ./docker_volumes/integration-layer:/usr/src/app/log
     entrypoint:
       ["python3", "-m", "fleetman_integration", "config.json"]
 
