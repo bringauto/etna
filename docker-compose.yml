@@ -90,9 +90,10 @@ services:
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/integration-layer/config.json:/usr/src/app/config.json
+      - ./configuration/integration-layer:/usr/src/app/config
+      - ./docker_volumes/integration-layer:/usr/src/app/log
     entrypoint:
-      ["python3", "-m", "fleetman_integration", "config.json"]
+      ["python3", "-m", "fleetman_integration", "config/config.json"]
 
   management-api:
     image: bringauto/fleet-management-http-api:v3.1.5
