@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "formatters": {
+    "simple": {
+      "format": "[%(asctime)s.%(msecs)03d] [integration-layer] [%(levelname)s]\t %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S"
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+    "file": {
+      "class": "logging.handlers.RotatingFileHandler",
+      "level": "DEBUG",
+      "formatter": "simple",
+      "filename": "/usr/src/app/log/fleet-management-integration-layer.log"
+    }
+  },
+  "loggers": {
+    "fleetman_integration.protocol.checker": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.layer": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.protocol.handler": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.protocol.api_adapter": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.management.checker": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.management.handler": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    },
+    "fleetman_integration.management.api_adapter": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "file"
+      ],
+      "propagate": false
+    }
+  },
+  "root": {
+    "level": "DEBUG",
+    "handlers": [
+      "console",
+      "file"
+    ]
+  }
+}

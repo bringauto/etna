@@ -1,0 +1,58 @@
+{
+	"map": "route_change.osm",
+	"starting_station": "route_change_starting_station",
+	"missions": [
+		{
+		 "delay_seconds": 0,
+		 "name": "mission1",
+		 "stops": [
+			{"name": "first_route_stop"}
+			],
+			"route": "First"
+		},
+		{
+	 	 "delay_seconds": 40,
+		 "name": "mission2",
+		 "stops": [
+			{"name": "second_route_stop"}
+			],
+			"route": "Second"
+		}
+	],
+	"routes": [
+		{
+			"name": "First",
+			"stations": [
+				{
+					"name": "route_change_starting_station",
+					"position": {
+						"latitude": 49.22824453831,
+						"longitude": 16.5951007551,
+						"altitude": 0
+					}
+				},
+				{
+					"name": "first_route_stop",
+					"position": {
+						"latitude": 49.22808689321,
+						"longitude": 16.5932875818,
+						"altitude": 0
+					}
+				}
+			]
+		},
+		{
+			"name": "Second",
+			"stations": [
+				{
+					"name": "second_route_stop",
+					"position": {
+						"latitude": 49.22859135578,
+						"longitude": 16.59190356195,
+						"altitude": 0
+					}
+				}
+			]
+		}
+	]
+}
