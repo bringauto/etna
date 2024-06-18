@@ -30,7 +30,7 @@ understand how the BringAuto software and hardware platform works.
 ### fleet-init
 
 - initializes the fleet management database with stops and routes
-- run the script by `python3 fleet-init/main.py -c init_config.ini -d maps`
+- run the script by `python3 fleet-init/main.py -c init_config.ini -m maps -d`
 - is a submodule so it needs to be initialized by:
 - - `git submodule update --init --recursive`
 
