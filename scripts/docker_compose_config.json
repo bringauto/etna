@@ -44,9 +44,15 @@
             "force_rebuild": false
         },
         {
+            "name": "virtual-fleet-management",
+            "replace": false,
+            "path": "../../virtual-fleet-management",
+            "force_rebuild": false
+        },
+        {
             "name": "vernemq",
             "replace": false,
-            "path": "",
+            "path": "../../vernemq-docker",
             "force_rebuild": false
         },
         {
