@@ -156,12 +156,12 @@ There are example scripts for sniffing communication and seeing the basics [scri
 
 ## Bug solving
 
-If your mosquitto logs contain lines as below, make sure mosquitto.conf file uses LF line ending. (CRLF doesn't work)
-
+Docker container can have error similar to this: 
 ```
 Error: Invalid require_certificate value (false
 Error found at /mosquitto/config/mosquitto.conf:2.
 ```
+If this happens, make sure the mentioned file uses LF line ending. (CRLF doesn't work)
 
 [Fleet]: https://github.com/bringauto/fleet
 
