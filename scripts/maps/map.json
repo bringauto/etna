@@ -1,0 +1,2180 @@
+{
+    "cars": [],
+    "stops": [
+      {
+        "name": "Bulharsk\u00e1",
+        "contactPhone": "+000111222333",
+        "latitude": 49.22382,
+        "longitude": 16.59239
+      },
+      {
+        "name": "Sk\u00e1celova",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2221382,
+        "longitude": 16.5875405
+      },
+      {
+        "name": "Srbsk\u00e1",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2244714,
+        "longitude": 16.5904498
+      },
+      {
+        "name": "Charvatsk\u00e1 A",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2216654,
+        "longitude": 16.5917516
+      },
+      {
+        "name": "Charvatsk\u00e1 B",
+        "contactPhone": "+000111222333",
+        "latitude": 49.22293,
+        "longitude": 16.59185
+      },
+      {
+        "name": "Slovinsk\u00e1",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2233,
+        "longitude": 16.59265
+      },
+      {
+        "name": "Svatopluka \u010cecha A",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2216472,
+        "longitude": 16.5908117
+      },
+      {
+        "name": "Svatopluka \u010cecha B",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2219936,
+        "longitude": 16.5933439
+      },
+      {
+        "name": "Vodova",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2231615,
+        "longitude": 16.5868266
+      },
+      {
+        "name": "T\u011b\u0161\u00ednsk\u00e1",
+        "contactPhone": "+000111222333",
+        "latitude": 49.2231587,
+        "longitude": 16.5899511
+      }
+    ],
+    "routes": [
+      {
+        "name": "Moravsk\u00e9 n\u00e1m\u011bst\u00ed 2",
+        "color": "#03BBF1",
+        "stops": [
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          },
+          {
+            "latitude": 49.22309663238,
+            "longitude": 16.58993483796,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22304,
+            "longitude": 16.58992,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22293903757,
+            "longitude": 16.58999600138,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22287238825,
+            "longitude": 16.59004617282,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22279117063,
+            "longitude": 16.59010731072,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22272616003,
+            "longitude": 16.59015624845,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22268899893,
+            "longitude": 16.590184222,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2226424,
+            "longitude": 16.5902193,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22255,
+            "longitude": 16.59023,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22242434855,
+            "longitude": 16.59031096148,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22235139316,
+            "longitude": 16.59035796901,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22227044088,
+            "longitude": 16.59041012912,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2222095365,
+            "longitude": 16.59044937167,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22214298279,
+            "longitude": 16.59049225421,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2220981764,
+            "longitude": 16.59052112427,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22204131869,
+            "longitude": 16.5905577593,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22199726494,
+            "longitude": 16.59058614435,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22193918487,
+            "longitude": 16.59062356691,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22188157425,
+            "longitude": 16.59066068696,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22181709201,
+            "longitude": 16.59070223451,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22177501304,
+            "longitude": 16.59072934703,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2217070502,
+            "longitude": 16.59077313712,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2216472,
+            "longitude": 16.5908117,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2216581197,
+            "longitude": 16.59090667261,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22166454771,
+            "longitude": 16.59096257944,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22167,
+            "longitude": 16.59101,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22169614686,
+            "longitude": 16.59108914426,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22172168625,
+            "longitude": 16.59116644983,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22174632824,
+            "longitude": 16.59124103906,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2217735044,
+            "longitude": 16.59132329907,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22180794303,
+            "longitude": 16.59142754203,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22183979808,
+            "longitude": 16.59152396477,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22185723678,
+            "longitude": 16.59157675039,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2218823274,
+            "longitude": 16.59165269779,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22189295231,
+            "longitude": 16.59168485863,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2219226,
+            "longitude": 16.5917746,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2219649849,
+            "longitude": 16.59177777232,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22200709636,
+            "longitude": 16.59178092417,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22204721002,
+            "longitude": 16.5917839265,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22211022307,
+            "longitude": 16.59178864275,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22215643259,
+            "longitude": 16.59179210133,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22223645428,
+            "longitude": 16.59179809062,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22229316581,
+            "longitude": 16.59180233524,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22236037939,
+            "longitude": 16.59180736591,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22242759288,
+            "longitude": 16.59181239658,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22249721473,
+            "longitude": 16.59181760751,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22256253297,
+            "longitude": 16.59182249633,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22262134454,
+            "longitude": 16.59182689817,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22269106879,
+            "longitude": 16.59183211678,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22274578207,
+            "longitude": 16.59183621188,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22281519812,
+            "longitude": 16.59184140744,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22289291299,
+            "longitude": 16.59184722415,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22293,
+            "longitude": 16.59185,
+            "stationName": "Charvatsk\u00e1 B"
+          },
+          {
+            "latitude": 49.22301895931,
+            "longitude": 16.59211687753,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22305452337,
+            "longitude": 16.59222356966,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22308490171,
+            "longitude": 16.59231470474,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22311442755,
+            "longitude": 16.59240328234,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231517142,
+            "longitude": 16.59251514247,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22317,
+            "longitude": 16.59257,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22325719101,
+            "longitude": 16.59260963223,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22333101858,
+            "longitude": 16.59264319022,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22339,
+            "longitude": 16.59267,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22346164359,
+            "longitude": 16.59262334853,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22353572724,
+            "longitude": 16.59257510812,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2236074539,
+            "longitude": 16.59252840242,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22368149625,
+            "longitude": 16.59248018876,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22373668462,
+            "longitude": 16.59244425207,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22382,
+            "longitude": 16.59239,
+            "stationName": "Bulharsk\u00e1"
+          },
+          {
+            "latitude": 49.22382,
+            "longitude": 16.59229370503,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22382,
+            "longitude": 16.59216,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22378053318,
+            "longitude": 16.59201528758,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22376312549,
+            "longitude": 16.59195145913,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22374727265,
+            "longitude": 16.5918933318,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22372842529,
+            "longitude": 16.59182422452,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22371225982,
+            "longitude": 16.59176495093,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22367600472,
+            "longitude": 16.59163201521,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22365259973,
+            "longitude": 16.5915461967,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22362308228,
+            "longitude": 16.59143796585,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22359306298,
+            "longitude": 16.59132789494,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22355980233,
+            "longitude": 16.59120593916,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22353995945,
+            "longitude": 16.59113318197,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2235254804,
+            "longitude": 16.59108009214,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22350938068,
+            "longitude": 16.59102105987,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22348903596,
+            "longitude": 16.59094646262,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22347224518,
+            "longitude": 16.59088489651,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22345421216,
+            "longitude": 16.59081877555,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22343292956,
+            "longitude": 16.59074073953,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22341352266,
+            "longitude": 16.59066958106,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22339199324,
+            "longitude": 16.59059064011,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22337932404,
+            "longitude": 16.59054418651,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22335161631,
+            "longitude": 16.59044259188,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22333202015,
+            "longitude": 16.59037073962,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22330549705,
+            "longitude": 16.59027348871,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22328,
+            "longitude": 16.59018,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22325052285,
+            "longitude": 16.59011557237,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231976,
+            "longitude": 16.5899999,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          }
+        ]
+      },
+      {
+        "name": "Moravsk\u00e9 nam\u011bst\u00ed 1",
+        "color": "#03BBF1",
+        "stops": [
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          },
+          {
+            "latitude": 49.22313022057,
+            "longitude": 16.58994363824,
+            "stationName": null
+          },
+          {
+            "latitude": 49.223105856,
+            "longitude": 16.58993725459,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22308039314,
+            "longitude": 16.5899305832,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22306042163,
+            "longitude": 16.58992535057,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22304970614,
+            "longitude": 16.58992254305,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22304,
+            "longitude": 16.58992,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22302383561,
+            "longitude": 16.58993270061,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22300718759,
+            "longitude": 16.58994578121,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22299055135,
+            "longitude": 16.58995885255,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22297503948,
+            "longitude": 16.58997104044,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22295641937,
+            "longitude": 16.58998567053,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22294533439,
+            "longitude": 16.58999438016,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2229296047,
+            "longitude": 16.59000673919,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22291635338,
+            "longitude": 16.59001715093,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2229,
+            "longitude": 16.59003,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22289060326,
+            "longitude": 16.59000911833,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22288137201,
+            "longitude": 16.58998860444,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22287204095,
+            "longitude": 16.58996786873,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22286117217,
+            "longitude": 16.58994371589,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22285222269,
+            "longitude": 16.58992382815,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22284341976,
+            "longitude": 16.5899042661,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22283468127,
+            "longitude": 16.58988484723,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22282597817,
+            "longitude": 16.58986550701,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22281796746,
+            "longitude": 16.58984770545,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22281,
+            "longitude": 16.58983,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22280185141,
+            "longitude": 16.5898107363,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22279669088,
+            "longitude": 16.58979853653,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22278540236,
+            "longitude": 16.58977184987,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2227756759,
+            "longitude": 16.58974885601,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22276698101,
+            "longitude": 16.58972830085,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22275737481,
+            "longitude": 16.58970559131,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2227496968,
+            "longitude": 16.58968744009,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22273990887,
+            "longitude": 16.58966430094,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22272822481,
+            "longitude": 16.58963667925,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22272052826,
+            "longitude": 16.58960933555,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22270951636,
+            "longitude": 16.58957021341,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22270319768,
+            "longitude": 16.58954776493,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22269329805,
+            "longitude": 16.58951259436,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22268671721,
+            "longitude": 16.58948921449,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22267711499,
+            "longitude": 16.58945510057,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22267035707,
+            "longitude": 16.58943109161,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22265995803,
+            "longitude": 16.58939414678,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22265241017,
+            "longitude": 16.58936733142,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22264277614,
+            "longitude": 16.58933310448,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22263660616,
+            "longitude": 16.58931118432,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22262964625,
+            "longitude": 16.58928645776,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22262162734,
+            "longitude": 16.5892579689,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2226102011,
+            "longitude": 16.5892173748,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22260329791,
+            "longitude": 16.58919284976,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22259977368,
+            "longitude": 16.58918032921,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2225953959,
+            "longitude": 16.58916477621,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22259034853,
+            "longitude": 16.58914684438,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2225809732,
+            "longitude": 16.58911353658,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22257348206,
+            "longitude": 16.58908692274,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22256058939,
+            "longitude": 16.58904111889,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22254738861,
+            "longitude": 16.58899422039,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22253541656,
+            "longitude": 16.58895168725,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2225179054,
+            "longitude": 16.58888947528,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22250920654,
+            "longitude": 16.58885857083,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22248782733,
+            "longitude": 16.58878261687,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2224713786,
+            "longitude": 16.58872417945,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22246021449,
+            "longitude": 16.58868451673,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22244305745,
+            "longitude": 16.58862356295,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22242461105,
+            "longitude": 16.5885580285,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2224060512,
+            "longitude": 16.58849209099,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22237561891,
+            "longitude": 16.5883839744,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2223520013,
+            "longitude": 16.58830006831,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22233308727,
+            "longitude": 16.58823287262,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22231006449,
+            "longitude": 16.58815107982,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22228151634,
+            "longitude": 16.5880496572,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22224990808,
+            "longitude": 16.58793736301,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22222029745,
+            "longitude": 16.58783216585,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22220078852,
+            "longitude": 16.58776285686,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22218469384,
+            "longitude": 16.58770567761,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22216449039,
+            "longitude": 16.58763390126,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2221382,
+            "longitude": 16.5875405,
+            "stationName": "Sk\u00e1celova"
+          },
+          {
+            "latitude": 49.22217702234,
+            "longitude": 16.58751341606,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22220102889,
+            "longitude": 16.58749666818,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22226112823,
+            "longitude": 16.58745474053,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22230624988,
+            "longitude": 16.58742326188,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2223381,
+            "longitude": 16.58740104195,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22237862411,
+            "longitude": 16.58737277068,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22243327272,
+            "longitude": 16.58733464554,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22247550288,
+            "longitude": 16.58730518401,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22254072024,
+            "longitude": 16.58725968558,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22259605566,
+            "longitude": 16.58722108118,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22264849968,
+            "longitude": 16.58718449389,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22268613222,
+            "longitude": 16.58715823973,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22271201071,
+            "longitude": 16.58714018572,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22278284431,
+            "longitude": 16.58709076892,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22283170985,
+            "longitude": 16.58705667802,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22288244752,
+            "longitude": 16.587021281,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22294290087,
+            "longitude": 16.58697910581,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22299908888,
+            "longitude": 16.58693990627,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2230600403,
+            "longitude": 16.5868973835,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22312440384,
+            "longitude": 16.5868524802,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231615,
+            "longitude": 16.5868266,
+            "stationName": "Vodova"
+          },
+          {
+            "latitude": 49.22317547315,
+            "longitude": 16.58687695822,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22319325139,
+            "longitude": 16.58694102971,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22322250076,
+            "longitude": 16.58704644236,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22324141712,
+            "longitude": 16.58711461563,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22326312014,
+            "longitude": 16.58719283184,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22328716303,
+            "longitude": 16.58727948084,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22330955739,
+            "longitude": 16.58736018869,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2233307924,
+            "longitude": 16.58743671834,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22334450229,
+            "longitude": 16.58748612796,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22336179129,
+            "longitude": 16.58754843648,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22337537888,
+            "longitude": 16.58759740536,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22338965783,
+            "longitude": 16.58764886587,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22340208607,
+            "longitude": 16.58769365655,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22341821571,
+            "longitude": 16.58775178689,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22343550469,
+            "longitude": 16.58781409541,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22345059728,
+            "longitude": 16.5878684883,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22346628013,
+            "longitude": 16.58792500848,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22348832873,
+            "longitude": 16.58800447051,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22351932752,
+            "longitude": 16.58811618865,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22354115271,
+            "longitude": 16.5881948456,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22356379154,
+            "longitude": 16.58827643492,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22358038911,
+            "longitude": 16.58833625182,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22361797696,
+            "longitude": 16.58847171688,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22364712499,
+            "longitude": 16.5885767652,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22368172397,
+            "longitude": 16.58870145865,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22369970421,
+            "longitude": 16.58876625881,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22372734717,
+            "longitude": 16.58886588312,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22375311823,
+            "longitude": 16.5889587612,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22378305863,
+            "longitude": 16.58906666549,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22379408285,
+            "longitude": 16.5891063965,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22381161628,
+            "longitude": 16.58916958651,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22383842433,
+            "longitude": 16.58926620204,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22385768614,
+            "longitude": 16.58933562113,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22387,
+            "longitude": 16.58938,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22388790558,
+            "longitude": 16.58941185113,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22391159206,
+            "longitude": 16.5894539856,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22393285897,
+            "longitude": 16.58949181603,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22395173458,
+            "longitude": 16.58952539273,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2239855097,
+            "longitude": 16.58958547335,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22401779913,
+            "longitude": 16.58964291118,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22404915465,
+            "longitude": 16.58969868777,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22408771228,
+            "longitude": 16.58976727585,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22412034122,
+            "longitude": 16.58982531774,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22414961669,
+            "longitude": 16.58987739434,
+            "stationName": null
+          },
+          {
+            "latitude": 49.224179543,
+            "longitude": 16.58993062874,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22420003155,
+            "longitude": 16.5899670748,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22421713837,
+            "longitude": 16.58999750527,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22424864941,
+            "longitude": 16.59005355873,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22427727392,
+            "longitude": 16.59010447753,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22431201099,
+            "longitude": 16.5901662697,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22433473511,
+            "longitude": 16.59020669261,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22436637345,
+            "longitude": 16.59026297265,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22439980872,
+            "longitude": 16.59032244921,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22443358354,
+            "longitude": 16.59038252983,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2244714,
+            "longitude": 16.5904498,
+            "stationName": "Srbsk\u00e1"
+          },
+          {
+            "latitude": 49.224446981,
+            "longitude": 16.59047971286,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22438136348,
+            "longitude": 16.59056009311,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22433256417,
+            "longitude": 16.5906198713,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22427935321,
+            "longitude": 16.59068505361,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22423717041,
+            "longitude": 16.59073672661,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22419223057,
+            "longitude": 16.59079177687,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22414039841,
+            "longitude": 16.59085526999,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22410014553,
+            "longitude": 16.59090457874,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22404914002,
+            "longitude": 16.59096705913,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22400116712,
+            "longitude": 16.59102582459,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22395181612,
+            "longitude": 16.59108627813,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22391294159,
+            "longitude": 16.59113389825,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22387765101,
+            "longitude": 16.5911771281,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22380458888,
+            "longitude": 16.59126662684,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22376350876,
+            "longitude": 16.5913169486,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22371608689,
+            "longitude": 16.59137503872,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2236433,
+            "longitude": 16.5914642,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22362126594,
+            "longitude": 16.59138631329,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22359741023,
+            "longitude": 16.5913019874,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22358089202,
+            "longitude": 16.59124359838,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22355835476,
+            "longitude": 16.59116393306,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22353133738,
+            "longitude": 16.59106843132,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22351481915,
+            "longitude": 16.59101004229,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22348686692,
+            "longitude": 16.59091123612,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22347282245,
+            "longitude": 16.59086159142,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22344816855,
+            "longitude": 16.59077444433,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22342986441,
+            "longitude": 16.59070974253,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22340485331,
+            "longitude": 16.59062133289,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22337890738,
+            "longitude": 16.59052961882,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22335730485,
+            "longitude": 16.59045325793,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22333441031,
+            "longitude": 16.59037233005,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22331434671,
+            "longitude": 16.59030140904,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22329865301,
+            "longitude": 16.59024593479,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22328,
+            "longitude": 16.59018,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22322948927,
+            "longitude": 16.59007320895,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231872,
+            "longitude": 16.5899838,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          }
+        ]
+      },
+      {
+        "name": "Roundabout long",
+        "color": "#03BBF1",
+        "stops": [
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          },
+          {
+            "latitude": 49.2231065364,
+            "longitude": 16.58993743287,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22304,
+            "longitude": 16.58992,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22299526528,
+            "longitude": 16.58995367492,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2229597433,
+            "longitude": 16.58998041476,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22293018413,
+            "longitude": 16.59000266596,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22290105591,
+            "longitude": 16.59002459274,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22287359492,
+            "longitude": 16.59004526448,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22283179235,
+            "longitude": 16.59007673206,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22279754902,
+            "longitude": 16.59010250929,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22276461276,
+            "longitude": 16.59012730257,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22272404637,
+            "longitude": 16.59015783953,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22269573749,
+            "longitude": 16.59017914946,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22266448258,
+            "longitude": 16.59020267703,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2226424,
+            "longitude": 16.5902193,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22259979941,
+            "longitude": 16.59022423319,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22255,
+            "longitude": 16.59023,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22248765117,
+            "longitude": 16.59027017349,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22243399489,
+            "longitude": 16.59030474603,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22238443386,
+            "longitude": 16.59033667982,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22233350894,
+            "longitude": 16.59036949238,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22228394782,
+            "longitude": 16.59040142618,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22222953858,
+            "longitude": 16.59043648372,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22217395173,
+            "longitude": 16.5904723,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22213215629,
+            "longitude": 16.59049923004,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22208368065,
+            "longitude": 16.59053046429,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2220222096,
+            "longitude": 16.59057007182,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22194548996,
+            "longitude": 16.59061950438,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22188232698,
+            "longitude": 16.59066020195,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22183036559,
+            "longitude": 16.59069368201,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22173378371,
+            "longitude": 16.59075591209,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22169660125,
+            "longitude": 16.59077986963,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2216472,
+            "longitude": 16.5908117,
+            "stationName": "Svatopluka \u010cecha A"
+          },
+          {
+            "latitude": 49.22165663861,
+            "longitude": 16.59089379103,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22167,
+            "longitude": 16.59101,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22171866387,
+            "longitude": 16.59115730132,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22174970057,
+            "longitude": 16.59125124684,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22178245305,
+            "longitude": 16.59135038591,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22181302127,
+            "longitude": 16.59144291348,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22184319015,
+            "longitude": 16.59153423233,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2218759327,
+            "longitude": 16.59163334151,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2219226,
+            "longitude": 16.5917746,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22184423605,
+            "longitude": 16.59176759233,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22176548078,
+            "longitude": 16.59176054967,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2216874756,
+            "longitude": 16.5917535741,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2216654,
+            "longitude": 16.5917516,
+            "stationName": "Charvatsk\u00e1 A"
+          },
+          {
+            "latitude": 49.22169081452,
+            "longitude": 16.59187490109,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22171692441,
+            "longitude": 16.5920015759,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22172935899,
+            "longitude": 16.59206190358,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22174913895,
+            "longitude": 16.59215786813,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2217778244,
+            "longitude": 16.5922970387,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22180371137,
+            "longitude": 16.59242263221,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22183815222,
+            "longitude": 16.59258972594,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22186117635,
+            "longitude": 16.59270143016,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22187618648,
+            "longitude": 16.59277425358,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22190185052,
+            "longitude": 16.59289876579,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22191845056,
+            "longitude": 16.59297930292,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22194417894,
+            "longitude": 16.59310412737,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22195658129,
+            "longitude": 16.59316429893,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22198122745,
+            "longitude": 16.59328387297,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2219936,
+            "longitude": 16.5933439,
+            "stationName": "Svatopluka \u010cecha B"
+          },
+          {
+            "latitude": 49.22201034176,
+            "longitude": 16.59333500766,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22202876053,
+            "longitude": 16.59332522457,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22204295089,
+            "longitude": 16.59331768739,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2220651091,
+            "longitude": 16.59330591811,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22207768873,
+            "longitude": 16.59329923646,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22209104501,
+            "longitude": 16.5932921423,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22210536007,
+            "longitude": 16.59328453887,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22212406651,
+            "longitude": 16.59327460298,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22214559187,
+            "longitude": 16.5932631698,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22216446128,
+            "longitude": 16.59325314734,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22218492227,
+            "longitude": 16.5932422795,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22220805832,
+            "longitude": 16.5932299908,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22222803033,
+            "longitude": 16.59321938267,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22225257583,
+            "longitude": 16.59320634533,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2222778597,
+            "longitude": 16.59319291579,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22229204999,
+            "longitude": 16.59318537862,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22231718999,
+            "longitude": 16.59317202549,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22233714282,
+            "longitude": 16.59316142752,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22235693267,
+            "longitude": 16.59315091613,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22239668516,
+            "longitude": 16.59312980153,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22244537347,
+            "longitude": 16.59310394065,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22248184645,
+            "longitude": 16.59308456794,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2225290579,
+            "longitude": 16.59305949144,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22257594334,
+            "longitude": 16.59303458809,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22260861942,
+            "longitude": 16.59301723207,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22264983251,
+            "longitude": 16.59299534156,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22270782053,
+            "longitude": 16.59296454095,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22278444807,
+            "longitude": 16.59292383983,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22285167664,
+            "longitude": 16.59288813095,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22292918548,
+            "longitude": 16.5928469616,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22302425942,
+            "longitude": 16.59279646233,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22308447206,
+            "longitude": 16.59276447986,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22314042726,
+            "longitude": 16.59273475873,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22322169414,
+            "longitude": 16.59269159301,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2233,
+            "longitude": 16.59265,
+            "stationName": "Slovinsk\u00e1"
+          },
+          {
+            "latitude": 49.22335887731,
+            "longitude": 16.59265,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22340309068,
+            "longitude": 16.59265,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22345,
+            "longitude": 16.59265,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22349950852,
+            "longitude": 16.59261521034,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22355604172,
+            "longitude": 16.59257548439,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22361228924,
+            "longitude": 16.59253595915,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22365613618,
+            "longitude": 16.59250514779,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22370759475,
+            "longitude": 16.59246898768,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22377493192,
+            "longitude": 16.59242166956,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22382,
+            "longitude": 16.59239,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22381438731,
+            "longitude": 16.59227774619,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22381024553,
+            "longitude": 16.59219491056,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22380585763,
+            "longitude": 16.59210715258,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2238,
+            "longitude": 16.59199,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22376143987,
+            "longitude": 16.59186292671,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2237393684,
+            "longitude": 16.59179019114,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22370795942,
+            "longitude": 16.59168668426,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22368132069,
+            "longitude": 16.59159889758,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22364953787,
+            "longitude": 16.59149415886,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22362376056,
+            "longitude": 16.59140921106,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22360108752,
+            "longitude": 16.59133449327,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22356657417,
+            "longitude": 16.5912207564,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22354085374,
+            "longitude": 16.5911359962,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22351582399,
+            "longitude": 16.59105351211,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22349085115,
+            "longitude": 16.59097121561,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22344964148,
+            "longitude": 16.59083541169,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22341897992,
+            "longitude": 16.59073436853,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22339915113,
+            "longitude": 16.59066902407,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22335949353,
+            "longitude": 16.59053833516,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22331773917,
+            "longitude": 16.59040073661,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22327609862,
+            "longitude": 16.59026351325,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22324468934,
+            "longitude": 16.59016000638,
+            "stationName": null
+          },
+          {
+            "latitude": 49.22322684337,
+            "longitude": 16.59010119637,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231948,
+            "longitude": 16.5899956,
+            "stationName": null
+          },
+          {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "stationName": "T\u011b\u0161\u00ednsk\u00e1"
+          }
+        ]
+      }
+    ]
+  }

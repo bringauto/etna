@@ -5,7 +5,7 @@
             "port": 5432,
             "username": "postgres",
             "password": "1234",
-            "database_name": "postgres"
+            "database_name": "protocol_api"
         },
         "cleanup": {
             "timing_in_seconds": {
@@ -26,7 +26,6 @@
         "client_id": "",
         "client_secret_key": "",
         "scope": "",
-        "realm": "",
-        "keycloak_public_key_file": "config/keycloak.pem"
+        "realm": ""
     }
 }
