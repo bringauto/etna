@@ -56,7 +56,8 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - virtual-plc - start only Virtual PLC
 - mqtt - start only MQTT vernemq broker
 - module-gateway - start only Module Gateway
-- http-api - start HTTP API server and the related PostgreSQL database
+- http-api - start fleet protocol HTTP API server and the related PostgreSQL database
+- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer and fleet management HTTP API server
 
 Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 
