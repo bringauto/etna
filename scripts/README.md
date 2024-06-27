@@ -42,6 +42,7 @@ understand how the BringAuto software and hardware platform works.
 - - etna_path needs to point to the root directory of the etna repository
 - - to build a docker image from a local repository, change the replace tag to true and set the path to the root directory of that repository
 - - the force_rebuild tag forces the docker image of that component to be rebuilt
+- when using this script for perpetual cpp project building and testing, run cmake for the project locally and rename the generated _tmp directory (or whatever the name of the cmlib directory with packages is) to cmlib_cache (this will speed up builds when using large libraries e.g. boost)
 
 ## Arguments
 
