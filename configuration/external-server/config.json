@@ -4,7 +4,7 @@
   "mqtt_address": "172.17.0.1",
   "mqtt_port": 1883,
   "mqtt_timeout": 20,
-  "timeout": 60,
+  "timeout": 20,
   "send_invalid_command": false,
   "sleep_duration_after_connection_refused": 0.5,
   "log_files_directory": "/home/bringauto/log",
