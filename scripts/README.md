@@ -21,28 +21,28 @@ understand how the BringAuto software and hardware platform works.
 ### third_party_monitoring
 
 - it helps to observe messages sent by BringAuto Daemon
-- run the script by `python3 third_party_monitoring.py`
 - it may need recompiled protobuf files with following commands:
 - - `git submodule update --init --recursive`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/CarStateProtocol.proto"`
 - - `protoc -I"$(pwd)/../autonomy-host-protocol/" --python_out=. "$(pwd)/../autonomy-host-protocol/IndustrialPortalProtocol.proto"`
+- run the script by `python3 third_party_monitoring.py`
 
 ### fleet-init
 
 - initializes the fleet management database with stops and routes
-- run the script by `python3 fleet-init/main.py -c init_config.ini -m maps -d`
 - is a submodule so it needs to be initialized by:
 - - `git submodule update --init --recursive`
+- run the script by `python3 fleet-init/main.py -c init_config.ini -m maps -d`
 
 ### create_docker_compose_for_testing
 
 - creates a new docker-compose.yml with docker images replaced by desired images built from local repositories
-- run the script by `python3 create_docker_compose_for_testing.py`
 - the config file `docker_compose_for_testing.json` needs to be adjusted
 - - etna_path needs to point to the root directory of the etna repository
 - - to build a docker image from a local repository, change the replace tag to true and set the path to the root directory of that repository
 - - the force_rebuild tag forces the docker image of that component to be rebuilt
 - when using this script for perpetual cpp project building and testing, run cmake for the project locally and rename the generated _tmp directory (or whatever the name of the cmlib directory with packages is) to cmlib_cache (this will speed up builds when using large libraries e.g. boost)
+- run the script by `python3 create_docker_compose_for_testing.py`
 
 ## Arguments
 
