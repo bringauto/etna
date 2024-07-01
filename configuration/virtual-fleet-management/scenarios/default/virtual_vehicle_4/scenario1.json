@@ -1,0 +1,167 @@
+{
+  "map": "map.osm",
+  "starting_station": "Těšínská",
+  "missions": [
+    {
+      "delay_seconds": 0,
+      "name": "mission2",
+      "stops": [
+        {
+          "name": "Charvatská A"
+        },
+        {
+          "name": "Svatopluka Čecha B"
+        },
+        {
+          "name": "Slovinská"
+        },
+        {
+          "name": "Bulharská"
+        }
+      ],
+      "route": "Roundabout long"
+    },
+    {
+      "delay_seconds": 0,
+      "name": "mission3",
+      "stops": [
+        {
+          "name": "Těšínská"
+        },
+        {
+          "name": "Vodova"
+        }
+      ],
+      "route": "Moravské naměstí 1"
+    }
+  ],
+  "routes": [
+    {
+      "name": "Moravské náměstí 2",
+      "stations": [
+        {
+          "position": {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "altitude": 0
+          },
+          "name": "Těšínská"
+        },
+        {
+          "position": {
+            "latitude": 49.2216472,
+            "longitude": 16.5908117,
+            "altitude": 0
+          },
+          "name": "Svatopluka Čecha A"
+        },
+        {
+          "position": {
+            "latitude": 49.22293,
+            "longitude": 16.59185,
+            "altitude": 0
+          },
+          "name": "Charvatská B"
+        },
+        {
+          "position": {
+            "latitude": 49.22382,
+            "longitude": 16.59239,
+            "altitude": 0
+          },
+          "name": "Bulharská"
+        }
+      ]
+    },
+    {
+      "name": "Moravské naměstí 1",
+      "stations": [
+        {
+          "position": {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "altitude": 0
+          },
+          "name": "Těšínská"
+        },
+        {
+          "position": {
+            "latitude": 49.2221382,
+            "longitude": 16.5875405,
+            "altitude": 0
+          },
+          "name": "Skácelova"
+        },
+        {
+          "position": {
+            "latitude": 49.2231615,
+            "longitude": 16.5868266,
+            "altitude": 0
+          },
+          "name": "Vodova"
+        },
+        {
+          "position": {
+            "latitude": 49.2244714,
+            "longitude": 16.5904498,
+            "altitude": 0
+          },
+          "name": "Srbská"
+        }
+      ]
+    },
+    {
+      "name": "Roundabout long",
+      "stations": [
+        {
+          "position": {
+            "latitude": 49.2231587,
+            "longitude": 16.5899511,
+            "altitude": 0
+          },
+          "name": "Těšínská"
+        },
+        {
+          "position": {
+            "latitude": 49.2216472,
+            "longitude": 16.5908117,
+            "altitude": 0
+          },
+          "name": "Svatopluka Čecha A"
+        },
+        {
+          "position": {
+            "latitude": 49.2216654,
+            "longitude": 16.5917516,
+            "altitude": 0
+          },
+          "name": "Charvatská A"
+        },
+        {
+          "position": {
+            "latitude": 49.2219936,
+            "longitude": 16.5933439,
+            "altitude": 0
+          },
+          "name": "Svatopluka Čecha B"
+        },
+        {
+          "position": {
+            "latitude": 49.2233,
+            "longitude": 16.59265,
+            "altitude": 0
+          },
+          "name": "Slovinská"
+        },
+        {
+          "position": {
+            "latitude": 49.22382,
+            "longitude": 16.59239,
+            "altitude": 0
+          },
+          "name": "Bulharská"
+        }
+      ]
+    }
+  ]
+}
