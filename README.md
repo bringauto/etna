@@ -57,7 +57,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - mqtt - start only MQTT vernemq broker
 - module-gateway - start only Module Gateway
 - http-api - start fleet protocol HTTP API server and the related PostgreSQL database
-- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer and fleet management HTTP API server
+- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer, fleet management HTTP API server and mission module display tool
 
 Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 
@@ -98,6 +98,10 @@ The Virtual Fleet Management uses `env` variables to set:
 
 All the scenarios and configurations must be stored in the `configuration/virtual-fleet-management` directory, so the docker container has access to it.
 Both variables have default values, so the Virtual Fleet Management can be started without setting them.
+
+### Mission module display tool
+
+The Mission Module Display Tool runs a simple web server to display the positions of vehicles on a map. By default, the server is available at `http://localhost:5000`. It utilizes the fleet protocol HTTP API to retrieve vehicle positions. Comprehensive documentation can be found [here](https://github.com/bringauto/mission-module-display-tool/blob/main/README.md).
 
 ### Common Issues
 

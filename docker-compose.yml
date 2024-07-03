@@ -54,7 +54,7 @@ services:
 
   external-server:
     image: bringauto/external-server:v1.1.9
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
@@ -115,7 +115,7 @@ services:
 
   virtual-fleet-management:
     image: bringauto/virtual-fleet-management:v3.0.1
-    profiles: ["all", "without-devices", "without-module-gateway"]
+    profiles: ["all", "without-devices", "without-module-gateway", "for-virtual-fleet"]
     restart: "no"
     depends_on:
       management-api:
@@ -146,6 +146,18 @@ services:
       - 5432:5432
     volumes:
       - ./db/insert_test_api_key.sh:/docker-entrypoint-initdb.d/insert_test_api_key.sh
+
+  mission_module_display_tool:
+    image: bringauto/mission-module-display-tool:v1.0.0
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "for-virtual-fleet"]
+    restart: "no"
+    ports:
+      - 5000:5000
+    networks:
+      - bring-emulator
+    volumes:
+      - ./configuration/mission-module-display-tool/config.json:/mission-module-display-tool/config/config-docker.json
+    command: --config=config/config-docker.json
 
 networks:
   bring-emulator:
