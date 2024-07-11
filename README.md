@@ -57,16 +57,16 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - mqtt - start only MQTT vernemq broker
 - module-gateway - start only Module Gateway
 - http-api - start fleet protocol HTTP API server and the related PostgreSQL database
-- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer, fleet management HTTP API server and mission module display tool
+- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer, virtual fleet management, fleet management HTTP API server and mission module display tool
 
 Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 
-To run components with different arguments you can edit the configuration files placed under configuration/<component>
+To run components with different arguments you can edit the configuration files placed under `configuration/<component_name>/` where `component_name` is the name of the component.
 
 ### HTTP API
 
-To show the OpenAPI specification (the service must be running), visit http://localhost:8080/v2/protocol/openapi.json.
-To explore the API endpoints and entities, visit http://localhost:8080/v2/protocol/ui. More on Swagger UI
+To show the OpenAPI specification (the service must be running), visit [http://localhost:8080/v2/protocol/openapi.json](http://localhost:8080/v2/protocol/openapi.json).
+To explore the API endpoints and entities, visit [http://localhost:8080/v2/protocol/ui](http://localhost:8080/v2/protocol/ui). More on Swagger UI
 is [here](https://swagger.io/tools/swagger-ui/).
 
 The HTTP API requires authentication via API keys. To access all its endpoints, you can use the
@@ -77,8 +77,8 @@ overwrites the original config from the http-api image).
 
 ### Fleet Management API
 
-To show the OpenAPI specification (the service must be running), visit http://localhost:8081/v2/management/openapi.json.
-To explore the API endpoints and entities, visit http://localhost:8081/v2/management/ui. More on Swagger UI
+To show the OpenAPI specification (the service must be running), visit [http://localhost:8081/v2/management/openapi.json](http://localhost:8081/v2/management/openapi.json).
+To explore the API endpoints and entities, visit [http://localhost:8081/v2/management/ui](http://localhost:8081/v2/management/ui). More on Swagger UI
 is [here](https://swagger.io/tools/swagger-ui/).
 
 The Fleet Management API requires authentication via API keys. To access all its endpoints, you can use the
@@ -93,6 +93,7 @@ image).
 Simulates the Fleet Management ([documentation](https://github.com/bringauto/virtual-fleet-management/blob/main/README.md).
 
 The Virtual Fleet Management uses `env` variables to set:
+
 - **ETNA_VFM_SCENARIO** : Changes the scenario that the Virtual Fleet Management will use.
 - **ETNA_VFM_CONFIG** : Changes the configuration of the Virtual Fleet Management.
 
@@ -106,18 +107,17 @@ The Mission Module Display Tool runs a simple web server to display the position
 ### Common Issues
 
 - external-server and module-gateway connect sequence
-    - mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
+- mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
       changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples
       of 15 should be used)
-- postgresql databases
-    - databases are created only on container creation (if you have an old container, it needs to be deleted)
+postgresql databases - are created only on container creation (if you have an old container, it needs to be deleted)
 - http APIs
-    - by default API containers wait for the postgresql database to be available. If the database fails to initialize,
+- by default API containers wait for the postgresql database to be available. If the database fails to initialize,
       the containers won't start
 
 ## MQTT IP and Port
 
-The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL encrypted connection on port 8883.
+The MQTT uses a standard plain (not encrypted) connection on port 1883 and an SSL-encrypted connection on port 8883.
 
 There are [pregenerated certificate files] for both, server and client, however, it is not recommended to use those, and
 they are there for Etna to work out-of-box.
@@ -130,7 +130,7 @@ paths in file `configuration/mosquitto/mosquitto.conf`.
 
 ## Topics to listen
 
-Each MQTT topic consist from `company_name` and `car_name`.
+Each MQTT topic consists of `company_name` and `car_name`.
 
 BringAuto has the following MQTT topics
 
@@ -153,7 +153,7 @@ Logs for each component can be found in the `docker_volumes` directory.
 > The component directories are pre-created in the repository to avoid permission problems associated with docker
 > volumes.
 
-In case of a problem please attach the `docker_volumes` directory to the Bug report.
+In case of a problem, please attach the `docker_volumes` directory to the Bug report.
 
 ## Example scripts
 
@@ -161,16 +161,16 @@ There are example scripts for sniffing communication and seeing the basics [scri
 
 ## Bug solving
 
-Docker container can have error similar to this: 
-```
+Docker container can have error similar to this:
+
+``` log
 Error: Invalid require_certificate value (false
 Error found at /mosquitto/config/mosquitto.conf:2.
 ```
+
 If this happens, make sure the mentioned file uses LF line ending. (CRLF doesn't work)
 
 [Fleet]: https://github.com/bringauto/fleet
-
-[Google Artifacts Registry]: https://console.cloud.google.com/artifacts/docker/bringauto-infrastructure/europe-west1/virtual-platform?hl=cs&project=bringauto-infrastructure
 
 [pregenerated certificate files]: configuration/mosquitto/certs
 
