@@ -54,7 +54,7 @@ services:
 
   external-server:
     image: bringauto/external-server:v1.1.9
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
@@ -67,7 +67,7 @@ services:
 
   http-api:
     image: bringauto/fleet-protocol-http-api:v2.4.2
-    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "without-fleet-management", "for-virtual-fleet"]
     ports:
       - 8080:8080
     restart: "no"
@@ -84,8 +84,8 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.0.1
-    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management"]
+    image: bringauto/fleet-management-integration-layer:v2.0.2
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "for-virtual-fleet"]
     restart: "no"
     networks:
       - bring-emulator
@@ -97,7 +97,7 @@ services:
 
   management-api:
     image: bringauto/fleet-management-http-api:v3.1.6
-    profiles: ["all", "without-devices", "without-module-gateway", "management-api", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "management-api", "without-fleet-management", "for-virtual-fleet"]
     ports:
       - 8081:8081
     restart: "no"
@@ -115,7 +115,7 @@ services:
 
   virtual-fleet-management:
     image: bringauto/virtual-fleet-management:v3.0.1
-    profiles: ["all", "without-devices", "without-module-gateway"]
+    profiles: ["all", "without-devices", "without-module-gateway", "for-virtual-fleet"]
     restart: "no"
     depends_on:
       management-api:
@@ -133,7 +133,7 @@ services:
 
   postgresql-database:
     image: postgres:16
-    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "management-api", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "http-api", "management-api", "without-fleet-management", "for-virtual-fleet"]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
@@ -146,6 +146,18 @@ services:
       - 5432:5432
     volumes:
       - ./db/insert_test_api_key.sh:/docker-entrypoint-initdb.d/insert_test_api_key.sh
+
+  mission_module_display_tool:
+    image: bringauto/mission-module-display-tool:v1.0.0
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "for-virtual-fleet"]
+    restart: "no"
+    ports:
+      - 5000:5000
+    networks:
+      - bring-emulator
+    volumes:
+      - ./configuration/mission-module-display-tool/config.json:/mission-module-display-tool/config/config-docker.json
+    command: --config=config/config-docker.json
 
 networks:
   bring-emulator:
