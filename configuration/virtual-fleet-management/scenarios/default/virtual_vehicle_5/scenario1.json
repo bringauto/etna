@@ -3,11 +3,14 @@
   "starting_station": "Těšínská",
   "missions": [
     {
-      "delay_seconds": 10,
+      "delay_seconds": 0,
       "name": "mission1",
       "stops": [
         {
           "name": "Svatopluka Čecha A"
+        },
+        {
+          "name": "Těšínská"
         }
       ],
       "route": "Moravské náměstí 2"
