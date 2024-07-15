@@ -46,18 +46,19 @@ To use Fleet Protocol v1, use the latest v1 release on [GitHub](https://github.c
 
 Docker compose file has multiple profiles so the developer can disable/enable parts of the system he needs
 
-- all - start all containers including MQTT, virtual vehicle, daemon, and virtual fleet
-- without-module-gateway - do not start Module Gateway
-- without-external-server - do not start External Server
-- without-devices - do not start internal clients
-- without-fleet-management - do not start Virtual Fleet Management
-- core - start only internal clients and Module Gateway
-- virtual-vehicle-utility - start only Virtual Vehicle Utility
-- virtual-plc - start only Virtual PLC
-- mqtt - start only MQTT vernemq broker
-- module-gateway - start only Module Gateway
-- http-api - start fleet protocol HTTP API server and the related PostgreSQL database
-- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer, virtual fleet management, fleet management HTTP API server and mission module display tool
+- **all** - start all containers including MQTT, virtual vehicle, daemon, and virtual fleet
+- **core** - start only internal clients and Module Gateway
+- **for-virtual-fleet** - start the fleet protocol HTTP API server, the related PostgreSQL database, the fleet management integration layer, virtual fleet management, the fleet management HTTP API server and the mission module display tool
+- **without-module-gateway** - do not start Module Gateway
+- **without-external-server** - do not start External Server
+- **without-devices** - do not start internal clients
+- **without-fleet-management** - do not start Virtual Fleet Management
+- **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
+- **virtual-vehicle** - start only the Virtual Vehicle
+- **virtual-plc** - start only the Virtual PLC
+- **mqtt** - start only the MQTT vernemq broker
+- **module-gateway** - start only the Module Gateway
+- **external-server** - start only the External Server
 
 Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 
