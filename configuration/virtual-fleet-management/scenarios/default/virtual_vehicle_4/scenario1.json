@@ -3,7 +3,7 @@
   "starting_station": "Těšínská",
   "missions": [
     {
-      "delay_seconds": 20,
+      "delay_seconds": 0,
       "name": "mission2",
       "stops": [
         {
@@ -22,7 +22,7 @@
       "route": "Roundabout long"
     },
     {
-      "delay_seconds": 10,
+      "delay_seconds": 260,
       "name": "mission3",
       "stops": [
         {

@@ -4,11 +4,10 @@ It's intended to simplify development for [Fleet] and The Autonomy developers.
 
 The system can be used by docker compose stored at the git root of this repository.
 
-There are multiple containers
+There are multiple containers:
 
 - VerneMQ MQTT broker (bringauto/vernemq)
-- Virtual Vehicle Utility - Mission module client implementation (it connects to Module Gateway and simulates a Mission
-  module's autonomy device)
+- Virtual Vehicle - Mission module client implementation (it connects to Module Gateway and simulates a Mission module's autonomy device)
 - Virtual PLC - IO module client
 - Module Gateway - cpp implementation of Module Gateway with Mission, IO and example module support
 - External server - server implementation with Mission, IO and example module support
@@ -16,7 +15,23 @@ There are multiple containers
 - Integration layer - a bridge between the HTTP API and the Fleet Management API
 - Fleet Management API - an API that handles creating orders for cars and displaying their state
 - Virtual Fleet Management - application simulating Fleet Management. It creates orders for cars.
-- PostgreSQL database - storage of the HTTP API api keys and the messages sent via the API
+- PostgreSQL database - storage of the HTTP API keys and the messages sent via the API
+- Mission Module Display Tool - a simple web server to display the positions of vehicles on a map
+
+## Container Repositories
+
+Below are the links to the repositories of the containers. Most of the containers are public on GitHub, but some are private.
+
+- [VerneMQ docker repository](https://github.com/bringauto/vernemq-docker)
+- [VerneMQ repository](https://github.com/bringauto/vernemq)
+- [Virtual Vehicle repository](https://github.com/bringauto/virtual-vehicle)
+- [Virtual PLC repository](https://gitlab.bringauto.com/bring-auto/hardware/firmware/virtual-plc-arduino-opta)
+- [Module Gateway repository](https://github.com/bringauto/module-gateway)
+- [External Server repository](https://github.com/bringauto/external-server)
+- [HTTP API repository](https://github.com/bringauto/fleet-protocol-http-api)
+- [Fleet Management API repository](https://github.com/bringauto/fleet-management-http-client-go)
+- [Virtual Fleet Management repository](https://github.com/bringauto/virtual-fleet-management)
+- [Mission Module Display Tool repository](https://github.com/bringauto/mission-module-display-tool)
 
 ## Fleet Protocol
 
@@ -46,18 +61,29 @@ To use Fleet Protocol v1, use the latest v1 release on [GitHub](https://github.c
 
 Docker compose file has multiple profiles so the developer can disable/enable parts of the system he needs
 
-- all - start all containers including MQTT, virtual vehicle, daemon, and virtual fleet
-- without-module-gateway - do not start Module Gateway
-- without-external-server - do not start External Server
-- without-devices - do not start internal clients
-- without-fleet-management - do not start Virtual Fleet Management
-- core - start only internal clients and Module Gateway
-- virtual-vehicle-utility - start only Virtual Vehicle Utility
-- virtual-plc - start only Virtual PLC
-- mqtt - start only MQTT vernemq broker
-- module-gateway - start only Module Gateway
-- http-api - start fleet protocol HTTP API server and the related PostgreSQL database
-- for-virtual-fleet - start fleet protocol HTTP API server, the related PostgreSQL database, fleet management integration layer, virtual fleet management, fleet management HTTP API server and mission module display tool
+### Docker compose profiles
+
+#### Profiles that start logical groups of containers
+
+- **all** - start all containers
+- **for-virtual-fleet** - start the fleet protocol HTTP API server, the related PostgreSQL database, the fleet management integration layer, virtual fleet management, the fleet management HTTP API server and the mission module display tool
+- **core** - start only internal clients and Module Gateway
+- **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
+
+#### Profiles that start all containers except the ones specified
+
+- **without-module-gateway** - do not start Module Gateway
+- **without-external-server** - do not start External Server
+- **without-devices** - do not start internal clients
+- **without-fleet-management** - do not start Virtual Fleet Management
+
+#### Profiles that start only one container
+
+- **virtual-vehicle** - start only the Virtual Vehicle
+- **virtual-plc** - start only the Virtual PLC
+- **mqtt** - start only the MQTT vernemq broker
+- **module-gateway** - start only the Module Gateway
+- **external-server** - start only the External Server
 
 Now you can run `docker compose --profile <profile> up` where `profile` is the name of the profile above.
 

@@ -3,7 +3,7 @@
   "starting_station": "Těšínská",
   "missions": [
     {
-      "delay_seconds": 10,
+      "delay_seconds": 0,
       "name": "mission3",
       "stops": [
         {
