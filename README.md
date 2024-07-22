@@ -67,6 +67,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 
 - **all** - start all containers
 - **for-virtual-fleet** - start the fleet protocol HTTP API server, the related PostgreSQL database, the fleet management integration layer, virtual fleet management, the fleet management HTTP API server and the mission module display tool
+- **for-virtual-fleet-without-fleet-management** - start the same containers as `for-virtual-fleet` but without the virtual fleet management
 - **core** - start only internal clients and Module Gateway
 - **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
 
@@ -76,12 +77,13 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - **without-external-server** - do not start External Server
 - **without-devices** - do not start internal clients
 - **without-fleet-management** - do not start Virtual Fleet Management
+- **without-mgtt** - do not start the MQTT VerneMQ broker
 
 #### Profiles that start only one container
 
 - **virtual-vehicle** - start only the Virtual Vehicle
 - **virtual-plc** - start only the Virtual PLC
-- **mqtt** - start only the MQTT vernemq broker
+- **mqtt** - start only the MQTT VerneMQ broker
 - **module-gateway** - start only the Module Gateway
 - **external-server** - start only the External Server
 
