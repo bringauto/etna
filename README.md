@@ -133,12 +133,12 @@ The Mission Module Display Tool runs a simple web server to display the position
 ### Common Issues
 
 - external-server and module-gateway connect sequence
-- mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
+  - mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
       changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples
       of 15 should be used)
 postgresql databases - are created only on container creation (if you have an old container, it needs to be deleted)
 - http APIs
-- by default API containers wait for the postgresql database to be available. If the database fails to initialize,
+  - by default API containers wait for the postgresql database to be available. If the database fails to initialize,
       the containers won't start
 
 ## MQTT IP and Port

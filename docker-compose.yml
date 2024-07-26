@@ -147,9 +147,9 @@ services:
     volumes:
       - ./db/insert_test_api_key.sh:/docker-entrypoint-initdb.d/insert_test_api_key.sh
 
-  mission_module_display_tool:
+  mission-module-display-tool:
     image: bringauto/mission-module-display-tool:v1.0.0
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", ]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet"]
     restart: "no"
     ports:
       - 5000:5000
