@@ -14,6 +14,41 @@ def argument_parser_init() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def validate_config(config, docker_compose):
+    if 'components' not in config:
+        print("'components' is not defined in the configuration file")
+        return False
+    for component in config['components']:
+        if 'name' in component:
+            if component['name'] not in docker_compose['services']:
+                print(f"{component['name']} is not defined in the docker-compose.yml")
+                return False
+        else:
+            print("'name' is not defined in one of the components")
+            return False
+
+        if 'path' not in component:
+            print("'path' is not defined in one of the components")
+            return False
+
+        if 'replace' in component:
+            if not isinstance(component['replace'], bool):
+                print("'replace' must be a boolean")
+                return False
+        else:
+            print("'replace' is not defined in one of the components")
+            return False
+
+        if 'force_rebuild' in component:
+            if not isinstance(component['force_rebuild'], bool):
+                print("'force_rebuild' must be a boolean")
+                return False
+        else:
+            print("'force_rebuild' is not defined in one of the components")
+            return False
+    return True
+
+
 def build_docker_image(component):
     if os.path.isfile(os.path.join(component['path'], 'Dockerfile')):
         print(f"Building docker image for {component['name']}")
@@ -41,13 +76,21 @@ def replace_volumes(docker_compose, component, etna_path):
 
 def main():
     args = argument_parser_init()
-    with open(args.config) as file:
-        config = json.load(file)
-    etna_path = os.path.abspath(config['etna_path'])
     yaml = YAML()
     yaml.preserve_quotes = True
-    with open(os.path.join(etna_path, 'docker-compose.yml')) as file:
-        docker_compose = yaml.load(file)
+    with open(args.config) as file:
+        config = json.load(file)
+
+    if 'etna_path' in config:
+        etna_path = os.path.abspath(config['etna_path'])
+        with open(os.path.join(etna_path, 'docker-compose.yml')) as file:
+            docker_compose = yaml.load(file)
+    else:
+        print("'etna_path' is not defined in the configuration file")
+        return
+    
+    if not validate_config(config, docker_compose):
+        return
 
     for component in config['components']:
         if component['replace']:
