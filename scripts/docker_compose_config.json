@@ -2,7 +2,7 @@
     "etna_path": "..",
     "components": [
         {
-            "name": "virtual-vehicle-utility",
+            "name": "virtual-vehicle",
             "replace": false,
             "path": "../../virtual-vehicle",
             "force_rebuild": false
@@ -59,6 +59,12 @@
             "name": "postgresql-database",
             "replace": false,
             "path": "",
+            "force_rebuild": false
+        },
+        {
+            "name": "mission-module-display-tool",
+            "replace": false,
+            "path": "../../mission-module-display-tool",
             "force_rebuild": false
         }
     ]

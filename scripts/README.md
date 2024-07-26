@@ -46,10 +46,28 @@ understand how the BringAuto software and hardware platform works.
 
 - creates a new `docker-compose.yml` with docker images replaced by desired images built from local repositories
 - the config file `docker_compose_for_testing.json` needs to be adjusted
-  - `etna_path` needs to point to the root directory of the etna repository
-  - to build a docker image from a local repository, change the `replace` tag to `true` and set the `path` to the root directory of that repository
-  - the `force_rebuild` tag forces the docker image of that component to be rebuilt
+  - `etna_path`: needs to point to the root directory of the etna repository
+  - `name`: needs to match a service name from the original compose file
+  - `replace`: to build a docker image from your local repository, change the tag to `true`
+  - `path`: path to the root of the coresponding project (dockerfiles are taken from this directory)
+  - `force_rebuild`: forces the docker image of that component to be rebuilt
 - run the script by `python3 create_docker_compose_for_testing.py`
+
+#### Config
+
+```json
+{
+    "etna_path": "..",
+    "components": [
+        {
+            "name": "name-of-component",
+            "replace": false,
+            "path": "../../path/to/project",
+            "force_rebuild": false
+        }
+    ]
+}
+```
 
 #### Arguments
 
