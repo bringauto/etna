@@ -4,19 +4,6 @@
   "missions": [
     {
       "delay_seconds": 0,
-      "name": "mission1",
-      "stops": [
-        {
-          "name": "Svatopluka Čecha A"
-        },
-        {
-          "name": "Těšínská"
-        }
-      ],
-      "route": "Moravské náměstí 2"
-    },
-    {
-      "delay_seconds": 220,
       "name": "mission2",
       "stops": [
         {
@@ -33,19 +20,6 @@
         }
       ],
       "route": "Roundabout long"
-    },
-    {
-      "delay_seconds": 260,
-      "name": "mission3",
-      "stops": [
-        {
-          "name": "Těšínská"
-        },
-        {
-          "name": "Vodova"
-        }
-      ],
-      "route": "Moravské naměstí 1"
     }
   ],
   "routes": [
