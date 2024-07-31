@@ -190,16 +190,4 @@ If this happens, make sure the mentioned file uses LF line ending. (CRLF doesn't
 
 [pregenerated certificate files]: configuration/mosquitto/certs
 [scripts/]: scripts/
-[Summary]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/summary
 [Fleet Protocol]: https://github.com/bringauto/fleet-protocol
-[Fleet Protocol Requirements]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/protocol-requirements
-[Internal Client]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/internal-client
-[Module Gateway]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/module-gateway
-[External Server]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/external-server
-[Modules]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/modules
-[Message Structure]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/message-structure
-[Internal Client design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/internal-client-design
-[Module Gateway design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/module-gateway-design
-[External Server design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/external-server-design
-[HTTP API]: https://ref.bringautofleet.com/r/protocol/http-api/1.0.0/http-api
-[HTTP API Wait Mechanism]: https://ref.bringautofleet.com/r/protocol/http-api/1.0.0/wait-mechanism
