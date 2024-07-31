@@ -1,6 +1,8 @@
-# BringAuto virtual development platform
+# BringAuto Virtual Development Platform
 
-It's intended to simplify development for [Fleet] and The Autonomy developers.
+Virtual Development platform for BringAuto [Fleet Protocol].
+
+It's intended to simplify development for [Fleet Protocol] and related modules.
 
 The system can be used by docker compose stored at the git root of this repository.
 
@@ -33,22 +35,11 @@ Below are the links to the repositories of the containers. Most of the container
 - [Virtual Fleet Management repository](https://github.com/bringauto/virtual-fleet-management)
 - [Mission Module Display Tool repository](https://github.com/bringauto/mission-module-display-tool)
 
+General documentation can be found at [Fleet Protocol] repository.
+
 ## Fleet Protocol
 
-To read more about the system architecture look at Fleet Protocol v2 documentation:
-
-- [Summary]
-- [Fleet Protocol Requirements]
-- [Internal Client]
-- [Module Gateway]
-- [External Server]
-- [Modules]
-- [Message Structure]
-- [Internal Client design]
-- [Module Gateway design]
-- [External Server design]
-- [HTTP API]
-- [HTTP API Wait Mechanism]
+To read more about the system architecture look at Fleet Protocol v2 documentation which is part of [Fleet Protocol] repository.
 
 To use Fleet Protocol v1, use the latest v1 release on [GitHub](https://github.com/bringauto/etna/tree/v1.2.2).
 
@@ -134,12 +125,12 @@ The Mission Module Display Tool runs a simple web server to display the position
 
 - external-server and module-gateway connect sequence
 - mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
-      changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples
-      of 15 should be used)
-postgresql databases - are created only on container creation (if you have an old container, it needs to be deleted)
+  changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples
+  of 15 should be used)
+- postgresql databases - are created only on container creation (if you have an old container, it needs to be deleted)
 - http APIs
 - by default API containers wait for the postgresql database to be available. If the database fails to initialize,
-      the containers won't start
+  the containers won't start
 
 ## MQTT IP and Port
 
@@ -176,6 +167,7 @@ Actual MQTT topics to which developers can connect by default settings are:
 ## Logs
 
 Logs for each component can be found in the `docker_volumes` directory.
+
 > The component directories are pre-created in the repository to avoid permission problems associated with docker
 > volumes.
 
@@ -189,39 +181,13 @@ There are example scripts for sniffing communication and seeing the basics [scri
 
 Docker container can have error similar to this:
 
-``` log
+```log
 Error: Invalid require_certificate value (false
 Error found at /mosquitto/config/mosquitto.conf:2.
 ```
 
 If this happens, make sure the mentioned file uses LF line ending. (CRLF doesn't work)
 
-[Fleet]: https://github.com/bringauto/fleet
-
 [pregenerated certificate files]: configuration/mosquitto/certs
-
 [scripts/]: scripts/
-
-[Summary]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/summary
-
-[Fleet Protocol Requirements]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/protocol-requirements
-
-[Internal Client]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/internal-client
-
-[Module Gateway]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/module-gateway
-
-[External Server]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/external-server
-
-[Modules]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/modules
-
-[Message Structure]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/message-structure
-
-[Internal Client design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/internal-client-design
-
-[Module Gateway design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/module-gateway-design
-
-[External Server design]: https://ref.bringautofleet.com/r/protocol/v2/2.0.1/external-server-design
-
-[HTTP API]: https://ref.bringautofleet.com/r/protocol/http-api/1.0.0/http-api
-
-[HTTP API Wait Mechanism]: https://ref.bringautofleet.com/r/protocol/http-api/1.0.0/wait-mechanism
+[Fleet Protocol]: https://github.com/bringauto/fleet-protocol
