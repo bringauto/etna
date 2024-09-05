@@ -69,6 +69,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - **for-virtual-fleet** - start the fleet protocol HTTP API server, the related PostgreSQL database, the fleet management integration layer, virtual fleet management, the fleet management HTTP API server and the mission module display tool
 - **core** - start only internal clients and Module Gateway
 - **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
+- **cloud** - start all the cloud services (exclude components deployed on a car)
 
 #### Profiles that start all containers except the ones specified
 

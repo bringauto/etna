@@ -41,7 +41,7 @@ services:
 
   vernemq:
     image: bringauto/vernemq:1.13.0
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt", "without-fleet-management"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "mqtt", "without-fleet-management", "cloud"]
     volumes:
       - ./docker_volumes/vernemq:/vernemq/log/log/
       - ./configuration/vernemq:/etc/vernemq/
@@ -54,7 +54,7 @@ services:
 
   external-server:
     image: bringauto/external-server:v1.1.9
-    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
       - ./configuration/external-server:/home/bringauto/config/
@@ -67,7 +67,7 @@ services:
 
   http-api:
     image: bringauto/fleet-protocol-http-api:v2.4.2
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "without-fleet-management", "for-virtual-fleet"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8080:8080
     restart: "no"
@@ -85,7 +85,7 @@ services:
 
   integration-layer:
     image: bringauto/fleet-management-integration-layer:v2.0.2
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
       - bring-emulator
@@ -97,7 +97,7 @@ services:
 
   management-api:
     image: bringauto/fleet-management-http-api:v3.1.6
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "management-api", "without-fleet-management", "for-virtual-fleet"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "management-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8081:8081
     restart: "no"
@@ -115,7 +115,7 @@ services:
 
   virtual-fleet-management:
     image: bringauto/virtual-fleet-management:v3.0.1
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "for-virtual-fleet"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "for-virtual-fleet", "cloud"]
     restart: "no"
     depends_on:
       management-api:
@@ -133,7 +133,7 @@ services:
 
   postgresql-database:
     image: postgres:16
-    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "management-api", "without-fleet-management", "for-virtual-fleet"]
+    profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "management-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
