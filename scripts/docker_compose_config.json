@@ -66,6 +66,12 @@
             "replace": false,
             "path": "../../mission-module-display-tool",
             "force_rebuild": false
+        },
+        {
+            "name": "initialize-log-folders",
+            "replace": false,
+            "path": "",
+            "force_rebuild": false
         }
     ]
 }

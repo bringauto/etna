@@ -17,6 +17,7 @@ There are multiple containers:
 - Virtual Fleet Management - application simulating Fleet Management. It creates orders for cars.
 - PostgreSQL database - storage of the HTTP API keys and the messages sent via the API
 - Mission Module Display Tool - a simple web server to display the positions of vehicles on a map
+- Log files initialization service - a Ubuntu based container which sets correct permissions for docker_volumes
 
 ## Container Repositories
 
@@ -177,8 +178,8 @@ Actual MQTT topics to which developers can connect by default settings are:
 ## Logs
 
 Logs for each component can be found in the `docker_volumes` directory.
-> The component directories are pre-created in the repository to avoid permission problems associated with docker
-> volumes.
+> The component directories are pre-created in the repository. To avoid permission problems associated with docker
+> volumes, a service automatically sets the correct ownership of files before running other components.
 
 In case of a problem, please attach the `docker_volumes` directory to the Bug report.
 
