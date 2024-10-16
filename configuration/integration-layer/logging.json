@@ -18,7 +18,7 @@
       "class": "logging.handlers.RotatingFileHandler",
       "level": "DEBUG",
       "formatter": "simple",
-      "filename": "/usr/src/app/log/fleet-management-integration-layer.log"
+      "filename": "/home/bringauto/fleetman_integration/log/fleet-management-integration-layer.log"
     }
   },
   "loggers": {

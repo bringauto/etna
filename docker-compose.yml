@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle:
-    image: bringauto/virtual-vehicle:v3.1.7
+    image: bringauto/virtual-vehicle:v3.2.0
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle", "without-fleet-management"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -97,16 +97,15 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.0.2
+    image: bringauto/fleet-management-integration-layer:v2.0.3
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/integration-layer:/usr/src/app/config
-      - ./docker_volumes/integration-layer:/usr/src/app/log
-    entrypoint:
-      ["python3", "-m", "fleetman_integration", "config/config.json"]
+      - ./configuration/integration-layer:/home/bringauto/fleetman_integration/config
+      - ./docker_volumes/integration-layer:/home/bringauto/fleetman_integration/log
+    command: config/config.json
     depends_on:
       initialize-log-folders:
         condition: service_completed_successfully
@@ -188,7 +187,7 @@ services:
       - ./docker_volumes:/docker_volumes
     entrypoint: 
       ["/usr/bin/chown", "-R", "5000:5000", "/docker_volumes/module-gateway", "/docker_volumes/external-server",
-       "/docker_volumes/virtual-vehicle-utility"]
+       "/docker_volumes/virtual-vehicle-utility", "/docker_volumes/integration-layer"]
 
 networks:
   bring-emulator:
