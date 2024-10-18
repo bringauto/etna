@@ -65,7 +65,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v2.0.0
+    image: bringauto/external-server:v2.0.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
