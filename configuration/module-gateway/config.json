@@ -8,7 +8,8 @@
   },
   "module-paths": {
     "1": "/home/bringauto/modules/mission_module/lib/libmission-module-gateway-shared.so",
-    "2": "/home/bringauto/modules/io_module/lib/libio-module-gateway-shared.so"
+    "2": "/home/bringauto/modules/io_module/lib/libio-module-gateway-shared.so",
+    "3": "/home/bringauto/modules/transparent_module/lib/libtransparent-module-gateway-shared.so"
   },
   "external-connection" : {
     "company" : "bringauto",

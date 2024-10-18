@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle:
-    image: bringauto/virtual-vehicle:v3.2.0
+    image: bringauto/virtual-vehicle:v3.2.1
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle", "without-fleet-management"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -31,7 +31,7 @@ services:
         condition: service_completed_successfully
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.2.0
+    image:  bringauto/module-gateway:v1.2.1
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "without-fleet-management"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -65,7 +65,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v1.1.14
+    image: bringauto/external-server:v2.0.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
