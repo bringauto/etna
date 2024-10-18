@@ -13,12 +13,18 @@
 				"rutx-port": 502,
 				"rutx-slave-id": 1
 			},
+			"map-settings": {
+				"map": "/virtual-vehicle-utility/config/map.osm",
+				"default-route": ""
+			},
 			"stop-radius-m": 8
 		},
 		"simulation-settings": {
 			"speed-override": true,
 			"speed-override-mps": 5,
-			"wait-at-stop-s": 10
+			"wait-at-stop-s": 10,
+			"map": "/virtual-vehicle-utility/config/map.osm",
+			"default-route": ""
 		}
 	},
 	"fleet-settings": {
@@ -33,10 +39,6 @@
 		},
 		"empty":{
 		}
-	},
-	"map-settings": {
-		"map": "/virtual-vehicle-utility/config/map.osm",
-		"default-route": ""
 	}
 }
 

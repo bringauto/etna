@@ -1,7 +1,7 @@
 version: '3'
 services:
   virtual-vehicle:
-    image: bringauto/virtual-vehicle:v3.1.7
+    image: bringauto/virtual-vehicle:v3.2.1
     profiles: ["all", "without-module-gateway", "without-external-server", "core", "virtual-vehicle", "without-fleet-management"]
     volumes:
       - ./docker_volumes/virtual-vehicle-utility:/virtual-vehicle-utility/log
@@ -31,7 +31,7 @@ services:
         condition: service_completed_successfully
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.2.0
+    image:  bringauto/module-gateway:v1.2.1
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "without-fleet-management"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -65,7 +65,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v1.1.14
+    image: bringauto/external-server:v2.0.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server:/home/bringauto/log
@@ -97,16 +97,15 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.0.2
+    image: bringauto/fleet-management-integration-layer:v2.0.3
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/integration-layer:/usr/src/app/config
-      - ./docker_volumes/integration-layer:/usr/src/app/log
-    entrypoint:
-      ["python3", "-m", "fleetman_integration", "config/config.json"]
+      - ./configuration/integration-layer:/home/bringauto/fleetman_integration/config
+      - ./docker_volumes/integration-layer:/home/bringauto/fleetman_integration/log
+    command: config/config.json
     depends_on:
       initialize-log-folders:
         condition: service_completed_successfully
@@ -188,7 +187,7 @@ services:
       - ./docker_volumes:/docker_volumes
     entrypoint: 
       ["/usr/bin/chown", "-R", "5000:5000", "/docker_volumes/module-gateway", "/docker_volumes/external-server",
-       "/docker_volumes/virtual-vehicle-utility"]
+       "/docker_volumes/virtual-vehicle-utility", "/docker_volumes/integration-layer"]
 
 networks:
   bring-emulator:

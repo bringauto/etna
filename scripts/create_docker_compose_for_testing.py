@@ -98,7 +98,8 @@ def main():
                 return
             docker_compose['services'][component['name']]['image'] = f"{component['name']}:testing"
         replace_volumes(docker_compose, component, etna_path)
-        docker_compose['services'][component['name']]['profiles'].append(f"{component['name']}-testing")
+        if 'profiles' in docker_compose['services'][component['name']]:
+            docker_compose['services'][component['name']]['profiles'].append(f"{component['name']}-testing")
 
     with open(os.path.join(args.output, 'docker-compose.yml'), 'w') as file:
         yaml.indent(mapping=2, sequence=4, offset=2)
