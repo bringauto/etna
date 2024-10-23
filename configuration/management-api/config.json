@@ -1,6 +1,10 @@
 {
+    "logging": {
+        "log-path": "/home/bringauto/log/",
+        "verbose": true
+    },
     "http_server": {
-        "base_uri": "http://management-api:8081/v2/management",
+        "base_uri": "http://management-api/v2/management",
         "port": 8081
     },
     "security": {

@@ -68,8 +68,8 @@ services:
     image: bringauto/external-server:v2.0.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
-      - ./docker_volumes/external-server:/home/bringauto/log
-      - ./configuration/external-server:/home/bringauto/config/
+      - ./docker_volumes/external-server/:/home/bringauto/log/
+      - ./configuration/external-server/:/home/bringauto/config/
     command: -c /home/bringauto/config/config.json
     restart: "no"
     networks:
@@ -79,7 +79,7 @@ services:
         condition: service_completed_successfully
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.4.2
+    image: bringauto/fleet-protocol-http-api:v2.7.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8080:8080
@@ -90,7 +90,8 @@ services:
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/http-api/config.json:/usr/src/app/config.json
+      - ./configuration/http-api/config.json:/home/bringauto/config.json
+      - ./docker_volumes/http-api:/home/bringauto/log
     entrypoint:
       ["python3", "-m", "server",
        "config.json",
@@ -111,7 +112,7 @@ services:
         condition: service_completed_successfully
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.1.6
+    image: bringauto/fleet-management-http-api:v3.2.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "management-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8081:8081
@@ -122,7 +123,8 @@ services:
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/management-api/config.json:/usr/src/app/config.json
+      - ./configuration/management-api/config.json:/home/bringauto/config.json
+      - ./docker_volumes/management-api:/home/bringauto/log
     entrypoint:
       ["python3", "-m", "fleet_management_api",
        "config.json",
@@ -185,9 +187,18 @@ services:
     restart: "no"
     volumes:
       - ./docker_volumes:/docker_volumes
-    entrypoint: 
-      ["/usr/bin/chown", "-R", "5000:5000", "/docker_volumes/module-gateway", "/docker_volumes/external-server",
-       "/docker_volumes/virtual-vehicle-utility", "/docker_volumes/integration-layer"]
+    entrypoint:
+      [
+        "/usr/bin/chown",
+        "-R",
+        "5000:5000",
+        "/docker_volumes/module-gateway",
+        "/docker_volumes/external-server",
+        "/docker_volumes/virtual-vehicle-utility",
+        "/docker_volumes/integration-layer",
+        "/docker_volumes/http-api",
+        "/docker_volumes/management-api"
+      ]
 
 networks:
   bring-emulator:
