@@ -20,7 +20,7 @@
         }
     },
     "http_server": {
-        "base_uri": "http://http-api:8080/v2/protocol",
+        "base_uri": "http://http-api/v2/protocol",
         "port": 8080
     },
     "request_for_messages": {

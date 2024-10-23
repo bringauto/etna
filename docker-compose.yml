@@ -188,8 +188,17 @@ services:
     volumes:
       - ./docker_volumes:/docker_volumes
     entrypoint:
-      ["/usr/bin/chown", "-R", "5000:5000", "/docker_volumes/module-gateway", "/docker_volumes/external-server",
-       "/docker_volumes/virtual-vehicle-utility", "/docker_volumes/integration-layer"]
+      [
+        "/usr/bin/chown",
+        "-R",
+        "5000:5000",
+        "/docker_volumes/module-gateway",
+        "/docker_volumes/external-server",
+        "/docker_volumes/virtual-vehicle-utility",
+        "/docker_volumes/integration-layer",
+        "/docker_volumes/http-api",
+        "/docker_volumes/management-api"
+      ]
 
 networks:
   bring-emulator:
