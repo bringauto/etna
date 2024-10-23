@@ -98,14 +98,14 @@ services:
        "--location=postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.0.3
+    image: bringauto/fleet-management-integration-layer:v2.1.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/integration-layer:/home/bringauto/fleetman_integration/config
-      - ./docker_volumes/integration-layer:/home/bringauto/fleetman_integration/log
+      - ./configuration/integration-layer:/home/bringauto/config
+      - ./docker_volumes/integration-layer:/home/bringauto/log
     command: config/config.json
     depends_on:
       initialize-log-folders:

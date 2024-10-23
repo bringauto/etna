@@ -1,4 +1,8 @@
 {
+    "logging": {
+        "log-path": "/home/bringauto/log/",
+        "verbose": true
+    },
     "protocol": {
         "host": "http://http-api:8080/v2/protocol",
         "api_key": "ProtocolStaticAccessKey",
