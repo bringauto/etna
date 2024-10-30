@@ -65,7 +65,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v2.0.1
+    image: bringauto/external-server:v2.1.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server/:/home/bringauto/log/
@@ -79,7 +79,7 @@ services:
         condition: service_completed_successfully
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.7.0
+    image: bringauto/fleet-protocol-http-api:v2.8.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8080:8080
@@ -87,18 +87,17 @@ services:
     depends_on:
       postgresql-database:
         condition: service_healthy
+      initialize-log-folders:
+        condition: service_completed_successfully
     networks:
       - bring-emulator
     volumes:
       - ./configuration/http-api/config.json:/home/bringauto/config.json
       - ./docker_volumes/http-api:/home/bringauto/log
-    entrypoint:
-      ["python3", "-m", "server",
-       "config.json",
-       "--location=postgresql-database"]
+    command: ["config/config.json", "--location", "postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.1.0
+    image: bringauto/fleet-management-integration-layer:v2.2.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
@@ -112,7 +111,7 @@ services:
         condition: service_completed_successfully
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.2.0
+    image: bringauto/fleet-management-http-api:v3.3.0
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "management-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8081:8081
@@ -120,15 +119,14 @@ services:
     depends_on:
       postgresql-database:
         condition: service_healthy
+      initialize-log-folders:
+        condition: service_completed_successfully
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/management-api/config.json:/home/bringauto/config.json
+      - ./configuration/management-api/config.json:/home/bringauto/config/config.json
       - ./docker_volumes/management-api:/home/bringauto/log
-    entrypoint:
-      ["python3", "-m", "fleet_management_api",
-       "config.json",
-       "--location=postgresql-database"]
+    command: ["config/config.json", "--location", "postgresql-database"]
 
   virtual-fleet-management:
     image: bringauto/virtual-fleet-management:v3.0.1

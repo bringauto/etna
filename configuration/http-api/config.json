@@ -1,7 +1,14 @@
 {
     "logging": {
-        "log_path": "/home/bringauto/log/",
-        "verbose": true
+        "console": {
+            "level": "debug",
+            "use": true
+        },
+        "file": {
+            "level": "debug",
+            "use": true,
+            "path": "/home/bringauto/log/"
+        }
     },
     "database": {
         "server": {
