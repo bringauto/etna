@@ -1,4 +1,3 @@
-version: '3'
 services:
   virtual-vehicle:
     image: bringauto/virtual-vehicle:v3.2.1
