@@ -91,7 +91,7 @@ services:
     networks:
       - bring-emulator
     volumes:
-      - ./configuration/http-api/config.json:/home/bringauto/config.json
+      - ./configuration/http-api/config.json:/home/bringauto/config/config.json
       - ./docker_volumes/http-api:/home/bringauto/log
     command: ["config/config.json", "--location", "postgresql-database"]
 
