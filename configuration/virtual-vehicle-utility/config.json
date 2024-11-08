@@ -1,13 +1,22 @@
 {
+	"logging": {
+		"console": {
+			"level": "info",
+			"use": true
+		},
+		"file": {
+			"level": "debug",
+			"use": true,
+			"path": "/virtual-vehicle-utility/log/"
+		}
+	},
 	"general-settings": {
-		"log-path": "/virtual-vehicle-utility/log",
-		"verbose": true,
 		"period-ms": 1000
 	},
 	"vehicle-settings": {
-		"vehicle-provider": "simulation",
-		"gps-settings": {
-			"gps-provider": "rutx09",
+		"vehicle-provider-type": "simulation",
+		"provider-gps-settings": {
+			"gps-provider-type": "rutx09",
 			"rutx09-settings" : {
 				"rutx-ip": "127.0.0.2",
 				"rutx-port": 502,
@@ -17,9 +26,10 @@
 				"map": "/virtual-vehicle-utility/config/map.osm",
 				"default-route": ""
 			},
-			"stop-radius-m": 8
+			"stop-radius-m": 8,
+			"in-stop-delay-s": 10
 		},
-		"simulation-settings": {
+		"provider-simulation-settings": {
 			"speed-override": true,
 			"speed-override-mps": 5,
 			"wait-at-stop-s": 10,
@@ -28,16 +38,14 @@
 		}
 	},
 	"fleet-settings": {
-		"fleet-provider": "internal-protocol",
-		"internal-protocol-settings": {
+		"fleet-provider-type": "internal-protocol",
+		"provider-internal-protocol-settings": {
 			"module-gateway-ip":"module-gateway",
 			"module-gateway-port": 1636,
 			"device-role": "autonomy",
 			"device-priority": 1,
 			"reconnect-period-s": 20,
 			"device-name": "virtual_vehicle"
-		},
-		"empty":{
 		}
 	}
 }
