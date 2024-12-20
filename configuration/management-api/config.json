@@ -31,6 +31,7 @@
         },
         "maximum_number_of_table_rows": {
             "car_states": 100,
+            "car_action_states": 100,
             "order_states": 100
         }
     },

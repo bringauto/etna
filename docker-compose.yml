@@ -63,7 +63,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v2.1.0
+    image: bringauto/external-server:v2.1.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server/:/home/bringauto/log/
@@ -77,7 +77,7 @@ services:
         condition: service_completed_successfully
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.8.1
+    image: bringauto/fleet-protocol-http-api:v2.8.3
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "http-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8080:8080
@@ -95,7 +95,7 @@ services:
     command: ["config/config.json", "--location", "postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.2.0
+    image: bringauto/fleet-management-integration-layer:v2.3.1
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
@@ -109,7 +109,7 @@ services:
         condition: service_completed_successfully
 
   management-api:
-    image: bringauto/fleet-management-http-api:v3.3.1
+    image: bringauto/fleet-management-http-api:v3.4.4
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "management-api", "without-fleet-management", "for-virtual-fleet", "cloud"]
     ports:
       - 8081:8081
