@@ -30,7 +30,7 @@ services:
         condition: service_completed_successfully
 
   module-gateway:
-    image:  bringauto/module-gateway:v1.3.0
+    image:  bringauto/module-gateway:v1.3.1
     profiles: ["all", "without-devices", "without-external-server", "module-gateway", "core", "without-fleet-management"]
     volumes:
       - ./docker_volumes/module-gateway:/home/bringauto/log/
@@ -63,7 +63,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v2.1.1
+    image: bringauto/external-server:v2.1.3
     profiles: ["all", "without-devices", "without-module-gateway", "without-fleet-management", "external_server", "cloud"]
     volumes:
       - ./docker_volumes/external-server/:/home/bringauto/log/
@@ -95,7 +95,7 @@ services:
     command: ["config/config.json", "--location", "postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.3.1
+    image: bringauto/fleet-management-integration-layer:v2.3.2
     profiles: ["all", "without-devices", "without-module-gateway", "without-external-server", "without-fleet-management", "for-virtual-fleet", "cloud"]
     restart: "no"
     networks:
