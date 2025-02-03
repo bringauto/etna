@@ -155,8 +155,7 @@ services:
     command: ["config/config.json", "--location", "postgresql-database"]
 
   integration-layer:
-    # image: bringauto/fleet-management-integration-layer:v2.4.0
-    build: /home/jiri-strouhal/Plocha/fleet-management-v2-integration-layer
+    image: bringauto/fleet-management-integration-layer:v2.4.0
     profiles:
       [
         "all",
@@ -179,8 +178,7 @@ services:
         condition: service_completed_successfully
 
   management-api:
-    # image: bringauto/fleet-management-http-api:v4.0.0-alpha
-    build: /home/jiri-strouhal/Plocha/fleet-management-v2-api
+    image: bringauto/fleet-management-http-api:v4.0.0
     profiles:
       [
         "all",
