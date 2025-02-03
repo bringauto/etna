@@ -1,6 +1,6 @@
 services:
   virtual-vehicle:
-    image: bringauto/virtual-vehicle:v3.2.1
+    image: bringauto/virtual-vehicle:v3.3.0
     profiles:
       [
         "all",
@@ -26,7 +26,7 @@ services:
         condition: service_completed_successfully
 
   virtual-plc:
-    image: bringauto/virtual-plc:v1.0.0
+    image: bringauto/virtual-plc:v1.1.0
     profiles:
       [
         "all",
@@ -52,7 +52,7 @@ services:
         condition: service_completed_successfully
 
   module-gateway:
-    image: bringauto/module-gateway:v1.2.1
+    image: bringauto/module-gateway:v1.3.1
     profiles:
       [
         "all",
@@ -71,7 +71,6 @@ services:
       [
         "/home/bringauto/module-gateway/bin/module-gateway-app",
         "--config-path=/home/bringauto/config/config.json",
-        "--verbose",
       ]
     restart: "no"
     networks:
@@ -106,7 +105,7 @@ services:
         condition: service_completed_successfully
 
   external-server:
-    image: bringauto/external-server:v2.1.0
+    image: bringauto/external-server:v2.1.3
     profiles:
       [
         "all",
@@ -128,7 +127,7 @@ services:
         condition: service_completed_successfully
 
   http-api:
-    image: bringauto/fleet-protocol-http-api:v2.8.0
+    image: bringauto/fleet-protocol-http-api:v2.8.3
     profiles:
       [
         "all",
@@ -156,7 +155,8 @@ services:
     command: ["config/config.json", "--location", "postgresql-database"]
 
   integration-layer:
-    image: bringauto/fleet-management-integration-layer:v2.4.0
+    # image: bringauto/fleet-management-integration-layer:v2.4.0
+    build: /home/jiri-strouhal/Plocha/fleet-management-v2-integration-layer
     profiles:
       [
         "all",
@@ -179,7 +179,8 @@ services:
         condition: service_completed_successfully
 
   management-api:
-    image: bringauto/fleet-management-http-api:v4.0.0-alpha
+    # image: bringauto/fleet-management-http-api:v4.0.0-alpha
+    build: /home/jiri-strouhal/Plocha/fleet-management-v2-api
     profiles:
       [
         "all",
@@ -289,22 +290,19 @@ services:
         condition: service_completed_successfully
 
   initialize-log-folders:
-    image: ubuntu:24.04
+    image: bringauto/directory-permission-setter:latest
     restart: "no"
     volumes:
       - ./docker_volumes:/docker_volumes
-    entrypoint:
-      [
-        "/usr/bin/chown",
-        "-R",
-        "5000:5000",
-        "/docker_volumes/module-gateway",
-        "/docker_volumes/external-server",
-        "/docker_volumes/virtual-vehicle-utility",
-        "/docker_volumes/integration-layer",
-        "/docker_volumes/http-api",
-        "/docker_volumes/management-api",
-      ]
+    environment:
+      DIRECTORIES_TO_SET: >-
+        /docker_volumes/module-gateway
+        /docker_volumes/external-server
+        /docker_volumes/virtual-vehicle-utility
+        /docker_volumes/virtual-plc
+        /docker_volumes/integration-layer
+        /docker_volumes/http-api
+        /docker_volumes/management-api
 
 networks:
   bring-emulator:
