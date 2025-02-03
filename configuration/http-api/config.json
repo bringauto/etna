@@ -1,7 +1,7 @@
 {
     "logging": {
         "console": {
-            "level": "debug",
+            "level": "info",
             "use": true
         },
         "file": {
@@ -22,7 +22,6 @@
             "timing_in_seconds": {
                 "retention_period": 3600,
                 "cleanup_period": 1
-
             }
         }
     },
