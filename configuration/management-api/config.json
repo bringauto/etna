@@ -1,49 +1,49 @@
 {
-    "logging": {
-        "console": {
-            "level": "info",
-            "use": true
-        },
-        "file": {
-            "level": "debug",
-            "use": true,
-            "path": "/home/bringauto/log/"
-        }
+  "logging": {
+    "console": {
+      "level": "debug",
+      "use": true
     },
-    "http_server": {
-        "base_uri": "http://management-api/v2/management",
-        "port": 8081
-    },
-    "security": {
-        "keycloak_url": "https://keycloak.bringauto.com",
-        "client_id": "",
-        "client_secret_key": "",
-        "scope": "",
-        "realm": ""
-    },
-    "database": {
-        "connection": {
-            "location": "localhost",
-            "database_name": "management_api",
-            "username": "postgres",
-            "password": "1234",
-            "port": 5432
-        },
-        "maximum_number_of_table_rows": {
-            "car_states": 100,
-            "car_action_states": 100,
-            "order_states": 100
-        }
-    },
-    "api": {
-        "request_for_data": {
-            "timeout_in_seconds": 5
-        }
-    },
-    "data": {
-        "orders": {
-            "max_active_orders": 20,
-            "max_inactive_orders": 10
-        }
+    "file": {
+      "level": "debug",
+      "use": true,
+      "path": "/home/bringauto/log/"
     }
+  },
+  "http_server": {
+    "base_uri": "http://management-api/v2/management",
+    "port": 8081
+  },
+  "security": {
+    "keycloak_url": "https://keycloak.bringauto.com",
+    "client_id": "",
+    "client_secret_key": "",
+    "scope": "",
+    "realm": ""
+  },
+  "database": {
+    "connection": {
+      "location": "localhost",
+      "database_name": "management_api",
+      "username": "postgres",
+      "password": "1234",
+      "port": 5432
+    },
+    "maximum_number_of_table_rows": {
+      "car_states": 100,
+      "car_action_states": 100,
+      "order_states": 100
+    }
+  },
+  "api": {
+    "request_for_data": {
+      "timeout_in_seconds": 5
+    }
+  },
+  "data": {
+    "orders": {
+      "max_active_orders": 20,
+      "max_inactive_orders": 10
+    }
+  }
 }
