@@ -7,7 +7,7 @@ services:
       - ./configuration/virtual-vehicle-utility:/virtual-vehicle-utility/config
     entrypoint: ["/virtual-vehicle-utility/bin/virtual-vehicle-utility",
                  "--config=/virtual-vehicle-utility/config/config.json"]
-    restart: on-failure:3
+    restart: "no"
     networks:
       - bring-emulator
     depends_on:
