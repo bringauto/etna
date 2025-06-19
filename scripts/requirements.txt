@@ -4,3 +4,4 @@ requests >= 2.26.0
 pydantic >= 2.7.1
 python-dateutil >= 2.9.0.post0
 fleet_management_http_client_python @ git+https://github.com/bringauto/fleet-management-http-client-python.git@v3.1.5
+ruamel.yaml >= 0.18.6

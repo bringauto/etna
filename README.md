@@ -17,6 +17,7 @@ There are multiple containers:
 - Virtual Fleet Management - application simulating Fleet Management. It creates orders for cars.
 - PostgreSQL database - storage of the HTTP API keys and the messages sent via the API
 - Mission Module Display Tool - a simple web server to display the positions of vehicles on a map
+- Log files initialization service - a Ubuntu based container which sets correct permissions for docker_volumes
 
 ## Container Repositories
 
@@ -70,6 +71,7 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - **for-virtual-fleet-without-fleet-management** - start the same containers as `for-virtual-fleet` but without the virtual fleet management
 - **core** - start only internal clients and Module Gateway
 - **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
+- **cloud** - start all the cloud services (exclude components deployed on a car)
 
 #### Profiles that start all containers except the ones specified
 
@@ -135,12 +137,12 @@ The Mission Module Display Tool runs a simple web server to display the position
 ### Common Issues
 
 - external-server and module-gateway connect sequence
-- mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
+  - mqtt tends to be unstable in some cases, which could lead to problems in ES and MG communication. Consider
       changing the mqtt_timeout in ES config if there are connection problems (numbers greater than 15 and no multiples
       of 15 should be used)
 postgresql databases - are created only on container creation (if you have an old container, it needs to be deleted)
 - http APIs
-- by default API containers wait for the postgresql database to be available. If the database fails to initialize,
+  - by default API containers wait for the postgresql database to be available. If the database fails to initialize,
       the containers won't start
 
 ## MQTT IP and Port
@@ -178,8 +180,8 @@ Actual MQTT topics to which developers can connect by default settings are:
 ## Logs
 
 Logs for each component can be found in the `docker_volumes` directory.
-> The component directories are pre-created in the repository to avoid permission problems associated with docker
-> volumes.
+> The component directories are pre-created in the repository. To avoid permission problems associated with docker
+> volumes, a service automatically sets the correct ownership of files before running other components.
 
 In case of a problem, please attach the `docker_volumes` directory to the Bug report.
 

@@ -1,4 +1,15 @@
 {
+    "logging": {
+        "console": {
+            "level": "info",
+            "use": true
+        },
+        "file": {
+            "level": "debug",
+            "use": true,
+            "path": "/home/bringauto/log/"
+        }
+    },
     "database": {
         "server": {
             "location": "localhost",
@@ -11,12 +22,12 @@
             "timing_in_seconds": {
                 "retention_period": 3600,
                 "cleanup_period": 1
-
             }
         }
     },
     "http_server": {
-        "base_uri": "http://http-api:8080/v2/protocol"
+        "base_uri": "http://http-api/v2/protocol",
+        "port": 8080
     },
     "request_for_messages": {
         "timeout_in_seconds": 5
@@ -29,3 +40,5 @@
         "realm": ""
     }
 }
+
+
