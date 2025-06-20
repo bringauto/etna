@@ -190,6 +190,10 @@ In case of a problem, please attach the `docker_volumes` directory to the Bug re
 
 There are example scripts for sniffing communication and seeing the basics [scripts/]
 
+## Testing scenarios
+
+Testing scenarios for the system can be found in the [tests/etna-testing-scenarios.md](tests/etna-testing-scenarios.md) file.
+
 ## Bug solving
 
 Docker container can have error similar to this:
