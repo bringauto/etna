@@ -13,15 +13,15 @@ To test the system with a single vehicle:
    ```
 
    - This command will start one vehicle named `virtual_vehicle`, which will run the following missions:
-     - **Mission 1**
-     - **Mission 2**
-     - **Mission 3**
+      - **Mission 1**
+      - **Mission 2**
+      - **Mission 3**
+
+   *All missions are described in the [Table of Missions](#table-of-missions) below.*
 
 2. **Use the mission module display tool to inspect the vehicle's progress**:
 
 ## 2. Testing with Multiple Vehicles
-
-To test the system with multiple vehicles:
 
 1. **Start the Etna system without specific components**:
 
@@ -32,11 +32,7 @@ To test the system with multiple vehicles:
    - This command will start the system excluding `virtual-vehicle`, `module-gateway`, and `external-server`.
 
 2. **Configure the number of virtual vehicles in virtual fleet**:
-   - Edit the configuration file to set the number of virtual vehicles:
-
-     ```bash
-     config/virtual-fleet-config.json
-     ```
+   - Edit the configuration file to set the number of virtual vehicles in `config/virtual-fleet-config.json`
 
 3. **Start the virtual fleet**:
 
@@ -82,7 +78,7 @@ To test the system with multiple vehicles:
    ```
 
 7. **Wait some time so the virtual vehicle has a chance to pass through some stops**.
-   *Ideally, wait until the HTTP API sniffer prints out warnings about "vehicle not found" because it sometimes crashes after this message.*
+   *Ideally, wait until the HTTP API sniffer prints out warnings about "vehicle not found" because it ensures that important components have noticed the vehicle's absence.*
 8. **Start the MQTT broker again**:
 
    ```bash
@@ -107,7 +103,7 @@ To test the system with multiple vehicles:
 
 3. **Start InfluxDB**.
 4. **Start the HTTP API sniffer**.
-5. **Start the MQTT sniffer**.
+5. **Start the [MQTT sniffer](https://gitlab.bringauto.com/bring-auto/fleet-protocol-toolchain/mqtt-sniffer)**.
 6. **Wait until the vehicle starts moving in the mission module display tool**.
 7. **Stop the external server**:
 
@@ -149,7 +145,7 @@ To test the system with multiple vehicles:
 
 4. **Start InfluxDB**.
 
-5. **Start the HTTP API sniffer**.
+5. **Start the [HTTP API sniffer](https://gitlab.bringauto.com/bring-auto/fleet-protocol-toolchain/http-api-sniffer)**.
 6. . **Wait until the vehicle starts moving in the mission module display tool**.
 7. . **Stop the MQTT broker**:
 
