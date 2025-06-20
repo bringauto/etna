@@ -34,7 +34,7 @@ To test the system with multiple vehicles:
 2. **Configure the number of virtual vehicles in virtual fleet**:
    - Edit the configuration file to set the number of virtual vehicles:
 
-     ```json
+     ```bash
      config/virtual-fleet-config.json
      ```
 
