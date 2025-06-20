@@ -6,18 +6,18 @@ The system can be used by docker compose stored at the git root of this reposito
 
 There are multiple containers:
 
-- VerneMQ MQTT broker (bringauto/vernemq)
-- Virtual Vehicle - Mission module client implementation (it connects to Module Gateway and simulates a Mission module's autonomy device)
-- Virtual PLC - IO module client
-- Module Gateway - cpp implementation of Module Gateway with Mission, IO and example module support
-- External server - server implementation with Mission, IO and example module support
-- HTTP API Server - tool for communication with final endpoint, used by mission module
-- Integration layer - a bridge between the HTTP API and the Fleet Management API
-- Fleet Management API - an API that handles creating orders for cars and displaying their state
-- Virtual Fleet Management - application simulating Fleet Management. It creates orders for cars.
-- PostgreSQL database - storage of the HTTP API keys and the messages sent via the API
-- Mission Module Display Tool - a simple web server to display the positions of vehicles on a map
-- Log files initialization service - a Ubuntu based container which sets correct permissions for docker_volumes
+- **VerneMQ MQTT broker** (bringauto/vernemq)
+- **Virtual Vehicle** - Mission module client implementation (it connects to Module Gateway and simulates a Mission module's autonomy device)
+- **Virtual PLC** - IO module client
+- **Module Gateway** - cpp implementation of Module Gateway with Mission, IO and example module support
+- **External Server** - server implementation with Mission, IO and example module support
+- **HTTP API Server** - tool for communication with final endpoint, used by mission module
+- **Integration Layer** - a bridge between the HTTP API and the Fleet Management API
+- **Fleet Management API** - an API that handles creating orders for cars and displaying their state
+- **Virtual Fleet Management** - application simulating Fleet Management. It creates orders for cars.
+- **PostgreSQL Database** - storage of the HTTP API keys and the messages sent via the API
+- **Mission Module Display Tool** - a simple web server to display the positions of vehicles on a map
+- **Log Files Initialization Service** - a Ubuntu based container which sets correct permissions for docker_volumes
 
 ## Container Repositories
 
@@ -68,9 +68,11 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 
 - **all** - start all containers
 - **for-virtual-fleet** - start the fleet protocol HTTP API server, the related PostgreSQL database, the fleet management integration layer, virtual fleet management, the fleet management HTTP API server and the mission module display tool
+- **for-virtual-fleet-without-fleet-management** - start the same containers as `for-virtual-fleet` but without the virtual fleet management
 - **core** - start only internal clients and Module Gateway
 - **http-api** - start fleet protocol HTTP API server and the related PostgreSQL database
 - **cloud** - start all the cloud services (exclude components deployed on a car)
+- **external-server** - start only the External Server
 
 #### Profiles that start all containers except the ones specified
 
@@ -78,12 +80,13 @@ Docker compose file has multiple profiles so the developer can disable/enable pa
 - **without-external-server** - do not start External Server
 - **without-devices** - do not start internal clients
 - **without-fleet-management** - do not start Virtual Fleet Management
+- **without-mqtt** - do not start MQTT vernemq broker
 
 #### Profiles that start only one container
 
 - **virtual-vehicle** - start only the Virtual Vehicle
 - **virtual-plc** - start only the Virtual PLC
-- **mqtt** - start only the MQTT vernemq broker
+- **mqtt** - start only the MQTT VerneMQ broker
 - **module-gateway** - start only the Module Gateway
 - **external-server** - start only the External Server
 
@@ -186,6 +189,10 @@ In case of a problem, please attach the `docker_volumes` directory to the Bug re
 ## Example scripts
 
 There are example scripts for sniffing communication and seeing the basics [scripts/]
+
+## Testing scenarios
+
+Testing scenarios for the system can be found in the [tests/etna-testing-scenarios.md](tests/etna-testing-scenarios.md) file.
 
 ## Bug solving
 
